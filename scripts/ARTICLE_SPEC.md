@@ -11,7 +11,7 @@ Copy the structure of `articles/japan-rail-passes-worth-it.html` exactly: same h
 - No affiliate links.
 
 ## Accuracy (most important)
-- Every price, fee, size limit, time and rule must be checked against an official or primary source with WebSearch/WebFetch (operator websites like JR Central/JR East/JR West, Yamato Transport, Kyoto City Bus, Osaka Metro, JNTO). If you cannot verify a number, leave the number out and describe it qualitatively. Never guess.
+- Every price, fee, size limit, time and rule must be checked against an official or primary source with WebSearch/WebFetch (operator websites like JR Central/JR East/JR West, Yamato Transport, Kyoto City Bus, Osaka Metro, JNTO). If you cannot verify a fact or number from an official or primary source, leave it out entirely (owner rule: unverified things are not published). Never guess.
 - Say "at the time of writing (October 2026)" for prices that can change.
 - At the very end of the file, after `</html>`, add nothing. Instead put an HTML comment just before `</article>`: `<!-- sources: url1 | url2 | ... -->` listing the pages you used.
 
