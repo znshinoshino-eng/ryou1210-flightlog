@@ -508,3 +508,27 @@ nav.site-nav { align-items: center; }
   .hero-links a { font-size: 15px; padding: 6px 12px; }
   .post-section { margin-bottom: 34px; }
 }
+
+/* ---------- Guide-section bar under the header ---------- */
+.section-nav { background: #26292e; border-top: 1px solid #34383e; }
+.section-nav .wrap {
+  display: flex; gap: 4px; min-height: 0 !important; justify-content: flex-start !important;
+  overflow-x: auto; scrollbar-width: none; padding-top: 4px; padding-bottom: 4px;
+}
+.section-nav .wrap::-webkit-scrollbar { display: none; }
+.section-nav a {
+  flex: none; white-space: nowrap; font-family: var(--display); font-weight: 700; font-size: 15px;
+  color: #e9eaec; text-decoration: none; padding: 6px 12px; border-radius: 4px;
+}
+.section-nav a:hover { background: var(--yellow); color: var(--sign); text-decoration: none; }
+.section-nav a[aria-current="true"] { color: var(--yellow); box-shadow: inset 0 -3px 0 var(--yellow); border-radius: 0; }
+@media (max-width: 720px) {
+  .section-nav .wrap { gap: 0; }
+  .section-nav a { font-size: 13.5px; padding: 6px 6px; letter-spacing: -.01em; }
+  .section-nav .wrap { padding-left: 10px; padding-right: 10px; }
+}
+.section-nav .nav-short { display: none; }
+@media (max-width: 420px) {
+  .section-nav .nav-long { display: none; }
+  .section-nav .nav-short { display: inline; }
+}

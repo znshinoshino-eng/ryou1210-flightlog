@@ -14,6 +14,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: python3 scripts/icons.py
+      - run: python3 scripts/section_nav.py
       - run: python3 scripts/seo_tags.py
       - run: python3 scripts/hreflang.py
       - run: python3 scripts/card_dates.py

@@ -329,3 +329,36 @@
     }
   }
 })();
+
+/* Highlight the guide-section bar: on the top page, the section in view;
+   on an article, the section that lists it. */
+(function () {
+  "use strict";
+  var bar = document.querySelector(".section-nav");
+  if (!bar) return;
+  var links = Array.prototype.slice.call(bar.querySelectorAll("a"));
+  function mark(id) {
+    links.forEach(function (a) {
+      var on = a.getAttribute("href").split("#")[1] === id;
+      if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+  }
+  var sections = Array.prototype.slice.call(document.querySelectorAll(".post-section"));
+  if (sections.length && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) mark(e.target.id); });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(function (s) { io.observe(s); });
+    return;
+  }
+  if (/\/articles\//.test(location.pathname) && window.fetch) {
+    var here = location.pathname.split("/").pop();
+    fetch("../index.html").then(function (r) { return r.ok ? r.text() : ""; }).then(function (html) {
+      if (!html) return;
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      var card = doc.querySelector('.post-section a.post-card[href$="' + here + '"]');
+      var sec = card && card.closest(".post-section");
+      if (sec) mark(sec.id);
+    }).catch(function () {});
+  }
+})();
