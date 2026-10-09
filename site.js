@@ -127,32 +127,78 @@
     }
   }
 
-  // Top page: category filter chips
+  // Top page: filter by area and by topic.
+  // Cards carry data-region="tokyo kansai ..."; "japan" means nationwide and shows under every area.
+  var AREAS = [
+    ["tokyo", "Tokyo"],
+    ["hakone", "Hakone & Fuji"],
+    ["kansai", "Kyoto & Osaka"],
+    ["hokuriku", "Kanazawa & Alps"],
+    ["japan", "Nationwide"]
+  ];
   var listEl = document.querySelector(".post-list");
   if (listEl && !isArticle) {
     var cards = Array.prototype.slice.call(listEl.querySelectorAll(".post-card"));
+    var catOf = function (c) { return ((c.querySelector(".cat") || {}).textContent || "").trim(); };
+    var regionsOf = function (c) { return (c.getAttribute("data-region") || "japan").split(/\s+/); };
     var cats = [];
-    cards.forEach(function (c) {
-      var t = (c.querySelector(".cat") || {}).textContent;
-      if (t && cats.indexOf(t.trim()) < 0) cats.push(t.trim());
-    });
-    if (cats.length > 1) {
-      var bar = el("div", { "class": "filters", role: "toolbar", "aria-label": "Filter guides by topic" });
-      var all = ["All guides"].concat(cats);
-      all.forEach(function (name, i) {
-        var b = el("button", { type: "button", "aria-pressed": i === 0 ? "true" : "false" }, name);
+    cards.forEach(function (c) { var t = catOf(c); if (t && cats.indexOf(t) < 0) cats.push(t); });
+    var present = {};
+    cards.forEach(function (c) { regionsOf(c).forEach(function (r) { present[r] = true; }); });
+    var areas = AREAS.filter(function (a) { return present[a[0]]; });
+
+    var params = new URLSearchParams(location.search);
+    var state = { area: params.get("area") || "", topic: "" };
+    if (!areas.some(function (a) { return a[0] === state.area; })) state.area = "";
+
+    var panel = el("div", { "class": "filter-panel" });
+    var count = el("p", { "class": "filter-count", "aria-live": "polite" });
+    var empty = el("p", { "class": "filter-empty", hidden: "" }, "No guides here yet. More are on the way.");
+
+    function apply() {
+      var shown = 0;
+      cards.forEach(function (c) {
+        var rs = regionsOf(c);
+        var okArea = !state.area || rs.indexOf(state.area) >= 0 || rs.indexOf("japan") >= 0;
+        var okTopic = !state.topic || catOf(c) === state.topic;
+        c.hidden = !(okArea && okTopic);
+        if (!c.hidden) shown++;
+      });
+      var filtered = !!(state.area || state.topic);
+      listEl.classList.toggle("filtered", filtered);
+      count.textContent = filtered ? shown + (shown === 1 ? " guide" : " guides") : "";
+      count.hidden = !filtered;
+      empty.hidden = shown > 0;
+      var url = new URL(location.href);
+      if (state.area) url.searchParams.set("area", state.area); else url.searchParams.delete("area");
+      history.replaceState(null, "", url);
+    }
+
+    function row(label, aria, options, key) {
+      var r = el("div", { "class": "filter-row" });
+      r.appendChild(el("span", { "class": "filter-label" }, label));
+      var bar = el("div", { "class": "filters", role: "toolbar", "aria-label": aria });
+      options.forEach(function (o) {
+        var b = el("button", { type: "button", "aria-pressed": state[key] === o[0] ? "true" : "false" }, o[1]);
         b.addEventListener("click", function () {
+          state[key] = o[0];
           Array.prototype.forEach.call(bar.children, function (x) { x.setAttribute("aria-pressed", "false"); });
           b.setAttribute("aria-pressed", "true");
-          cards.forEach(function (c) {
-            var t = ((c.querySelector(".cat") || {}).textContent || "").trim();
-            c.hidden = !(i === 0 || t === name);
-          });
-          listEl.classList.toggle("filtered", i !== 0);
+          apply();
         });
         bar.appendChild(b);
       });
-      listEl.parentNode.insertBefore(bar, listEl);
+      r.appendChild(bar);
+      return r;
+    }
+
+    if (areas.length > 1) panel.appendChild(row("Area", "Filter guides by area", [["", "All"]].concat(areas), "area"));
+    if (cats.length > 1) panel.appendChild(row("Topic", "Filter guides by topic", [["", "All"]].concat(cats.map(function (c) { return [c, c]; })), "topic"));
+    if (panel.children.length) {
+      panel.appendChild(count);
+      listEl.parentNode.insertBefore(panel, listEl);
+      listEl.parentNode.insertBefore(empty, listEl.nextSibling);
+      apply();
     }
   }
 })();

@@ -402,7 +402,12 @@ article.post h2 { scroll-margin-top: 80px; }
 .related-card .rtitle { font-family: var(--display); font-weight: 700; font-size: 18px; line-height: 1.25; color: var(--sign); }
 .related-card:hover .rtitle { text-decoration: underline; }
 
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 20px; }
+.filter-panel { margin: -12px 0 20px; display: grid; gap: 10px; }
+.filter-row { display: flex; align-items: center; gap: 10px; }
+.filter-label { flex: none; width: 52px; font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted, #5a5f66); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.filter-count { font-size: 15px; color: var(--muted, #5a5f66); margin: 0; }
+.filter-empty { padding: 24px; border: 2px dashed var(--rule); border-radius: var(--radius); text-align: center; color: var(--muted, #5a5f66); }
 .filters button {
   font-family: var(--display); font-weight: 700; font-size: 16px;
   padding: 6px 14px; border-radius: 999px; cursor: pointer;
@@ -417,6 +422,10 @@ article.post h2 { scroll-margin-top: 80px; }
   .related-card img { width: 120px; flex: none; }
   .related-card .rcat { display: none; }
   .related-card .rtitle { font-size: 17px; }
-  .filters { margin-top: -6px; }
-  .filters button { font-size: 15px; padding: 5px 12px; }
+  .filter-panel { margin-top: -6px; }
+  .filter-row { align-items: flex-start; }
+  .filter-label { width: auto; min-width: 44px; padding-top: 8px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters button { font-size: 15px; padding: 5px 12px; flex: none; }
 }
