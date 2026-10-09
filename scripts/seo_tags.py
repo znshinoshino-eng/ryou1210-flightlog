@@ -10,7 +10,7 @@ import pathlib
 import re
 import subprocess
 
-BASE = "https://znshinoshino-eng.github.io/ryou1210-flightlog/"
+from pages import BASE, all_pages, lang_of, url_of
 SITE = "Flightlog Japan"
 root = pathlib.Path(__file__).resolve().parent.parent
 
@@ -26,7 +26,8 @@ def git_date(path, fmt):
 
 
 changed = 0
-pages = [root / "index.html", root / "about.html", root / "privacy.html"] + sorted((root / "articles").glob("*.html"))
+pages = all_pages()
+LOCALE = {"en": "en_US", "fr": "fr_FR", "de": "de_DE", "es": "es_ES"}
 for p in pages:
     if not p.exists():
         continue
@@ -34,14 +35,15 @@ for p in pages:
     if 'rel="canonical"' in s or "</head>" not in s:
         continue
     rel = p.relative_to(root).as_posix()
-    url = BASE if rel == "index.html" else BASE + rel
+    url = url_of(rel)
+    lang = lang_of(rel)
     m = re.search(r"<title>(.*?)</title>", s, re.S)
     title = text(m.group(1)) if m else SITE
     m = re.search(r'<meta name="description" content="(.*?)"', s, re.S)
     desc = html.unescape(m.group(1)) if m else ""
     m = re.search(r'<figure class="hero-img">\s*<img src="([^"]+)"', s)
     image = html.unescape(m.group(1)) if m else ""
-    is_article = rel.startswith("articles/")
+    is_article = "articles/" in rel
     h1 = re.search(r"<h1>(.*?)</h1>", s, re.S)
     headline = text(h1.group(1)) if h1 else title
 
@@ -53,6 +55,7 @@ for p in pages:
         f'<meta property="og:title" content="{e(headline if is_article else title)}">',
         f'<meta property="og:description" content="{e(desc)}">',
         f'<meta property="og:url" content="{e(url)}">',
+        f'<meta property="og:locale" content="{LOCALE[lang]}">',
     ]
     if image:
         tags.append(f'<meta property="og:image" content="{e(image)}">')
@@ -65,6 +68,7 @@ for p in pages:
             "@type": "Article",
             "headline": headline[:110],
             "description": desc,
+            "inLanguage": lang,
             "mainEntityOfPage": url,
             "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
             "author": {"@type": "Person", "name": "Ryo", "url": BASE + "about.html"},
@@ -75,8 +79,8 @@ for p in pages:
             data["dateModified"] = dates[0]
             data["datePublished"] = dates[-1]
         tags.append('<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>")
-    elif rel == "index.html":
-        data = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE, "url": BASE, "description": desc}
+    elif rel.endswith("index.html"):
+        data = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE, "url": url, "inLanguage": lang, "description": desc}
         tags.append('<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>")
 
     s = s.replace("</head>", "\n".join(tags) + "\n</head>", 1)

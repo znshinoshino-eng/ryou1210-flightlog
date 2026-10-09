@@ -14,6 +14,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: python3 scripts/seo_tags.py
+      - run: python3 scripts/hreflang.py
       - run: python3 scripts/build_sitemap.py
       - name: Commit changes if any
         run: |
