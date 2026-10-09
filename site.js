@@ -1,0 +1,148 @@
+/* Flightlog Japan — reading aids added on top of plain article HTML.
+   Every article stays fully readable without this script; it only adds:
+   breadcrumb, reading time + last-updated line, "In this guide" contents,
+   affiliate note, "Keep reading" links, and category filters on the top page. */
+(function () {
+  "use strict";
+
+  var article = document.querySelector("article.post");
+  var isArticle = !!(article && /\/articles\//.test(location.pathname));
+
+  function el(tag, attrs, text) {
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function slugify(s) {
+    return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "section";
+  }
+
+  if (isArticle) {
+    var h1 = article.querySelector("h1");
+    var cat = article.querySelector(".cat");
+    var meta = article.querySelector(".meta");
+    var h2s = Array.prototype.slice.call(article.querySelectorAll("h2"));
+
+    // 1. Breadcrumb: Articles › Category
+    if (h1) {
+      var bc = el("nav", { "class": "crumbs", "aria-label": "Breadcrumb" });
+      var home = el("a", { href: "../index.html" }, "Articles");
+      bc.appendChild(home);
+      if (cat) {
+        bc.appendChild(el("span", { "aria-hidden": "true" }, "›"));
+        bc.appendChild(el("span", null, cat.textContent.trim()));
+      }
+      article.insertBefore(bc, article.firstChild);
+    }
+
+    // 2. Reading time and last updated
+    if (meta) {
+      var words = (article.innerText || article.textContent).trim().split(/\s+/).length;
+      var mins = Math.max(1, Math.round(words / 230));
+      var info = el("div", { "class": "readinfo" });
+      info.appendChild(el("span", null, mins + " min read"));
+      var lm = new Date(document.lastModified);
+      if (!isNaN(lm) && lm.getFullYear() > 2020) {
+        info.appendChild(el("span", null, "Updated " + lm.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })));
+      }
+      meta.insertAdjacentElement("afterend", info);
+    }
+
+    // 3. Affiliate note when the page has sponsored links
+    var firstH2 = h2s[0];
+    if (article.querySelector('a[rel~="sponsored"]') && firstH2) {
+      var note = el("p", { "class": "aff-note" });
+      note.appendChild(document.createTextNode("This guide contains affiliate links. Booking through them costs you nothing extra. "));
+      var more = el("a", { href: "../about.html" }, "How we choose what to link");
+      note.appendChild(more);
+      firstH2.parentNode.insertBefore(note, firstH2);
+    }
+
+    // 4. Contents box built from the h2 headings
+    if (h2s.length >= 3) {
+      var box = el("details", { "class": "toc", open: "" });
+      box.appendChild(el("summary", null, "In this guide"));
+      var ul = el("ul");
+      var used = {};
+      h2s.forEach(function (h) {
+        var id = h.id || slugify(h.textContent);
+        while (used[id]) id += "-2";
+        used[id] = true;
+        h.id = id;
+        var li = el("li");
+        li.appendChild(el("a", { href: "#" + id }, h.textContent.trim()));
+        ul.appendChild(li);
+      });
+      box.appendChild(ul);
+      var anchor = article.querySelector(".aff-note") || firstH2;
+      // put the contents right after the opening paragraph(s), before the first section
+      anchor.parentNode.insertBefore(box, anchor);
+      if (window.matchMedia && window.matchMedia("(max-width: 720px)").matches) box.removeAttribute("open");
+    }
+
+    // 5. Keep reading: three other guides, taken from the top page
+    var back = article.querySelector(".back-link");
+    if (back && window.fetch) {
+      fetch("../index.html", { cache: "no-cache" }).then(function (r) { return r.ok ? r.text() : ""; }).then(function (html) {
+        if (!html) return;
+        var doc = new DOMParser().parseFromString(html, "text/html");
+        var here = location.pathname.split("/").pop();
+        var cards = Array.prototype.slice.call(doc.querySelectorAll("a.post-card")).filter(function (a) {
+          return a.getAttribute("href").split("/").pop() !== here;
+        });
+        var myCat = cat ? cat.textContent.trim() : "";
+        cards.sort(function (a, b) {
+          var ca = (a.querySelector(".cat") || {}).textContent === myCat ? 0 : 1;
+          var cb = (b.querySelector(".cat") || {}).textContent === myCat ? 0 : 1;
+          return ca - cb;
+        });
+        cards = cards.slice(0, 3);
+        if (!cards.length) return;
+        var sec = el("section", { "class": "related", "aria-labelledby": "related-h" });
+        sec.appendChild(el("h2", { id: "related-h" }, "Keep reading"));
+        var list = el("div", { "class": "related-list" });
+        cards.forEach(function (a) {
+          var link = el("a", { "class": "related-card", href: "../" + a.getAttribute("href") });
+          var img = a.querySelector("img.thumb");
+          if (img) link.appendChild(el("img", { src: img.getAttribute("src"), alt: "", loading: "lazy", width: "720", height: "405" }));
+          var c = a.querySelector(".cat");
+          if (c) link.appendChild(el("span", { "class": "rcat" }, c.textContent));
+          link.appendChild(el("span", { "class": "rtitle" }, (a.querySelector("h2") || a).textContent.trim()));
+          list.appendChild(link);
+        });
+        sec.appendChild(list);
+        back.parentNode.insertBefore(sec, back);
+      }).catch(function () {});
+    }
+  }
+
+  // Top page: category filter chips
+  var listEl = document.querySelector(".post-list");
+  if (listEl && !isArticle) {
+    var cards = Array.prototype.slice.call(listEl.querySelectorAll(".post-card"));
+    var cats = [];
+    cards.forEach(function (c) {
+      var t = (c.querySelector(".cat") || {}).textContent;
+      if (t && cats.indexOf(t.trim()) < 0) cats.push(t.trim());
+    });
+    if (cats.length > 1) {
+      var bar = el("div", { "class": "filters", role: "toolbar", "aria-label": "Filter guides by topic" });
+      var all = ["All guides"].concat(cats);
+      all.forEach(function (name, i) {
+        var b = el("button", { type: "button", "aria-pressed": i === 0 ? "true" : "false" }, name);
+        b.addEventListener("click", function () {
+          Array.prototype.forEach.call(bar.children, function (x) { x.setAttribute("aria-pressed", "false"); });
+          b.setAttribute("aria-pressed", "true");
+          cards.forEach(function (c) {
+            var t = ((c.querySelector(".cat") || {}).textContent || "").trim();
+            c.hidden = !(i === 0 || t === name);
+          });
+          listEl.classList.toggle("filtered", i !== 0);
+        });
+        bar.appendChild(b);
+      });
+      listEl.parentNode.insertBefore(bar, listEl);
+    }
+  }
+})();
