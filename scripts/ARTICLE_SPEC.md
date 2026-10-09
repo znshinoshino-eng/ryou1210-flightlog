@@ -8,7 +8,7 @@ Copy the structure of `articles/japan-rail-passes-worth-it.html` exactly: same h
 - `.meta` line: e.g. "Transit guide · Written by someone who works on Japan's railways · Checked October 2026".
 - Use at least 4 `<h2>` sections. Start with a `<p><strong>Short answer:</strong> …</p>`. Include one comparison or summary `<table>` if it helps. Short paragraphs, plain English, friendly and practical. ~1,000–1,400 words.
 - Internal links where natural (relative): `japan-rail-passes-worth-it.html`, `narita-tokyo-tickets-passes.html`, `haneda-tokyo-tickets-passes.html`, `getting-to-haneda-spotting-decks.html` (IC cards & trains to Haneda), `tokyo-sightseeing-bookings.html`, `private-car-transfer-chauffeur-tokyo.html`, `esim-wifi-powerbank-guide.html`, plus the other new articles: `luggage-forwarding-japan.html`, `shinkansen-how-to-ride.html`, `ic-cards-suica-pasmo-icoca.html`, `kyoto-osaka-getting-around.html`.
-- No affiliate links.
+- Affiliate links: only products listed in scripts/klook_products.md, and only when they genuinely fit the topic (href exactly as given, rel="sponsored noopener" target="_blank", " (affiliate link)" after the link text). Never construct new affiliate links.
 
 ## Accuracy (most important)
 - Every price, fee, size limit, time and rule must be checked against an official or primary source with WebSearch/WebFetch (operator websites like JR Central/JR East/JR West, Yamato Transport, Kyoto City Bus, Osaka Metro, JNTO). If you cannot verify a fact or number from an official or primary source, leave it out entirely (owner rule: unverified things are not published). Never guess.
