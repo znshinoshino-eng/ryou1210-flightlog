@@ -5,6 +5,16 @@
 (function () {
   "use strict";
 
+
+  // Page view counting (GoatCounter: no cookies, no personal data)
+  if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !document.querySelector("script[data-goatcounter]")) {
+    var gc = document.createElement("script");
+    gc.async = true;
+    gc.src = "https://gc.zgo.at/count.js";
+    gc.setAttribute("data-goatcounter", "https://shino.goatcounter.com/count");
+    document.head.appendChild(gc);
+  }
+
   var article = document.querySelector("article.post");
   var isArticle = !!(article && /\/articles\//.test(location.pathname));
 
