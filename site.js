@@ -259,7 +259,9 @@
   ];
   var listEl = document.querySelector(".post-list");
   if (listEl && !isArticle) {
-    var cards = Array.prototype.slice.call(listEl.querySelectorAll(".post-card"));
+    var lists = Array.prototype.slice.call(document.querySelectorAll(".post-list"));
+    var sections = Array.prototype.slice.call(document.querySelectorAll(".post-section"));
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".post-list .post-card"));
     var catOf = function (c) { return ((c.querySelector(".cat") || {}).textContent || "").trim(); };
     var regionsOf = function (c) { return (c.getAttribute("data-region") || "japan").split(/\s+/); };
     var cats = [];
@@ -286,7 +288,9 @@
         if (!c.hidden) shown++;
       });
       var filtered = !!(state.area || state.topic);
-      listEl.classList.toggle("filtered", filtered);
+      lists.forEach(function (l) { l.classList.toggle("filtered", filtered); });
+      // hide a whole section when none of its guides match
+      sections.forEach(function (sec) { sec.hidden = !sec.querySelector(".post-card:not([hidden])"); });
       count.textContent = filtered ? shown + " " + (shown === 1 ? T.guide : T.guides) : "";
       count.hidden = !filtered;
       empty.hidden = shown > 0;
@@ -317,8 +321,10 @@
     if (cats.length > 1) panel.appendChild(row(T.topic, "Filter guides by topic", [["", T.all]].concat(cats.map(function (c) { return [c, c]; })), "topic"));
     if (panel.children.length) {
       panel.appendChild(count);
-      listEl.parentNode.insertBefore(panel, listEl);
-      listEl.parentNode.insertBefore(empty, listEl.nextSibling);
+      var first = sections[0] || listEl;
+      first.parentNode.insertBefore(panel, first);
+      var last = sections.length ? sections[sections.length - 1] : listEl;
+      last.parentNode.insertBefore(empty, last.nextSibling);
       apply();
     }
   }

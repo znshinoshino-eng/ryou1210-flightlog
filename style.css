@@ -151,9 +151,9 @@ main.wrap { padding-top: 32px; padding-bottom: 72px; }
 .post-card:hover h2 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
 /* newest article spans the full width */
-.post-list > .post-card:first-child { grid-column: 1 / -1; padding: 26px 28px 28px; }
-.post-list > .post-card:first-child h2 { font-size: clamp(26px, 3.2vw, 34px); max-width: 30ch; }
-.post-list > .post-card:first-child .excerpt { font-size: 18px; max-width: 64ch; }
+.post-card.featured { grid-column: 1 / -1; padding: 26px 28px 28px; }
+.post-card.featured h2 { font-size: clamp(26px, 3.2vw, 34px); max-width: 30ch; }
+.post-card.featured .excerpt { font-size: 18px; max-width: 64ch; }
 
 .post-card .cat {
   align-self: flex-start;
@@ -306,7 +306,7 @@ footer.site-footer p { margin: 0; }
   .hero { padding: 104px 20px 24px; min-height: 0; margin-bottom: 28px; }
   .hero::before { left: 20px; top: 22px; width: 64px; height: 64px; background-size: 42px; }
   .post-list { grid-template-columns: 1fr; gap: 12px; }
-  .post-list > .post-card:first-child { padding: 20px 20px 22px; }
+  .post-card.featured { padding: 20px 20px 22px; }
   .post-card { padding: 18px 18px 20px; }
   .post-card h2 { font-size: 21px; }
   article.post h2 { font-size: 24px; margin-top: 38px; }
@@ -336,7 +336,7 @@ footer.site-footer p { margin: 0; }
   border-radius: 0;
   background: var(--rule);
 }
-.post-list > .post-card:first-child > .thumb {
+.post-card.featured > .thumb {
   width: calc(100% + 56px);
   margin: -26px -28px 20px;
   aspect-ratio: 21 / 9;
@@ -355,7 +355,7 @@ figure.hero-img figcaption { margin-top: 8px; font-size: 13px; color: var(--text
 figure.hero-img figcaption a { color: var(--text-2); }
 @media (max-width: 720px) {
   .post-card > .thumb { width: calc(100% + 36px); margin: -18px -18px 14px; }
-  .post-list > .post-card:first-child > .thumb { width: calc(100% + 40px); margin: -20px -20px 16px; aspect-ratio: 16 / 9; }
+  .post-card.featured > .thumb { width: calc(100% + 40px); margin: -20px -20px 16px; aspect-ratio: 16 / 9; }
 }
 
 /* ---------- Reading aids (added by site.js) ---------- */
@@ -464,3 +464,47 @@ nav.site-nav { align-items: center; }
 .why-klook ul { margin: 8px 0 6px; padding-left: 20px; }
 .why-klook li { margin: 4px 0; font-size: 15px; }
 .why-klook p a { font-weight: 600; }
+
+/* ---------- Photo hero (top page) ---------- */
+.hero.hero-photo { padding: 0; background: none; min-height: 0; margin-bottom: 36px; }
+.hero.hero-photo::before { display: none; }
+.hero-pic { position: relative; margin: 0; border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; background: var(--sign); }
+.hero-pic img { display: block; width: 100%; aspect-ratio: 5 / 2; object-fit: cover; object-position: 50% 55%; }
+.hero-pic figcaption {
+  position: absolute; right: 8px; bottom: 8px; font-size: 11.5px; line-height: 1.3;
+  color: #fff; background: rgba(0,0,0,.55); padding: 3px 8px; border-radius: 3px;
+}
+.hero-pic figcaption a { color: #fff; }
+.hero-sign {
+  position: relative; background: var(--yellow); color: var(--sign);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 28px 32px 26px 132px;
+}
+.hero-sign::before {
+  content: ""; position: absolute; left: 28px; top: -38px; width: 76px; height: 76px; border-radius: 6px;
+  border: 4px solid var(--yellow);
+  background: var(--sign) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f5c400' d='M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z'/%3E%3C/svg%3E") center / 46px no-repeat;
+}
+.hero-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.hero-links a {
+  font-family: var(--display); font-weight: 700; font-size: 16px; text-decoration: none;
+  color: var(--yellow); background: var(--sign); padding: 7px 14px; border-radius: 4px;
+}
+.hero-links a::after { content: " ↓"; }
+.hero-links a:hover { background: #000; text-decoration: none; }
+
+/* ---------- Sections on the top page ---------- */
+.post-section { margin: 0 0 44px; scroll-margin-top: 80px; }
+.post-section[hidden] { display: none; }
+.section-head { border-left: 6px solid var(--yellow); padding: 2px 0 2px 14px; margin: 0 0 16px; }
+.section-head h2 { margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(24px, 3vw, 30px); line-height: 1.15; color: var(--sign); }
+.section-head p { margin: 4px 0 0; color: var(--text-2); font-size: 16px; }
+.post-card .card-date { display: block; margin-top: 10px; font-size: 13.5px; color: var(--text-2); }
+
+@media (max-width: 720px) {
+  .hero-pic img { aspect-ratio: 16 / 9; }
+  .hero-sign { padding: 50px 20px 22px; }
+  .hero-sign::before { left: 20px; top: -34px; width: 64px; height: 64px; background-size: 40px; }
+  .hero-links a { font-size: 15px; padding: 6px 12px; }
+  .post-section { margin-bottom: 34px; }
+}
