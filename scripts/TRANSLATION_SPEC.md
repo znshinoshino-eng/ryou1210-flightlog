@@ -26,3 +26,11 @@ Keep the same file names (slugs stay English).
 9. `<lang>/index.html`: keep the same layout/classes as the English index, translate the hero, and include ONLY the three translated article cards (keep their `data-region`, thumbnails and classes). Write the hero for the broader site ("Practical guides for visiting Japan: rail passes, airport transfers, IC cards…") rather than only Haneda.
 10. Keep all classes, ids, structure, image URLs and the photo credit links unchanged. The `.cat` inline style stays.
 11. Measurements and money: keep ¥ and US$ amounts as written. Use the language's normal number formatting only if it doesn't change a value (e.g. "¥50,000" may become "50 000 ¥" in French — prefer keeping "¥50,000" for clarity).
+
+## Thai (th)
+- `<html lang="th">`. Natural, friendly Thai for travelers (use ครับ/ค่ะ sparingly or not at all; neutral polite style like Thai travel blogs).
+- Keep proper nouns that Thai travelers search in English as well, e.g. "Narita Express (N'EX)", "Skyliner", "JR Pass", "Suica". Thai transliteration can be added in parentheses on first mention when common (e.g. นาริตะ, ฮาเนดะ).
+- Category: Access & Transit → "การเดินทางและขนส่ง".
+- "(affiliate link)" → "(ลิงก์พันธมิตร)".
+- Nav: "Articles" → "บทความ", "About" → "เกี่ยวกับเรา", "Privacy & Disclosure" → "ความเป็นส่วนตัว", "← Back to articles" → "← กลับไปที่บทความ".
+- "on Unsplash" → "บน Unsplash".

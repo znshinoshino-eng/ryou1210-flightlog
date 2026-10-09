@@ -16,7 +16,7 @@ for p in pages:
     s = p.read_text(encoding="utf-8")
     s = re.sub(re.escape(START) + r".*?" + re.escape(END) + r"\n?", "", s, flags=re.S)
     if len(versions) > 1:
-        order = ["en", "fr", "de", "es"]
+        order = ["en", "fr", "de", "es", "th"]
         tags = [f'<link rel="alternate" hreflang="{l}" href="{url_of(versions[l])}">' for l in order if l in versions]
         if "en" in versions:
             tags.append(f'<link rel="alternate" hreflang="x-default" href="{url_of(versions["en"])}">')

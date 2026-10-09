@@ -24,8 +24,8 @@
   }
 
   // ---- Language ----------------------------------------------------------
-  var LANGS = ["en", "fr", "de", "es"];
-  var LANG_NAMES = { en: "English", fr: "Français", de: "Deutsch", es: "Español" };
+  var LANGS = ["en", "fr", "de", "es", "th"];
+  var LANG_NAMES = { en: "English", fr: "Français", de: "Deutsch", es: "Español", th: "ไทย" };
   var lang = (document.documentElement.lang || "en").slice(0, 2);
   if (LANGS.indexOf(lang) < 0) lang = "en";
   var T = {
@@ -36,7 +36,9 @@
     de: { articles: "Artikel", min: "Min. Lesezeit", updated: "Aktualisiert am", aff: "Dieser Guide enthält Affiliate-Links. Wenn du darüber buchst, kostet es dich nichts extra. ", affMore: "Wie wir Links auswählen", toc: "In diesem Guide", keep: "Weiterlesen", area: "Region", topic: "Thema", all: "Alle", guide: "Guide", guides: "Guides", none: "Hier gibt es noch keine Guides. Weitere folgen bald.", language: "Sprache",
           areas: { tokyo: "Tokio", hakone: "Hakone & Fuji", kansai: "Kyoto & Osaka", hokuriku: "Kanazawa & Alpen", japan: "Ganz Japan" } },
     es: { articles: "Artículos", min: "min de lectura", updated: "Actualizado el", aff: "Esta guía contiene enlaces de afiliado. Reservar a través de ellos no te cuesta nada extra. ", affMore: "Cómo elegimos los enlaces", toc: "En esta guía", keep: "Sigue leyendo", area: "Zona", topic: "Tema", all: "Todo", guide: "guía", guides: "guías", none: "Todavía no hay guías aquí. Pronto habrá más.", language: "Idioma",
-          areas: { tokyo: "Tokio", hakone: "Hakone y Fuji", kansai: "Kioto y Osaka", hokuriku: "Kanazawa y Alpes", japan: "Todo Japón" } }
+          areas: { tokyo: "Tokio", hakone: "Hakone y Fuji", kansai: "Kioto y Osaka", hokuriku: "Kanazawa y Alpes", japan: "Todo Japón" } },
+    th: { articles: "บทความ", min: "นาทีในการอ่าน", updated: "อัปเดตเมื่อ", aff: "คู่มือนี้มีลิงก์พันธมิตร การจองผ่านลิงก์เหล่านี้ไม่มีค่าใช้จ่ายเพิ่มเติม ", affMore: "เราเลือกลิงก์อย่างไร", toc: "ในคู่มือนี้", keep: "อ่านต่อ", area: "พื้นที่", topic: "หัวข้อ", all: "ทั้งหมด", guide: "คู่มือ", guides: "คู่มือ", none: "ยังไม่มีคู่มือในหมวดนี้ เร็ว ๆ นี้จะมีเพิ่ม", language: "ภาษา",
+          areas: { tokyo: "โตเกียว", hakone: "ฮาโกเนะและฟูจิ", kansai: "เกียวโตและโอซาก้า", hokuriku: "คานาซาวะและแอลป์", japan: "ทั่วญี่ปุ่น" } }
   }[lang];
 
   // Site root, e.g. "/ryou1210-flightlog/", worked out from this page's path
@@ -97,7 +99,9 @@
 
     // 2. Reading time and last updated
     if (meta) {
-      var words = (article.innerText || article.textContent).trim().split(/\s+/).length;
+      var bodyText = (article.innerText || article.textContent).trim();
+      // Thai has no spaces between words, so estimate from characters instead
+      var words = lang === "th" ? Math.round(bodyText.replace(/\s+/g, "").length / 6) : bodyText.split(/\s+/).length;
       var mins = Math.max(1, Math.round(words / 230));
       var info = el("div", { "class": "readinfo" });
       info.appendChild(el("span", null, mins + " " + T.min));

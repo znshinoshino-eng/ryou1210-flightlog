@@ -2,7 +2,7 @@
 import pathlib
 
 BASE = "https://znshinoshino-eng.github.io/ryou1210-flightlog/"
-LANGS = ["fr", "de", "es"]          # translated languages; English lives at the root
+LANGS = ["fr", "de", "es", "th"]          # translated languages; English lives at the root
 root = pathlib.Path(__file__).resolve().parent.parent
 
 
