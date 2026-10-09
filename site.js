@@ -41,6 +41,61 @@
           areas: { tokyo: "โตเกียว", hakone: "ฮาโกเนะและฟูจิ", kansai: "เกียวโตและโอซาก้า", hokuriku: "คานาซาวะและแอลป์", japan: "ทั่วญี่ปุ่น" } }
   }[lang];
 
+
+  // Why we link to Klook (shown on pages with Klook links)
+  var K = {
+    "en": {
+      "title": "Why we link to Klook",
+      "points": [
+        "You can book in English and pay in your own currency, even when the operator only sells in Japanese or at a station counter.",
+        "Most bookings are confirmed instantly, with a QR code or voucher on your phone.",
+        "Prices are usually the same as the official price or close to it. We note the date we checked.",
+        "When the station or the official site is just as easy or cheaper, we say so."
+      ],
+      "more": "More about how we choose links"
+    },
+    "fr": {
+      "title": "Pourquoi nous recommandons Klook",
+      "points": [
+        "Vous pouvez réserver en français ou en anglais et payer dans votre devise, même quand l'opérateur ne vend qu'en japonais ou au guichet.",
+        "La plupart des réservations sont confirmées immédiatement, avec un QR code ou un bon sur votre téléphone.",
+        "Les prix sont généralement identiques ou proches du prix officiel. Nous indiquons la date de vérification.",
+        "Quand la gare ou le site officiel est aussi simple ou moins cher, nous le disons."
+      ],
+      "more": "En savoir plus sur le choix de nos liens"
+    },
+    "de": {
+      "title": "Warum wir Klook empfehlen",
+      "points": [
+        "Du kannst auf Deutsch oder Englisch buchen und in deiner Währung zahlen, auch wenn der Anbieter nur auf Japanisch oder am Schalter verkauft.",
+        "Die meisten Buchungen werden sofort bestätigt, mit QR-Code oder Voucher auf dem Handy.",
+        "Die Preise entsprechen meist dem offiziellen Preis oder liegen nah daran. Wir nennen das Datum unserer Prüfung.",
+        "Wenn der Bahnhof oder die offizielle Website genauso einfach oder günstiger ist, sagen wir das."
+      ],
+      "more": "Mehr dazu, wie wir Links auswählen"
+    },
+    "es": {
+      "title": "Por qué recomendamos Klook",
+      "points": [
+        "Puedes reservar en español o inglés y pagar en tu moneda, incluso cuando el operador solo vende en japonés o en la taquilla.",
+        "La mayoría de las reservas se confirman al instante, con un código QR o un bono en tu móvil.",
+        "Los precios suelen ser iguales o muy parecidos al precio oficial. Indicamos la fecha en que los revisamos.",
+        "Cuando la estación o la web oficial es igual de fácil o más barata, lo decimos."
+      ],
+      "more": "Más sobre cómo elegimos los enlaces"
+    },
+    "th": {
+      "title": "ทำไมเราแนะนำ Klook",
+      "points": [
+        "จองเป็นภาษาไทยหรืออังกฤษ และจ่ายด้วยสกุลเงินของคุณได้ แม้ผู้ให้บริการจะขายเป็นภาษาญี่ปุ่นหรือที่เคาน์เตอร์เท่านั้น",
+        "การจองส่วนใหญ่ได้รับการยืนยันทันที พร้อม QR code หรือวอเชอร์ในมือถือ",
+        "ราคามักเท่ากับหรือใกล้เคียงราคาทางการ เราระบุวันที่ที่ตรวจสอบราคาไว้",
+        "ถ้าซื้อที่สถานีหรือเว็บไซต์ทางการง่ายพอกันหรือถูกกว่า เราจะบอกไว้ตรง ๆ"
+      ],
+      "more": "อ่านเพิ่มเติมว่าเราเลือกลิงก์อย่างไร"
+    }
+  }[lang];
+
   // Site root, e.g. "/ryou1210-flightlog/", worked out from this page's path
   var segs = location.pathname.split("/");
   segs.pop();                                   // file name
@@ -112,13 +167,26 @@
       meta.insertAdjacentElement("afterend", info);
     }
 
-    // 3. Affiliate note when the page has sponsored links
+    // 3. Affiliate note when the page has sponsored links, with a short "Why Klook?" explanation
     var firstH2 = h2s[0];
     if (article.querySelector('a[rel~="sponsored"]') && firstH2) {
-      var note = el("p", { "class": "aff-note" });
-      note.appendChild(document.createTextNode(T.aff));
-      var more = el("a", { href: ROOT + "about.html" }, T.affMore);
-      note.appendChild(more);
+      var note = el("div", { "class": "aff-note" });
+      var line = el("p");
+      line.appendChild(document.createTextNode(T.aff));
+      note.appendChild(line);
+      if (article.querySelector('a[href*="klook.com"]')) {
+        var why = el("details", { "class": "why-klook" });
+        why.appendChild(el("summary", null, K.title));
+        var ul = el("ul");
+        K.points.forEach(function (pt) { ul.appendChild(el("li", null, pt)); });
+        why.appendChild(ul);
+        var whyMore = el("p");
+        whyMore.appendChild(el("a", { href: ROOT + "about.html#why-klook" }, K.more));
+        why.appendChild(whyMore);
+        note.appendChild(why);
+      } else {
+        line.appendChild(el("a", { href: ROOT + "about.html" }, T.affMore));
+      }
       firstH2.parentNode.insertBefore(note, firstH2);
     }
 
