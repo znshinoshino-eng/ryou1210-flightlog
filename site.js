@@ -379,3 +379,21 @@
     }).catch(function () {});
   }
 })();
+
+/* Booking buttons: make the "(affiliate link)" note after each one small and quiet. */
+(function () {
+  "use strict";
+  var re = /^(\s*)(\((?:affiliate link|lien affilié|Affiliate-Link|enlace de afiliado|ลิงก์พันธมิตร)\))/i;
+  Array.prototype.forEach.call(document.querySelectorAll('article.post a[rel~="sponsored"]'), function (a) {
+    var t = a.nextSibling;
+    if (!t || t.nodeType !== 3) return;
+    var m = t.nodeValue.match(re);
+    if (!m) return;
+    var span = document.createElement("span");
+    span.className = "aff-tag";
+    span.textContent = m[2];
+    t.nodeValue = t.nodeValue.slice(m[0].length);
+    a.parentNode.insertBefore(document.createTextNode(" "), t);
+    a.parentNode.insertBefore(span, t);
+  });
+})();
