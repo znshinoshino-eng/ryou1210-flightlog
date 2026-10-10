@@ -41,6 +41,23 @@
           areas: { tokyo: "โตเกียว", hakone: "ฮาโกเนะและฟูจิ", kansai: "เกียวโตและโอซาก้า", hokuriku: "คานาซาวะและแอลป์", japan: "ทั่วญี่ปุ่น" } }
   }[lang];
 
+  // Wide tables on phones: say they can be swiped sideways (only while they overflow)
+  (function () {
+    var SWIPE = { en: "Swipe the table sideways to see all columns", fr: "Faites glisser le tableau pour voir toutes les colonnes", de: "Tabelle seitlich wischen, um alle Spalten zu sehen", es: "Desliza la tabla para ver todas las columnas", th: "ปัดตารางไปด้านข้างเพื่อดูทุกคอลัมน์" }[lang];
+    var tables = Array.prototype.slice.call(document.querySelectorAll("article.post table"));
+    if (!tables.length) return;
+    var hints = tables.map(function (t) {
+      var h = el("p", { "class": "table-hint", "aria-hidden": "true" }, SWIPE + " →");
+      t.parentNode.insertBefore(h, t);
+      return h;
+    });
+    function check() {
+      tables.forEach(function (t, i) { hints[i].hidden = t.scrollWidth <= t.clientWidth + 2; });
+    }
+    check();
+    window.addEventListener("resize", check);
+    window.addEventListener("load", check);
+  })();
 
   // Why we link to Klook (shown on pages with Klook links)
   var K = {

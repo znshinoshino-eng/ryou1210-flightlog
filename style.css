@@ -532,3 +532,24 @@ nav.site-nav { align-items: center; }
   .section-nav .nav-long { display: none; }
   .section-nav .nav-short { display: inline; }
 }
+
+/* ---------- 2026-10-10: phone fixes ---------- */
+/* filter chips scroll inside their row instead of widening the whole page */
+.filter-panel { grid-template-columns: minmax(0, 1fr); }
+.filter-row, .filters { min-width: 0; }
+
+/* wide tables: a swipe hint, and the first column stays put while scrolling */
+.table-hint {
+  margin: 18px 0 -14px !important; font-size: 13.5px; font-weight: 700; color: var(--text-2);
+}
+.table-hint[hidden] { display: none; }
+@media (max-width: 720px) {
+  article.post th, article.post td { min-width: 120px; padding: 10px 12px; }
+  article.post th:first-child, article.post td:first-child {
+    position: sticky; left: 0; z-index: 1; min-width: 108px; max-width: 132px;
+    box-shadow: inset -1px 0 0 var(--rule), 4px 0 6px -4px rgba(0,0,0,.18);
+  }
+  article.post td:first-child { background: var(--surface); font-weight: 700; color: var(--sign); }
+  article.post tr:nth-child(even) td:first-child { background: #f8f9fa; }
+  article.post th:first-child { background: var(--sign); }
+}
