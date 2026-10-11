@@ -3,7 +3,7 @@
 Mark a topic done with [x] and the slug when published. Skip a topic (mark [-] with a reason) if official sources aren't enough to write it accurately.
 Sections on the top page: first-trip, getting-around, sightseeing, plane-spotting.
 
-- [ ] How Tokyo's train network works: JR vs Tokyo Metro vs Toei, and how transfers and fares work | getting-around | tokyo
+- [x] How Tokyo's train network works: JR vs Tokyo Metro vs Toei, and how transfers and fares work | getting-around | tokyo -> tokyo-train-network-jr-metro-toei
 - [ ] Tokyo Station survival guide: Marunouchi vs Yaesu side, shinkansen transfers, lockers | getting-around | tokyo
 - [ ] Shinjuku Station: finding your exit, lines and the bus terminal (Busta Shinjuku) | getting-around | tokyo
 - [ ] Coin lockers and luggage storage at Japanese stations | first-trip | japan
