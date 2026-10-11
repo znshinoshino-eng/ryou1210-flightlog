@@ -20,3 +20,6 @@ Find a free (not Unsplash+) photo on Unsplash with WebFetch (e.g. https://unspla
 
 ## Reply
 Reply with: file path, title, a 1-sentence excerpt for the index card (≤ 170 chars), the Unsplash thumb URL (`?w=720&amp;h=405&amp;fit=crop&amp;auto=format&amp;q=70`), category label, and a list of the key numbers/rules with the source URL for each.
+
+## Names that machine translation breaks
+Wrap brand names containing punctuation (e.g. Nankai's `rapi:t`) in `<span class="notranslate" translate="no">…</span>` in body text, so browser translation (Google Translate etc.) keeps the name intact instead of cutting it to "ラピ".
