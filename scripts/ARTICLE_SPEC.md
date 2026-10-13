@@ -1,6 +1,6 @@
 # New article spec for Flightlog Japan (English)
 
-Site: https://znshinoshino-eng.github.io/ryou1210-flightlog/ — practical guides for first-time visitors to Japan, written by someone who works for a Japanese railway company. Repo: /home/claude/ryou1210-flightlog
+Site: https://flightlogjapan.com/ — practical guides for first-time visitors to Japan, written by someone who works for a Japanese railway company. Repo: /home/claude/ryou1210-flightlog
 
 ## Template
 Copy the structure of `articles/japan-rail-passes-worth-it.html` exactly: same header, `<main class="wrap"><article class="post">`, the `.cat` div with the same inline style, `<h1>`, `.meta` line, `<figure class="hero-img">` with an Unsplash photo + credit, body, `<a class="back-link" href="../index.html">← Back to articles</a>`, same footer, `<script src="../site.js" defer></script>`.

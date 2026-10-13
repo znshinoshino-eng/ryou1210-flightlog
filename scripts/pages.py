@@ -1,7 +1,7 @@
 """Shared list of site pages, including translated copies under fr/, de/, es/."""
 import pathlib
 
-BASE = "https://znshinoshino-eng.github.io/ryou1210-flightlog/"
+BASE = "https://flightlogjapan.com/"
 LANGS = ["fr", "de", "es", "th"]          # translated languages; English lives at the root
 root = pathlib.Path(__file__).resolve().parent.parent
 

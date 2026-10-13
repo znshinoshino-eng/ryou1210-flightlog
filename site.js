@@ -113,7 +113,7 @@
     }
   }[lang];
 
-  // Site root, e.g. "/ryou1210-flightlog/", worked out from this page's path
+  // Site root, e.g. "/", worked out from this page's path
   var segs = location.pathname.split("/");
   segs.pop();                                   // file name
   if (segs[segs.length - 1] === "articles") segs.pop();
