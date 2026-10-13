@@ -7,7 +7,7 @@ root = pathlib.Path(__file__).resolve().parent.parent
 
 
 def all_pages():
-    pages = [root / "index.html", root / "about.html", root / "privacy.html"]
+    pages = [root / "index.html", root / "about.html", root / "privacy.html", root / "contact.html"]
     pages += sorted((root / "articles").glob("*.html"))
     for lang in LANGS:
         d = root / lang
