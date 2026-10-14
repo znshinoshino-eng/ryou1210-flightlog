@@ -6,7 +6,7 @@ Sections on the top page: first-trip, getting-around, sightseeing, plane-spottin
 - [x] How Tokyo's train network works: JR vs Tokyo Metro vs Toei, and how transfers and fares work | getting-around | tokyo -> tokyo-train-network-jr-metro-toei
 - [x] Tokyo Station survival guide: Marunouchi vs Yaesu side, shinkansen transfers, lockers | getting-around | tokyo -> tokyo-station-guide
 - [x] Shinjuku Station: finding your exit, lines and the bus terminal (Busta Shinjuku) | getting-around | tokyo -> shinjuku-station-guide
-- [ ] Hiroshima and Miyajima from Osaka or Kyoto by shinkansen | sightseeing | japan
+- [x] Hiroshima and Miyajima from Osaka or Kyoto by shinkansen | sightseeing | japan -> hiroshima-miyajima-day-trip-from-osaka-kyoto
 - [ ] Night buses between Tokyo and Osaka/Kyoto: are they worth it? | getting-around | japan
 - [ ] Kyoto Station guide: bus terminal, JR vs subway vs Kintetsu, lockers | getting-around | kansai
 - [ ] Taxis in Japan: apps, fares, airport flat fares | getting-around | japan
