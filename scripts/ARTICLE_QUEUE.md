@@ -11,10 +11,10 @@ Sections on the top page: first-trip, getting-around, sightseeing, plane-spottin
 - [ ] Train delays in Japan: delay certificates, what staff can help with, and refunds | first-trip | japan
 - [ ] Rush hour in Tokyo: times to avoid, women-only cars, etiquette | first-trip | tokyo
 - [ ] Haneda Airport terminals 1, 2 and 3: which one you need and moving between them | getting-around | tokyo
-- [ ] Arriving late at Narita or Haneda: last trains, buses and taxis | getting-around | tokyo
+- [x] Arriving late at Narita or Haneda: last trains, buses and taxis | getting-around | tokyo -> arriving-late-narita-haneda
 - [ ] Nikko day trip from Tokyo: trains, passes and what to see | sightseeing | tokyo
 - [x] Kamakura and Enoshima day trip from Tokyo (Enoden, Hakone Kamakura Pass) | sightseeing | tokyo -> kamakura-enoshima-day-trip
-- [ ] Nara day trip from Kyoto or Osaka: which train and what to see | sightseeing | kansai
+- [x] Nara day trip from Kyoto or Osaka: which train and what to see | sightseeing | kansai -> nara-day-trip-from-kyoto-osaka
 - [ ] Hiroshima and Miyajima from Osaka or Kyoto by shinkansen | sightseeing | japan
 - [ ] Kyoto Station guide: bus terminal, JR vs subway vs Kintetsu, lockers | getting-around | kansai
 - [ ] Night buses between Tokyo and Osaka/Kyoto: are they worth it? | getting-around | japan
