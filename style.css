@@ -585,3 +585,39 @@ article.post a[rel~="sponsored"]:focus-visible { outline: 3px solid var(--link);
 article.post table a[rel~="sponsored"] { padding: 6px 6px 6px 14px; min-height: 0; font-size: .9em; gap: 8px; }
 article.post table a[rel~="sponsored"]::after { width: 22px; height: 22px; background-size: 12px; }
 .aff-tag { font-size: 12.5px; color: var(--text-2); white-space: nowrap; vertical-align: middle; }
+
+/* ---------- 2026-10-14: shorter top page on phones, tidier booking buttons in text ---------- */
+/* phones: guide cards (except the featured one) put a small photo beside the title,
+   so about twice as many guides fit on one screen */
+@media (max-width: 720px) {
+  .post-card:not(.featured):has(> .thumb) {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-areas: "thumb cat" "thumb title" "excerpt excerpt" "date date";
+    grid-template-rows: auto 1fr auto auto;
+    column-gap: 14px;
+    align-items: start;
+    padding: 16px 16px 16px;
+  }
+  .post-card:not(.featured) > .thumb {
+    grid-area: thumb;
+    width: 104px; margin: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
+  }
+  .post-card:not(.featured):has(> .thumb) > .cat { grid-area: cat; justify-self: start; margin-bottom: 6px; font-size: 13px; padding: 1px 8px; }
+  .post-card:not(.featured):has(> .thumb) > h2 { grid-area: title; font-size: 19px; line-height: 1.2; margin: 0; }
+  .post-card:not(.featured):has(> .thumb) > .excerpt { grid-area: excerpt; margin-top: 12px; font-size: 15px; line-height: 1.55; }
+  .post-card:not(.featured):has(> .thumb) > .card-date,
+  .post-card:not(.featured):has(> .thumb) > .meta { grid-area: date; margin-top: 8px; }
+}
+
+/* booking buttons in the middle of a sentence: slimmer, centred on the line,
+   so the lines around them keep normal spacing */
+article.post p a[rel~="sponsored"] {
+  vertical-align: middle;
+  min-height: 38px; margin: 2px 0;
+  padding: 5px 5px 5px 16px; gap: 10px;
+  box-shadow: 0 3px 0 #a84200, 0 6px 12px rgba(217, 85, 0, .24);
+}
+article.post p a[rel~="sponsored"]::after { width: 26px; height: 26px; background-size: 14px; }
