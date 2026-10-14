@@ -5,7 +5,7 @@ Sections on the top page: first-trip, getting-around, sightseeing, plane-spottin
 
 - [x] How Tokyo's train network works: JR vs Tokyo Metro vs Toei, and how transfers and fares work | getting-around | tokyo -> tokyo-train-network-jr-metro-toei
 - [x] Tokyo Station survival guide: Marunouchi vs Yaesu side, shinkansen transfers, lockers | getting-around | tokyo -> tokyo-station-guide
-- [ ] Shinjuku Station: finding your exit, lines and the bus terminal (Busta Shinjuku) | getting-around | tokyo
+- [x] Shinjuku Station: finding your exit, lines and the bus terminal (Busta Shinjuku) | getting-around | tokyo -> shinjuku-station-guide
 - [ ] Coin lockers and luggage storage at Japanese stations | first-trip | japan
 - [x] Lost something on a train in Japan? What to do | first-trip | japan -> lost-something-on-train-japan
 - [ ] Train delays in Japan: delay certificates, what staff can help with, and refunds | first-trip | japan
