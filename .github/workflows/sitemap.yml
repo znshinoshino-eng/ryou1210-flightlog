@@ -4,6 +4,11 @@ on:
     branches: [main]
     paths: ["**.html", "style.css", "site.js"]
   workflow_dispatch:
+    inputs:
+      all:
+        description: "Send every page to IndexNow"
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -31,3 +36,9 @@ jobs:
             git commit -m "Update sitemap and search tags"
             git push
           fi
+      - name: Notify search engines (IndexNow)
+        continue-on-error: true
+        env:
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ inputs.all }}
+        run: cd scripts && python3 indexnow.py
