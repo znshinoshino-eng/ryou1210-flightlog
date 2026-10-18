@@ -3,6 +3,13 @@
 Mark a topic done with [x] and the slug when published. Skip a topic (mark [-] with a reason) if official sources aren't enough to write it accurately.
 Sections on the top page: first-trip, getting-around, sightseeing, plane-spotting.
 
+Hotel topics (owner's priority, Oct 2026): the angle is "which station/area to stay near, from a railway worker" — station access, lines, airport links, luggage. Do not invent hotel names, prices or reviews; only use Klook hotel links listed in scripts/klook_products.md (if none are listed yet for that area, publish without hotel links — they get added later).
+
+- [ ] Where to stay in Tokyo for a first trip: Shinjuku vs Shibuya vs Ueno vs Tokyo Station vs Asakusa, judged by trains and airport access | first-trip | tokyo
+- [ ] Where to stay in Osaka: Namba vs Umeda vs Shin-Osaka vs Tennoji, judged by trains, KIX access and day trips | first-trip | kansai
+- [ ] Where to stay in Kyoto: Kyoto Station vs Shijo/Kawaramachi vs Gion, judged by buses, trains and luggage | first-trip | kansai
+- [ ] Staying near Narita or Haneda: airport hotels for late arrivals and early flights, and when it's worth it | getting-around | tokyo
+
 - [x] How Tokyo's train network works: JR vs Tokyo Metro vs Toei, and how transfers and fares work | getting-around | tokyo -> tokyo-train-network-jr-metro-toei
 - [x] Tokyo Station survival guide: Marunouchi vs Yaesu side, shinkansen transfers, lockers | getting-around | tokyo -> tokyo-station-guide
 - [x] Shinjuku Station: finding your exit, lines and the bus terminal (Busta Shinjuku) | getting-around | tokyo -> shinjuku-station-guide
