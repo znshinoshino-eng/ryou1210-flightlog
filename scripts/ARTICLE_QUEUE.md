@@ -8,7 +8,7 @@ Sections on the top page: first-trip, getting-around, sightseeing, plane-spottin
 - [x] Shinjuku Station: finding your exit, lines and the bus terminal (Busta Shinjuku) | getting-around | tokyo -> shinjuku-station-guide
 - [x] Hiroshima and Miyajima from Osaka or Kyoto by shinkansen | sightseeing | japan -> hiroshima-miyajima-day-trip-from-osaka-kyoto
 - [x] Night buses between Tokyo and Osaka/Kyoto: are they worth it? | getting-around | japan -> night-bus-tokyo-osaka-kyoto
-- [ ] Kyoto Station guide: bus terminal, JR vs subway vs Kintetsu, lockers | getting-around | kansai
+- [x] Kyoto Station guide: bus terminal, JR vs subway vs Kintetsu, lockers | getting-around | kansai -> kyoto-station-guide
 - [ ] Taxis in Japan: apps, fares, airport flat fares | getting-around | japan
 - [ ] Coin lockers and luggage storage at Japanese stations | first-trip | japan
 - [x] Lost something on a train in Japan? What to do | first-trip | japan -> lost-something-on-train-japan
