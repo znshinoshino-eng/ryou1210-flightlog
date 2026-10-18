@@ -1,8 +1,12 @@
-"""Shared list of site pages, including translated copies under fr/, de/, es/."""
+"""Shared list of site pages, including translated copies under fr/, de/, es/, th/, zh/.
+
+zh/ is Traditional Chinese (Taiwan and Hong Kong); its hreflang and html lang are "zh-Hant".
+"""
+HREFLANG = {"zh": "zh-Hant"}   # folder name -> hreflang code, when they differ
 import pathlib
 
 BASE = "https://flightlogjapan.com/"
-LANGS = ["fr", "de", "es", "th"]          # translated languages; English lives at the root
+LANGS = ["fr", "de", "es", "th", "zh"]          # translated languages; English lives at the root
 root = pathlib.Path(__file__).resolve().parent.parent
 
 

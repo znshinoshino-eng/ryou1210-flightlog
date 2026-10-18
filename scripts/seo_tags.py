@@ -27,7 +27,7 @@ def git_date(path, fmt):
 
 changed = 0
 pages = all_pages()
-LOCALE = {"en": "en_US", "fr": "fr_FR", "de": "de_DE", "es": "es_ES", "th": "th_TH"}
+LOCALE = {"en": "en_US", "fr": "fr_FR", "de": "de_DE", "es": "es_ES", "th": "th_TH", "zh": "zh_TW"}
 for p in pages:
     if not p.exists():
         continue

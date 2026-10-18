@@ -34,3 +34,14 @@ Keep the same file names (slugs stay English).
 - "(affiliate link)" → "(ลิงก์พันธมิตร)".
 - Nav: "Articles" → "บทความ", "About" → "เกี่ยวกับเรา", "Privacy & Disclosure" → "ความเป็นส่วนตัว", "← Back to articles" → "← กลับไปที่บทความ".
 - "on Unsplash" → "บน Unsplash".
+
+## Traditional Chinese (zh) — Taiwan and Hong Kong
+- Folder `zh/`, `<html lang="zh-Hant">`. The build scripts output hreflang `zh-Hant` and og:locale `zh_TW`.
+- Natural Traditional Chinese as written by Taiwanese travel blogs (Taiwan vocabulary: 車票, 劃位, 指定席, 自由席, 行李箱, 便利商店, 儲值). Full-width punctuation.
+- Keep names travelers search in English alongside Chinese on first mention, e.g. 希望號（Nozomi）, 東京地鐵通票（Tokyo Subway Ticket）, Skyliner, JR Pass, Suica, PASMO, smartEX.
+- Categories: Access & Transit → "交通與移動", Travel Prep → "行前準備", Sightseeing → "觀光", Spotting Guide → "賞機指南".
+- "(affiliate link)" → "（聯盟連結）". Link text "X on Klook" → "在 Klook 預訂 X".
+- Nav: "Articles" → "文章", "About" → "關於我們", "Privacy & Disclosure" → "隱私權與揭露", "Contact" → "聯絡我們", "← Back to articles" → "← 返回文章列表".
+- "Short answer:" → "先說結論：". The `.meta` line: "由在日本鐵路公司工作的人撰寫". Keep "Photo: … on Unsplash" as is.
+- zh/index.html lists every translated article; the first card has class "post-card featured".
+- Translated so far (2026-10-18): japan-rail-passes-worth-it, narita-tokyo-tickets-passes, haneda-tokyo-tickets-passes, shinkansen-how-to-ride, ic-cards-suica-pasmo-icoca.

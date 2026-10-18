@@ -1,6 +1,6 @@
 """Link each page to its translations with hreflang tags (rewritten on every run)."""
 import re
-from pages import all_pages, root, lang_of, base_rel, url_of
+from pages import all_pages, root, lang_of, base_rel, url_of, HREFLANG
 
 START, END = "<!-- hreflang:start -->", "<!-- hreflang:end -->"
 pages = all_pages()
@@ -16,8 +16,8 @@ for p in pages:
     s = p.read_text(encoding="utf-8")
     s = re.sub(re.escape(START) + r".*?" + re.escape(END) + r"\n?", "", s, flags=re.S)
     if len(versions) > 1:
-        order = ["en", "fr", "de", "es", "th"]
-        tags = [f'<link rel="alternate" hreflang="{l}" href="{url_of(versions[l])}">' for l in order if l in versions]
+        order = ["en", "fr", "de", "es", "th", "zh"]
+        tags = [f'<link rel="alternate" hreflang="{HREFLANG.get(l, l)}" href="{url_of(versions[l])}">' for l in order if l in versions]
         if "en" in versions:
             tags.append(f'<link rel="alternate" hreflang="x-default" href="{url_of(versions["en"])}">')
         s = s.replace("</head>", START + "\n" + "\n".join(tags) + "\n" + END + "\n</head>", 1)

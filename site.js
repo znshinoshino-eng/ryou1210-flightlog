@@ -24,8 +24,9 @@
   }
 
   // ---- Language ----------------------------------------------------------
-  var LANGS = ["en", "fr", "de", "es", "th"];
-  var LANG_NAMES = { en: "English", fr: "Français", de: "Deutsch", es: "Español", th: "ไทย" };
+  var LANGS = ["en", "fr", "de", "es", "th", "zh"];
+  var LANG_NAMES = { en: "English", fr: "Français", de: "Deutsch", es: "Español", th: "ไทย", zh: "繁體中文" };
+  var HREFLANG = { zh: "zh-Hant" };   // folder name -> hreflang code, when they differ
   var lang = (document.documentElement.lang || "en").slice(0, 2);
   if (LANGS.indexOf(lang) < 0) lang = "en";
   var T = {
@@ -38,12 +39,14 @@
     es: { articles: "Artículos", min: "min de lectura", updated: "Actualizado el", aff: "Esta guía contiene enlaces de afiliado. Reservar a través de ellos no te cuesta nada extra. ", affMore: "Cómo elegimos los enlaces", toc: "En esta guía", tocJump: "Índice", keep: "Sigue leyendo", area: "Zona", topic: "Tema", all: "Todo", guide: "guía", guides: "guías", none: "Todavía no hay guías aquí. Pronto habrá más.", language: "Idioma",
           areas: { tokyo: "Tokio", hakone: "Hakone y Fuji", kansai: "Kioto y Osaka", hokuriku: "Kanazawa y Alpes", japan: "Todo Japón" } },
     th: { articles: "บทความ", min: "นาทีในการอ่าน", updated: "อัปเดตเมื่อ", aff: "คู่มือนี้มีลิงก์พันธมิตร การจองผ่านลิงก์เหล่านี้ไม่มีค่าใช้จ่ายเพิ่มเติม ", affMore: "เราเลือกลิงก์อย่างไร", toc: "ในคู่มือนี้", tocJump: "สารบัญ", keep: "อ่านต่อ", area: "พื้นที่", topic: "หัวข้อ", all: "ทั้งหมด", guide: "คู่มือ", guides: "คู่มือ", none: "ยังไม่มีคู่มือในหมวดนี้ เร็ว ๆ นี้จะมีเพิ่ม", language: "ภาษา",
-          areas: { tokyo: "โตเกียว", hakone: "ฮาโกเนะและฟูจิ", kansai: "เกียวโตและโอซาก้า", hokuriku: "คานาซาวะและแอลป์", japan: "ทั่วญี่ปุ่น" } }
+          areas: { tokyo: "โตเกียว", hakone: "ฮาโกเนะและฟูจิ", kansai: "เกียวโตและโอซาก้า", hokuriku: "คานาซาวะและแอลป์", japan: "ทั่วญี่ปุ่น" } },
+    zh: { articles: "文章", min: "分鐘閱讀", updated: "更新於", aff: "本指南含有聯盟行銷連結，透過這些連結預訂不會讓你多付任何費用。", affMore: "我們如何挑選連結", toc: "本篇內容", tocJump: "目錄", keep: "延伸閱讀", area: "地區", topic: "主題", all: "全部", guide: "篇指南", guides: "篇指南", none: "這裡還沒有指南，更多內容即將推出。", language: "語言",
+          areas: { tokyo: "東京", hakone: "箱根與富士山", kansai: "京都與大阪", hokuriku: "金澤與阿爾卑斯", japan: "日本全國" } }
   }[lang];
 
   // Wide tables on phones: say they can be swiped sideways (only while they overflow)
   (function () {
-    var SWIPE = { en: "Swipe the table sideways to see all columns", fr: "Faites glisser le tableau pour voir toutes les colonnes", de: "Tabelle seitlich wischen, um alle Spalten zu sehen", es: "Desliza la tabla para ver todas las columnas", th: "ปัดตารางไปด้านข้างเพื่อดูทุกคอลัมน์" }[lang];
+    var SWIPE = { en: "Swipe the table sideways to see all columns", fr: "Faites glisser le tableau pour voir toutes les colonnes", de: "Tabelle seitlich wischen, um alle Spalten zu sehen", es: "Desliza la tabla para ver todas las columnas", th: "ปัดตารางไปด้านข้างเพื่อดูทุกคอลัมน์", zh: "左右滑動表格即可查看所有欄位" }[lang];
     var tables = Array.prototype.slice.call(document.querySelectorAll("article.post table"));
     if (!tables.length) return;
     var hints = tables.map(function (t) {
@@ -110,6 +113,16 @@
         "ถ้าซื้อที่สถานีหรือเว็บไซต์ทางการง่ายพอกันหรือถูกกว่า เราจะบอกไว้ตรง ๆ"
       ],
       "more": "อ่านเพิ่มเติมว่าเราเลือกลิงก์อย่างไร"
+    },
+    "zh": {
+      "title": "為什麼我們推薦 Klook",
+      "points": [
+        "即使業者只提供日文或只在車站窗口販售，也能用中文或英文預訂，並以你自己的貨幣付款。",
+        "大多數訂單會立即確認，手機上就能收到 QR code 或電子憑證。",
+        "價格通常與官方價格相同或相近，我們會註明查價日期。",
+        "如果在車站或官方網站購買一樣方便或更便宜，我們會直接告訴你。"
+      ],
+      "more": "進一步了解我們如何挑選連結"
     }
   }[lang];
 
@@ -127,7 +140,8 @@
     if (!nav) return;
     var alts = {};
     Array.prototype.forEach.call(document.querySelectorAll('link[rel="alternate"][hreflang]'), function (l) {
-      alts[l.getAttribute("hreflang")] = l.getAttribute("href");
+      var code = l.getAttribute("hreflang");
+      LANGS.forEach(function (k) { if ((HREFLANG[k] || k) === code) alts[k] = l.getAttribute("href"); });
     });
     var box = el("details", { "class": "lang-switch" });
     var sum = el("summary", { "aria-label": T.language }, lang.toUpperCase());
@@ -135,7 +149,7 @@
     var menu = el("div", { "class": "lang-menu" });
     LANGS.forEach(function (l) {
       var href = alts[l] || (ROOT + (l === "en" ? "" : l + "/"));
-      var a = el("a", { href: href, hreflang: l, lang: l }, LANG_NAMES[l]);
+      var a = el("a", { href: href, hreflang: HREFLANG[l] || l, lang: HREFLANG[l] || l }, LANG_NAMES[l]);
       if (l === lang) a.setAttribute("aria-current", "true");
       menu.appendChild(a);
     });
@@ -173,13 +187,14 @@
     if (meta) {
       var bodyText = (article.innerText || article.textContent).trim();
       // Thai has no spaces between words, so estimate from characters instead
-      var words = lang === "th" ? Math.round(bodyText.replace(/\s+/g, "").length / 6) : bodyText.split(/\s+/).length;
+      var chars = bodyText.replace(/\s+/g, "").length;
+      var words = lang === "th" ? Math.round(chars / 6) : lang === "zh" ? Math.round(chars / 2) : bodyText.split(/\s+/).length;
       var mins = Math.max(1, Math.round(words / 230));
       var info = el("div", { "class": "readinfo" });
       info.appendChild(el("span", null, mins + " " + T.min));
       var lm = new Date(document.lastModified);
       if (!isNaN(lm) && lm.getFullYear() > 2020) {
-        info.appendChild(el("span", null, T.updated + " " + lm.toLocaleDateString(lang === "en" ? "en-US" : lang, { year: "numeric", month: "short", day: "numeric" })));
+        info.appendChild(el("span", null, T.updated + " " + lm.toLocaleDateString(lang === "en" ? "en-US" : lang === "zh" ? "zh-TW" : lang, { year: "numeric", month: "short", day: "numeric" })));
       }
       meta.insertAdjacentElement("afterend", info);
     }

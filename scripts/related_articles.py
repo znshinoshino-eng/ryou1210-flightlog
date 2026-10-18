@@ -20,7 +20,7 @@ from pages import root, LANGS
 COUNT = 6
 START, END = "<!-- related:start -->", "<!-- related:end -->"
 HEADING = {"en": "Keep reading", "fr": "À lire aussi", "de": "Weiterlesen",
-           "es": "Sigue leyendo", "th": "อ่านต่อ"}
+           "es": "Sigue leyendo", "th": "อ่านต่อ", "zh": "延伸閱讀"}
 STOP = set("""a an and the of to in on for from with by or vs is are your you what which how
 when where why it its at as be can do not no but more most all one two into than this that
 these those there their they them our we explained guide guides japan japanese tokyo

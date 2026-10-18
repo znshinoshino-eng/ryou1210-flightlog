@@ -18,7 +18,7 @@ MONTHS = {
 
 
 def label(lang, d):
-    m = MONTHS[lang][d.month - 1]
+    m = MONTHS.get(lang, MONTHS["en"])[d.month - 1]
     if lang == "en":
         return f"Updated {m} {d.day}, {d.year}"
     if lang == "fr":
@@ -27,6 +27,8 @@ def label(lang, d):
         return f"Aktualisiert am {d.day}. {m} {d.year}"
     if lang == "es":
         return f"Actualizado el {d.day} {m} {d.year}"
+    if lang == "zh":
+        return f"更新於 {d.year}年{d.month}月{d.day}日"
     return f"อัปเดต {d.day} {m} {d.year + 543}"
 
 
