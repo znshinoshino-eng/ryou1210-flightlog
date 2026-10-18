@@ -18,3 +18,4 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 - Tapping a heading in "In this guide" (or a top-page section button) now lands with the heading fully visible, instead of half hidden under the sticky header.
 - Long guides show a floating "↑ Contents" button once you scroll past the contents box, to jump back to the section list.
 - Phones: table text and cell padding slightly smaller, so fare tables have shorter rows.
+- (re-run for 10/17) Phones: two-column tables use the full width (left column no longer pinned and squeezed), so their rows are much shorter.

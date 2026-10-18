@@ -646,3 +646,15 @@ article.post h2, article.post h3, .post-section, .toc { scroll-margin-top: 128px
 .toc-jump[hidden] { display: inline-flex; opacity: 0; transform: translateY(12px); pointer-events: none; visibility: hidden; }
 @media (prefers-reduced-motion: reduce) { .toc-jump { transition: none; } }
 @media print { .toc-jump { display: none !important; } }
+
+/* ---------- 2026-10-18 (2): two-column tables on phones ---------- */
+/* two-column tables always fit, so the left column no longer needs to be pinned and squeezed */
+@media (max-width: 720px) {
+  article.post table:not(:has(tr > :nth-child(3))) { display: table; }
+  article.post table:not(:has(tr > :nth-child(3))) th:first-child,
+  article.post table:not(:has(tr > :nth-child(3))) td:first-child {
+    position: static; max-width: none; min-width: 0; width: 42%; box-shadow: none;
+  }
+  article.post table:not(:has(tr > :nth-child(3))) th,
+  article.post table:not(:has(tr > :nth-child(3))) td { min-width: 0; }
+}
