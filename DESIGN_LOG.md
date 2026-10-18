@@ -13,3 +13,8 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 ## 2026-10-14
 - Phones: top-page guide cards (except the featured one) show a small square photo beside the title, so the page is about a third shorter and more guides fit on screen.
 - Booking buttons placed mid-sentence are slimmer and centred on the line, so the surrounding text keeps even line spacing.
+
+## 2026-10-18
+- Tapping a heading in "In this guide" (or a top-page section button) now lands with the heading fully visible, instead of half hidden under the sticky header.
+- Long guides show a floating "↑ Contents" button once you scroll past the contents box, to jump back to the section list.
+- Phones: table text and cell padding slightly smaller, so fare tables have shorter rows.

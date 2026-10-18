@@ -621,3 +621,28 @@ article.post p a[rel~="sponsored"] {
   box-shadow: 0 3px 0 #a84200, 0 6px 12px rgba(217, 85, 0, .24);
 }
 article.post p a[rel~="sponsored"]::after { width: 26px; height: 26px; background-size: 14px; }
+
+/* ---------- 2026-10-18: headings clear the header, tidier phone tables, "Contents" button ---------- */
+/* jumping from "In this guide" or the top-page buttons no longer hides the heading under the sticky header */
+article.post h2, article.post h3, .post-section, .toc { scroll-margin-top: 128px; }
+
+/* phones: table rows are shorter and easier to scan */
+@media (max-width: 720px) {
+  article.post table { font-size: 14.5px; line-height: 1.42; }
+  article.post th { font-size: 15px; }
+  article.post th, article.post td { padding: 9px 10px; }
+}
+
+/* floating button on long guides: back to the contents box */
+.toc-jump {
+  position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 15;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px;
+  background: var(--sign); color: var(--yellow); border: 2px solid var(--yellow); border-radius: 999px;
+  font-family: var(--display); font-weight: 700; font-size: 16px; text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,.22);
+  transition: opacity .2s, transform .2s;
+}
+.toc-jump:hover { background: var(--yellow); color: var(--sign); text-decoration: none; }
+.toc-jump[hidden] { display: inline-flex; opacity: 0; transform: translateY(12px); pointer-events: none; visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .toc-jump { transition: none; } }
+@media print { .toc-jump { display: none !important; } }

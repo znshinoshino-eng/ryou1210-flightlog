@@ -29,15 +29,15 @@
   var lang = (document.documentElement.lang || "en").slice(0, 2);
   if (LANGS.indexOf(lang) < 0) lang = "en";
   var T = {
-    en: { articles: "Articles", min: "min read", updated: "Updated", aff: "This guide contains affiliate links. Booking through them costs you nothing extra. ", affMore: "How we choose what to link", toc: "In this guide", keep: "Keep reading", area: "Area", topic: "Topic", all: "All", guide: "guide", guides: "guides", none: "No guides here yet. More are on the way.", language: "Language",
+    en: { articles: "Articles", min: "min read", updated: "Updated", aff: "This guide contains affiliate links. Booking through them costs you nothing extra. ", affMore: "How we choose what to link", toc: "In this guide", tocJump: "Contents", keep: "Keep reading", area: "Area", topic: "Topic", all: "All", guide: "guide", guides: "guides", none: "No guides here yet. More are on the way.", language: "Language",
           areas: { tokyo: "Tokyo", hakone: "Hakone & Fuji", kansai: "Kyoto & Osaka", hokuriku: "Kanazawa & Alps", japan: "Nationwide" } },
-    fr: { articles: "Articles", min: "min de lecture", updated: "Mis à jour le", aff: "Ce guide contient des liens affiliés. Réserver via ces liens ne vous coûte rien de plus. ", affMore: "Comment nous choisissons nos liens", toc: "Dans ce guide", keep: "À lire aussi", area: "Région", topic: "Thème", all: "Tout", guide: "guide", guides: "guides", none: "Pas encore de guide ici. D'autres arrivent bientôt.", language: "Langue",
+    fr: { articles: "Articles", min: "min de lecture", updated: "Mis à jour le", aff: "Ce guide contient des liens affiliés. Réserver via ces liens ne vous coûte rien de plus. ", affMore: "Comment nous choisissons nos liens", toc: "Dans ce guide", tocJump: "Sommaire", keep: "À lire aussi", area: "Région", topic: "Thème", all: "Tout", guide: "guide", guides: "guides", none: "Pas encore de guide ici. D'autres arrivent bientôt.", language: "Langue",
           areas: { tokyo: "Tokyo", hakone: "Hakone et Fuji", kansai: "Kyoto et Osaka", hokuriku: "Kanazawa et Alpes", japan: "Tout le Japon" } },
-    de: { articles: "Artikel", min: "Min. Lesezeit", updated: "Aktualisiert am", aff: "Dieser Guide enthält Affiliate-Links. Wenn du darüber buchst, kostet es dich nichts extra. ", affMore: "Wie wir Links auswählen", toc: "In diesem Guide", keep: "Weiterlesen", area: "Region", topic: "Thema", all: "Alle", guide: "Guide", guides: "Guides", none: "Hier gibt es noch keine Guides. Weitere folgen bald.", language: "Sprache",
+    de: { articles: "Artikel", min: "Min. Lesezeit", updated: "Aktualisiert am", aff: "Dieser Guide enthält Affiliate-Links. Wenn du darüber buchst, kostet es dich nichts extra. ", affMore: "Wie wir Links auswählen", toc: "In diesem Guide", tocJump: "Inhalt", keep: "Weiterlesen", area: "Region", topic: "Thema", all: "Alle", guide: "Guide", guides: "Guides", none: "Hier gibt es noch keine Guides. Weitere folgen bald.", language: "Sprache",
           areas: { tokyo: "Tokio", hakone: "Hakone & Fuji", kansai: "Kyoto & Osaka", hokuriku: "Kanazawa & Alpen", japan: "Ganz Japan" } },
-    es: { articles: "Artículos", min: "min de lectura", updated: "Actualizado el", aff: "Esta guía contiene enlaces de afiliado. Reservar a través de ellos no te cuesta nada extra. ", affMore: "Cómo elegimos los enlaces", toc: "En esta guía", keep: "Sigue leyendo", area: "Zona", topic: "Tema", all: "Todo", guide: "guía", guides: "guías", none: "Todavía no hay guías aquí. Pronto habrá más.", language: "Idioma",
+    es: { articles: "Artículos", min: "min de lectura", updated: "Actualizado el", aff: "Esta guía contiene enlaces de afiliado. Reservar a través de ellos no te cuesta nada extra. ", affMore: "Cómo elegimos los enlaces", toc: "En esta guía", tocJump: "Índice", keep: "Sigue leyendo", area: "Zona", topic: "Tema", all: "Todo", guide: "guía", guides: "guías", none: "Todavía no hay guías aquí. Pronto habrá más.", language: "Idioma",
           areas: { tokyo: "Tokio", hakone: "Hakone y Fuji", kansai: "Kioto y Osaka", hokuriku: "Kanazawa y Alpes", japan: "Todo Japón" } },
-    th: { articles: "บทความ", min: "นาทีในการอ่าน", updated: "อัปเดตเมื่อ", aff: "คู่มือนี้มีลิงก์พันธมิตร การจองผ่านลิงก์เหล่านี้ไม่มีค่าใช้จ่ายเพิ่มเติม ", affMore: "เราเลือกลิงก์อย่างไร", toc: "ในคู่มือนี้", keep: "อ่านต่อ", area: "พื้นที่", topic: "หัวข้อ", all: "ทั้งหมด", guide: "คู่มือ", guides: "คู่มือ", none: "ยังไม่มีคู่มือในหมวดนี้ เร็ว ๆ นี้จะมีเพิ่ม", language: "ภาษา",
+    th: { articles: "บทความ", min: "นาทีในการอ่าน", updated: "อัปเดตเมื่อ", aff: "คู่มือนี้มีลิงก์พันธมิตร การจองผ่านลิงก์เหล่านี้ไม่มีค่าใช้จ่ายเพิ่มเติม ", affMore: "เราเลือกลิงก์อย่างไร", toc: "ในคู่มือนี้", tocJump: "สารบัญ", keep: "อ่านต่อ", area: "พื้นที่", topic: "หัวข้อ", all: "ทั้งหมด", guide: "คู่มือ", guides: "คู่มือ", none: "ยังไม่มีคู่มือในหมวดนี้ เร็ว ๆ นี้จะมีเพิ่ม", language: "ภาษา",
           areas: { tokyo: "โตเกียว", hakone: "ฮาโกเนะและฟูจิ", kansai: "เกียวโตและโอซาก้า", hokuriku: "คานาซาวะและแอลป์", japan: "ทั่วญี่ปุ่น" } }
   }[lang];
 
@@ -227,6 +227,18 @@
       // put the contents right after the opening paragraph(s), before the first section
       anchor.parentNode.insertBefore(box, anchor);
       if (window.matchMedia && window.matchMedia("(max-width: 720px)").matches) box.removeAttribute("open");
+
+      // Floating "Contents" button: appears once the contents box is scrolled out of view
+      if (!box.id) box.id = "in-this-guide";
+      var jump = el("a", { "class": "toc-jump", href: "#" + box.id, hidden: "" }, "\u2191 " + (T.tocJump || "Contents"));
+      jump.addEventListener("click", function () { box.setAttribute("open", ""); });
+      document.body.appendChild(jump);
+      var onScroll = function () {
+        var past = box.getBoundingClientRect().bottom < 0 && window.scrollY > window.innerHeight;
+        if (past) jump.removeAttribute("hidden"); else jump.setAttribute("hidden", "");
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
     }
 
     // 5. Keep reading: three other guides, taken from the top page
