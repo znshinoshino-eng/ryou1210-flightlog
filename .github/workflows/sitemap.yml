@@ -19,6 +19,7 @@ jobs:
       - run: python3 scripts/adsense.py
       - run: python3 scripts/hreflang.py
       - run: python3 scripts/card_dates.py
+      - run: python3 scripts/related_articles.py
       - run: python3 scripts/asset_versions.py
       - run: python3 scripts/build_sitemap.py
       - name: Commit changes if any

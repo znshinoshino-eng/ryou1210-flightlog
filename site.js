@@ -242,8 +242,9 @@
     }
 
     // 5. Keep reading: three other guides, taken from the top page
+    // (skipped when the build script already wrote a static block into the page)
     var back = article.querySelector(".back-link");
-    if (back && window.fetch) {
+    if (back && window.fetch && !article.querySelector(".related")) {
       fetch("../index.html", { cache: "no-cache" }).then(function (r) { return r.ok ? r.text() : ""; }).then(function (html) {
         if (!html) return;
         var doc = new DOMParser().parseFromString(html, "text/html");
