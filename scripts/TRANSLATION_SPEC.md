@@ -37,7 +37,25 @@ Keep the same file names (slugs stay English).
 
 ## Traditional Chinese (zh) — Taiwan and Hong Kong
 - Folder `zh/`, `<html lang="zh-Hant">`. The build scripts output hreflang `zh-Hant` and og:locale `zh_TW`.
-- Natural Traditional Chinese as written by Taiwanese travel blogs (Taiwan vocabulary: 車票, 劃位, 指定席, 自由席, 行李箱, 便利商店, 儲值). Full-width punctuation.
+- OWNER'S REQUEST: write the way people in Taiwan actually talk and search, like a popular Taiwanese Japan-travel blog (痞客邦 / Dcard style), not a translation. Friendly 你, short sentences, full-width punctuation. Light colloquial touches are welcome (超方便, 回本, CP 值, 記得, 不亂猜) but never at the cost of a fact.
+- Titles: use the words Taiwanese readers search for: 攻略, 怎麼選, 怎麼買最划算, 值得買嗎, 自由行, 東京市區.
+- Glossary (always use the right-hand word):
+  | English | zh |
+  | --- | --- |
+  | Suica | Suica 西瓜卡 (first mention: 也就是大家說的「西瓜卡」), later "Suica" or "西瓜卡" |
+  | convenience store | 超商 (not 便利商店) |
+  | coin locker | 寄物櫃 / 投幣式寄物櫃 (not 置物櫃) |
+  | fare adjustment machine | 精算機（補票機） |
+  | SIM / mobile data | 網卡、eSIM、網路 |
+  | pocket WiFi | Wi-Fi 分享器 |
+  | reserved / non-reserved seat | 指定席 / 自由席; to reserve a seat = 劃位 |
+  | top up | 儲值 |
+  | ticket gate | 剪票口 |
+  | eki-ben | 鐵路便當（駅弁） |
+  | Tokyo Subway Ticket | 東京地鐵通票（Tokyo Subway Ticket） |
+  | limousine bus | 利木津巴士 |
+  | first-time visitor | 第一次去日本自由行的人 |
+  | Nozomi / Hikari / Kodama | 希望號（Nozomi）/ 光號（Hikari）/ 回聲號（Kodama） |
 - Keep names travelers search in English alongside Chinese on first mention, e.g. 希望號（Nozomi）, 東京地鐵通票（Tokyo Subway Ticket）, Skyliner, JR Pass, Suica, PASMO, smartEX.
 - Categories: Access & Transit → "交通與移動", Travel Prep → "行前準備", Sightseeing → "觀光", Spotting Guide → "賞機指南".
 - "(affiliate link)" → "（聯盟連結）". Link text "X on Klook" → "在 Klook 預訂 X".
