@@ -23,6 +23,12 @@
     return n;
   }
 
+  // Time-limited deals: hide once the end date (Japan time) has passed
+  Array.prototype.forEach.call(document.querySelectorAll(".deal[data-expires]"), function (d) {
+    var end = new Date(d.getAttribute("data-expires") + "T23:59:59+09:00");
+    if (!isNaN(end) && Date.now() > end.getTime()) d.hidden = true;
+  });
+
   // ---- Language ----------------------------------------------------------
   var LANGS = ["en", "fr", "de", "es", "th", "zh"];
   var LANG_NAMES = { en: "English", fr: "Français", de: "Deutsch", es: "Español", th: "ไทย", zh: "繁體中文" };

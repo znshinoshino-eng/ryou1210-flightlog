@@ -54,3 +54,26 @@ Prices are Klook's displayed 'from' prices in USD at the time of writing; say 'a
   href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1490182&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F92753-tokyo-to-kyoto-shinkansen%2F
 - [SHINKANSEN] Tokyo to Osaka Shinkansen ticket (e-ticket via Klook) — no rating shown, from US$88.49
   href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1490183&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F92748-tokyo-to-osaka-shinkansen%2F
+
+## Added 19 October 2026 (generated with the Klook link tool, website "Flightlog Japan")
+- [CONNECTIVITY] Japan eSIM (Softbank 5G / docomo 4G LTE, QR code) — 4.6 (49.1K reviews), 2M+ booked on Klook, 19 Oct 2026. Check network/data/days on the listing.
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1509680&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F109393-japan-esim-high-speed-internet-qr-code-voucher%2F
+- [CONNECTIVITY] Unlimited 4G LTE pocket WiFi, Japan airport pickup, with free power bank — 4.7 (11.7K reviews), 200K+ booked
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1509690&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F16399-unlimited-4g-lte-wifi-japan-airport-pickup-ninja-wifi%2F
+- [HANEDA] Tokyo Monorail ticket (Haneda Airport – Hamamatsucho) — 4.3 (102 reviews), 4K+ booked
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1509693&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F149639-tokyo-monorail-ticket-between-haneda-airport-and-hamamatsucho%2F
+- [HOTELS] Tokyo hotels (Klook hotel search page for Tokyo) — use in where-to-stay / hotel articles; don't name or rate individual hotels unless verified
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1509697&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fdestination%2Fc28-tokyo%2F3-hotel%2F
+- [HOTELS] Osaka hotels (Klook hotel search page for Osaka)
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1509698&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fdestination%2Fc29-osaka%2F3-hotel%2F
+- [HOTELS] Kyoto hotels (Klook hotel search page for Kyoto)
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1509699&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fdestination%2Fc30-kyoto%2F3-hotel%2F
+- [HOTELS] Villa Fontaine Grand Haneda Airport (Klook hotel page) — for the airport-hotel article; confirm its location/terminal link on the hotel's official site before describing it
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1509700&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fhotels%2Fdetail%2F289730-villa-fontaine-grand-haneda-airport%2F
+
+## Promo codes (from the Klook affiliate "Promo Codes" page). Use ONLY before the end date.
+Wrap each in <p class="deal" data-expires="YYYY-MM-DD"> … </p> (site.js hides it after that date, Japan time) and state the conditions exactly as below.
+- JPTST5AU — Tokyo Subway Ticket 5% off. Min spend US$5, max US$2 off, once per user, limited number, not for residents of Japan. Ends 31 Oct 2026. Used on: haneda-tokyo-tickets-passes, tokyo-train-network-jr-metro-toei, where-to-stay-tokyo-first-trip.
+- BUSLAUNCH10 — Japan bus tickets 10% off, max US$15 off per transaction, up to 5 uses per user, residents of US, CA, GB, AU, NZ and listed European/Middle-East countries only. Ends 31 Oct 2026. (No Klook bus product link registered yet.)
+- JPATT10 — Taiwan residents only: Japan theme parks 15% off, max NT$450, once per member. Ends 31 Oct 2026. zh pages only.
+- TKDL1010 — Taiwan residents only: Tokyo Disney tickets 10% off, max NT$400, once per member. Ends 31 Oct 2026. zh pages only.

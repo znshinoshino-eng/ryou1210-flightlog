@@ -658,3 +658,7 @@ article.post h2, article.post h3, .post-section, .toc { scroll-margin-top: 128px
   article.post table:not(:has(tr > :nth-child(3))) th,
   article.post table:not(:has(tr > :nth-child(3))) td { min-width: 0; }
 }
+
+/* Time-limited deals (hidden by site.js after data-expires) */
+.deal { border: 2px dashed var(--yellow); background: #fffbe6; border-radius: var(--radius); padding: 12px 14px; font-size: 16px; }
+.deal code { font-size: 15px; background: var(--sign); color: var(--yellow); padding: 1px 6px; border-radius: 3px; }
