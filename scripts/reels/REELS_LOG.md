@@ -5,3 +5,4 @@
 - 2026-10-16 | luggage-forwarding-japan | Travelling Japan with a big suitcase?
 - 2026-10-17 | lost-something-on-train-japan | Left something on a train in Japan?
 - 2026-10-18 | haneda-tokyo-tickets-passes | Which ticket into Tokyo?
+- 2026-10-19 | japan-rail-passes-worth-it | Buying a JR Pass? Still worth it?
