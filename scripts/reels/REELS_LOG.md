@@ -7,3 +7,4 @@
 - 2026-10-18 | haneda-tokyo-tickets-passes | Which ticket into Tokyo?
 - 2026-10-19 | japan-rail-passes-worth-it | Buying a JR Pass? Still worth it?
 - 2026-10-19 | ic-cards-suica-pasmo-icoca | Which IC card for Japan?
+- 2026-10-20 | jr-pass-calculator | Will the JR Pass pay off?
