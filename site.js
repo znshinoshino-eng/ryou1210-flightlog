@@ -256,6 +256,9 @@
       document.body.appendChild(jump);
       var onScroll = function () {
         var past = box.getBoundingClientRect().bottom < 0 && window.scrollY > window.innerHeight;
+        // hide again at the end of the guide, so it never covers "Keep reading" or the footer links
+        var end = article.querySelector(".related") || article.querySelector(".back-link") || document.querySelector("footer.site-footer");
+        if (end && end.getBoundingClientRect().top < window.innerHeight - 40) past = false;
         if (past) jump.removeAttribute("hidden"); else jump.setAttribute("hidden", "");
       };
       window.addEventListener("scroll", onScroll, { passive: true });

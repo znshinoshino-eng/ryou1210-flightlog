@@ -19,3 +19,8 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 - Long guides show a floating "↑ Contents" button once you scroll past the contents box, to jump back to the section list.
 - Phones: table text and cell padding slightly smaller, so fare tables have shorter rows.
 - (re-run for 10/17) Phones: two-column tables use the full width (left column no longer pinned and squeezed), so their rows are much shorter.
+
+## 2026-10-21
+- The floating "↑ Contents" button now hides at the end of a guide, so it no longer covers the "Keep reading" links or the footer.
+- Desktop: the top photo of each guide is a little shorter (2:1), so the short answer starts sooner.
+- Phones: footer links have finger-sized tap areas.

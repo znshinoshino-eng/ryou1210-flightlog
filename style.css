@@ -662,3 +662,14 @@ article.post h2, article.post h3, .post-section, .toc { scroll-margin-top: 128px
 /* Time-limited deals (hidden by site.js after data-expires) */
 .deal { border: 2px dashed var(--yellow); background: #fffbe6; border-radius: var(--radius); padding: 12px 14px; font-size: 16px; }
 .deal code { font-size: 15px; background: var(--sign); color: var(--yellow); padding: 1px 6px; border-radius: 3px; }
+
+/* ---------- 2026-10-21: shorter desktop photos, easier footer taps ---------- */
+/* desktop: the top photo of a guide is a little shorter, so the short answer starts on the first screen */
+@media (min-width: 721px) {
+  figure.hero-img img { aspect-ratio: 2 / 1; }
+}
+/* phones: footer links get finger-sized tap areas */
+@media (max-width: 720px) {
+  footer.site-footer nav { gap: 0 22px; margin-bottom: 12px; }
+  footer.site-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+}
