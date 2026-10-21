@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JR Pass 計算機：日本鐵路周遊券值得買嗎？輸入行程馬上算 - Flightlog Japan</title>
+<meta name="description" content="加入你的新幹線行程，幾秒就知道 7 天、14 天或 21 天 JR Pass 會不會比單買車票划算。JR 官方票價，2026 年 10 月確認。">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="stylesheet" href="../../style.css?v=a19aa314">
+<style>
+  .calc { background: var(--surface); border: 2px solid var(--sign); border-radius: var(--radius); padding: 20px; margin: 8px 0 28px; }
+  .calc .calc-title { font-family: var(--display); font-weight: 700; font-size: 24px; margin: 0 0 4px; }
+  .calc label { display: block; font-family: var(--display); font-weight: 700; font-size: 16px; margin: 14px 0 6px; }
+  .calc select, .calc input[type=number], .calc input[type=text] { font: inherit; font-size: 17px; padding: 9px 10px; border: 2px solid var(--rule); border-radius: var(--radius); background: var(--surface); color: var(--text); width: 100%; box-sizing: border-box; }
+  .calc select:focus, .calc input:focus { outline: 3px solid var(--yellow); outline-offset: 1px; border-color: var(--sign); }
+  .calc .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .calc .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .calc .seg button { font-family: var(--display); font-weight: 700; font-size: 16px; padding: 8px 14px; border-radius: 999px; border: 2px solid var(--sign); background: var(--surface); color: var(--sign); cursor: pointer; }
+  .calc .seg button[aria-pressed="true"] { background: var(--sign); color: var(--yellow); }
+  .calc .add { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; }
+  .calc .btn { font-family: var(--display); font-weight: 700; font-size: 17px; padding: 10px 16px; border-radius: var(--radius); border: 2px solid var(--sign); background: var(--yellow); color: var(--sign); cursor: pointer; white-space: nowrap; }
+  .calc .btn.ghost { background: var(--surface); }
+  .calc ul.legs { list-style: none; padding: 0; margin: 14px 0 0; }
+  .calc ul.legs li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+  .calc ul.legs li span.yen { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .calc ul.legs button { border: 0; background: none; color: var(--link); cursor: pointer; font: inherit; font-size: 15px; padding: 4px; }
+  .calc .empty { color: var(--text-2, #555); font-size: 15px; margin: 12px 0 0; }
+  .verdict { margin-top: 18px; border-radius: var(--radius); padding: 16px 18px; background: var(--paper); border-left: 8px solid var(--rule); }
+  .verdict.yes { border-left-color: #1f8a4c; }
+  .verdict.no { border-left-color: #c0392b; }
+  .verdict.close { border-left-color: var(--yellow); }
+  .verdict .big { font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.2; margin: 0 0 8px; }
+  .verdict table { margin: 10px 0 0; }
+  .verdict td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  @media (max-width: 560px) { .calc { padding: 16px; } .calc .row { grid-template-columns: 1fr; } }
+</style>
+<meta name="google-adsense-account" content="ca-pub-8106228067608731">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8106228067608731" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Flight<span>log</span> Japan</a>
+    <nav class="site-nav">
+      <a href="../index.html">文章</a>
+      <a href="../../about.html">關於我們</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article class="post">
+  <div class="cat" style="display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px;">交通與移動</div>
+  <h1>JR Pass 計算機：日本鐵路周遊券值得買嗎？輸入行程馬上算</h1>
+  <div class="meta">免費工具 · 由在日本鐵路公司工作的人撰寫 · 2026 年 10 月確認票價</div>
+
+  <p><strong>先說結論：</strong>把你打算搭的長途行程加進來，選好周遊券，計算機就會幫你比較周遊券的價格和每段新幹線單買車票的總和。所有價格都來自 JR 自己的官方網頁。</p>
+
+  <section class="calc" aria-labelledby="calc-h">
+    <p class="calc-title" id="calc-h">JR Pass 計算機</p>
+
+    <label>1. 選哪一種周遊券？</label>
+    <div class="seg" id="days" role="group" aria-label="周遊券天數">
+      <button type="button" data-days="7" aria-pressed="true">7 天</button>
+      <button type="button" data-days="14" aria-pressed="false">14 天</button>
+      <button type="button" data-days="21" aria-pressed="false">21 天</button>
+    </div>
+
+    <label for="where">2. 在哪裡買？</label>
+    <select id="where">
+      <option value="online">JAPAN RAIL PASS 官方網站</option>
+      <option value="agency">日本境外的旅行社（兌換券）</option>
+    </select>
+
+    <label for="route">3. 加入你的新幹線行程（每段都算單程）</label>
+    <div class="add">
+      <select id="route"></select>
+      <button type="button" class="btn" id="addRoute">加入</button>
+    </div>
+
+    <label for="customName">還有其他 JR 路線嗎？（選填）</label>
+    <div class="row">
+      <input type="text" id="customName" placeholder="例如：成田特快" maxlength="40">
+      <div class="add">
+        <input type="number" id="customYen" placeholder="車資（日圓）" min="0" step="10" inputmode="numeric">
+        <button type="button" class="btn ghost" id="addCustom">加入</button>
+      </div>
+    </div>
+
+    <ul class="legs" id="legs" aria-live="polite"></ul>
+    <p class="empty" id="empty">還沒有加入任何行程。小提醒：去程和回程要分開加，例如「東京 → 京都」和「京都 → 東京」。</p>
+
+    <div class="verdict" id="verdict" hidden></div>
+  </section>
+
+  <h2>計算機怎麼算的？</h2>
+  <ul>
+    <li><strong>周遊券價格</strong>是 JAPAN RAIL PASS 官方網站上的成人普通車廂價格：在官網買是 ¥50,000（7 天）、¥80,000（14 天）、¥100,000（21 天）；透過日本境外的 JR 指定旅行社買則是 ¥53,000、¥84,000、¥105,000。</li>
+    <li><strong>單買車票的價格</strong>是 JR 東海官方 <strong>smartEX</strong> 的價格：希望號（Nozomi）或瑞穗號（Mizuho）普通車廂指定席、單程、成人、一般時期。同樣的車票在車站窗口買會稍微貴一點，所以這個計算機對單買車票其實算得比較寬鬆。</li>
+    <li><strong>季節：</strong>JR 在旺季和淡季會加價或減價一點點（依路線和季節為 ¥200 到 ¥800），幾乎不會改變結果。</li>
+    <li><strong>兒童（6–11 歲）：</strong>周遊券剛好半價，車資也差不多是半價，所以結果大致相同。</li>
+    <li><strong>清單裡沒有的路線</strong>（例如 JR 東日本的東京 → 金澤、仙台或長野）：自己查好車資，用「還有其他 JR 路線嗎？」加進來。</li>
+  </ul>
+
+  <h2>要注意的一點：希望號（Nozomi）</h2>
+  <p>JR Pass 本身不能搭最快的<strong>希望號（Nozomi）</strong>和<strong>瑞穗號（Mizuho）</strong>。持周遊券的人通常改搭稍慢一點的光號（Hikari），或是購買 JR 東海給周遊券持有人的希望號專用車票。撰文時，東京 – 京都或新大阪是 ¥4,960，東京 – 廣島是 ¥6,500，名古屋 – 廣島是 ¥4,960。如果你打算買，記得用「還有其他 JR 路線嗎？」加進來。</p>
+
+  <h2>接下來怎麼做？</h2>
+  <ul>
+    <li><strong>周遊券比較划算？</strong>出發前先買好，之後就能免費劃位。<a href="https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1488956&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F1420-7-day-whole-japan-rail-pass-jr-pass%2F" rel="sponsored noopener" target="_blank">在 Klook 預訂 JR Pass</a>（聯盟連結）。那裡的價格可能和官網不同，買之前記得比較一下。</li>
+    <li><strong>單買車票比較划算？</strong>可以在 smartEX 訂票，或是在 Klook 用你自己的貨幣付款：<a href="https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1490182&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F92753-tokyo-to-kyoto-shinkansen%2F" rel="sponsored noopener" target="_blank">東京到京都新幹線</a>（聯盟連結）、<a href="https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1490183&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F92748-tokyo-to-osaka-shinkansen%2F" rel="sponsored noopener" target="_blank">東京到大阪新幹線</a>（聯盟連結）。在你待最久的地區，更便宜的<a href="japan-rail-passes-worth-it.html">地區周遊券</a>也可能幫你省錢。</li>
+    <li>第一次搭新幹線？可以看看<a href="shinkansen-how-to-ride.html">新幹線搭乘攻略</a>，裡面也有 160 公分行李規定。</li>
+  </ul>
+
+  <a class="back-link" href="../index.html">← 返回文章列表</a>
+<!-- sources: https://japanrailpass.net/en/purchase/price | https://smart-ex.jp/en/product/plan/service/pdf/service_fares_reserved.pdf | https://global.jr-central.co.jp/en/onlinebooking/contents/jrp_nozomi/ -->
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">文章</a>
+      <a href="../../about.html">關於我們</a>
+      <a href="../../privacy.html">隱私權與揭露</a>
+      <a href="../../contact.html">聯絡我們</a>
+    </nav>
+    <p>&copy; 2026 Flightlog Japan</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Official prices, checked October 2026.
+  // Pass: japanrailpass.net (adult, ordinary car). Fares: JR Central smartEX, Nozomi/Mizuho reserved seat,
+  // adult, one way, regular season (smartEX price list "as of April 1, 2025").
+  var PASS = { online: { 7: 50000, 14: 80000, 21: 100000 }, agency: { 7: 53000, 14: 84000, 21: 105000 } };
+  var ROUTES = [
+    ["東京", "名古屋", 11100], ["東京", "京都", 13970], ["東京", "新大阪", 14520],
+    ["東京", "岡山", 17570], ["東京", "廣島", 19560], ["東京", "博多（福岡）", 23610],
+    ["名古屋", "京都", 5710], ["名古屋", "新大阪", 6480], ["名古屋", "廣島", 14610],
+    ["名古屋", "博多（福岡）", 19110], ["京都", "廣島", 11740], ["京都", "博多（福岡）", 16580],
+    ["新大阪", "岡山", 6260], ["新大阪", "廣島", 10750], ["新大阪", "博多（福岡）", 15820],
+    ["岡山", "博多（福岡）", 13170], ["廣島", "博多（福岡）", 9430]
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var yen = function (n) { return "¥" + Math.round(n).toLocaleString("en-US"); };
+  var days = 7, legs = [];
+
+  var sel = $("route");
+  ROUTES.forEach(function (r, i) {
+    [[r[0], r[1]], [r[1], r[0]]].forEach(function (p, j) {
+      var o = document.createElement("option");
+      o.value = i + ":" + j;
+      o.textContent = p[0] + " → " + p[1] + "（" + yen(r[2]) + "）";
+      sel.appendChild(o);
+    });
+  });
+
+  function render() {
+    var ul = $("legs"); ul.innerHTML = "";
+    legs.forEach(function (l, i) {
+      var li = document.createElement("li");
+      var name = document.createElement("span"); name.textContent = l.name;
+      var right = document.createElement("span");
+      var y = document.createElement("span"); y.className = "yen"; y.textContent = yen(l.yen);
+      var rm = document.createElement("button"); rm.type = "button"; rm.textContent = "移除";
+      rm.setAttribute("aria-label", "移除 " + l.name);
+      rm.onclick = function () { legs.splice(i, 1); render(); };
+      right.appendChild(y); right.appendChild(document.createTextNode(" ")); right.appendChild(rm);
+      li.appendChild(name); li.appendChild(right); ul.appendChild(li);
+    });
+    $("empty").hidden = legs.length > 0;
+    var v = $("verdict");
+    if (!legs.length) { v.hidden = true; return; }
+    var total = legs.reduce(function (s, l) { return s + l.yen; }, 0);
+    var pass = PASS[$("where").value][days];
+    var diff = total - pass, cls, msg;
+    if (diff > 2000) { cls = "yes"; msg = days + " 天 JR Pass 大約可以幫你省 " + yen(diff) + "。"; }
+    else if (diff >= -2000) { cls = "close"; msg = "差不多打平（" + (diff >= 0 ? "周遊券便宜 " : "單買車票便宜 ") + yen(Math.abs(diff)) + "）。"; }
+    else { cls = "no"; msg = "單買車票大約便宜 " + yen(-diff) + "，JR Pass 就不用買了。"; }
+    v.className = "verdict " + cls;
+    v.innerHTML = "";
+    var p = document.createElement("p"); p.className = "big"; p.textContent = msg; v.appendChild(p);
+    var t = document.createElement("table");
+    [["單買車票（" + legs.length + " 段）", yen(total)],
+     [days + " 天 JR Pass（" + ($("where").value === "online" ? "官方網站" : "旅行社") + "）", yen(pass)]].forEach(function (r) {
+      var tr = document.createElement("tr");
+      r.forEach(function (c) { var td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+      t.appendChild(tr);
+    });
+    v.appendChild(t);
+    if (cls !== "yes") {
+      var n = document.createElement("p");
+      n.textContent = "要回本，你在 " + days + " 天內大約還需要再搭 " + yen(Math.max(0, pass - total)) + " 的 JR。";
+      v.appendChild(n);
+    }
+    v.hidden = false;
+  }
+
+  $("addRoute").onclick = function () {
+    var k = sel.value.split(":"), r = ROUTES[+k[0]];
+    var a = k[1] === "0" ? r[0] : r[1], b = k[1] === "0" ? r[1] : r[0];
+    legs.push({ name: a + " → " + b, yen: r[2] }); render();
+  };
+  $("addCustom").onclick = function () {
+    var n = Math.round(Number($("customYen").value));
+    if (!n || n < 0) { $("customYen").focus(); return; }
+    legs.push({ name: $("customName").value.trim() || "其他 JR 路線", yen: n });
+    $("customName").value = ""; $("customYen").value = ""; render();
+  };
+  Array.prototype.forEach.call(document.querySelectorAll("#days button"), function (b) {
+    b.onclick = function () {
+      days = +b.getAttribute("data-days");
+      Array.prototype.forEach.call(document.querySelectorAll("#days button"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      render();
+    };
+  });
+  $("where").onchange = render;
+  render();
+})();
+</script>
+<script src="../../site.js?v=272e8503" defer></script>
+</body>
+</html>
