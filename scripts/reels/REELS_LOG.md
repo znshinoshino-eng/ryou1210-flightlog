@@ -9,3 +9,4 @@
 - 2026-10-19 | ic-cards-suica-pasmo-icoca | Which IC card for Japan?
 - 2026-10-20 | jr-pass-calculator | Will the JR Pass pay off?
 - 2026-10-21 | esim-wifi-powerbank-guide | eSIM or pocket WiFi?
+- 2026-10-22 | where-to-stay-tokyo-first-trip | Where should you stay?
