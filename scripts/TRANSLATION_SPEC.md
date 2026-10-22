@@ -62,4 +62,4 @@ Keep the same file names (slugs stay English).
 - Nav: "Articles" → "文章", "About" → "關於我們", "Privacy & Disclosure" → "隱私權與揭露", "Contact" → "聯絡我們", "← Back to articles" → "← 返回文章列表".
 - "Short answer:" → "先說結論：". The `.meta` line: "由在日本鐵路公司工作的人撰寫". Keep "Photo: … on Unsplash" as is.
 - zh/index.html lists every translated article; the first card has class "post-card featured".
-- Translated so far (2026-10-21): japan-rail-passes-worth-it, narita-tokyo-tickets-passes, haneda-tokyo-tickets-passes, shinkansen-how-to-ride, ic-cards-suica-pasmo-icoca, jr-pass-calculator, welcome-suica-guide.
+- Translated so far (2026-10-22): japan-rail-passes-worth-it, narita-tokyo-tickets-passes, haneda-tokyo-tickets-passes, shinkansen-how-to-ride, ic-cards-suica-pasmo-icoca, jr-pass-calculator, welcome-suica-guide, contactless-credit-card-trains-japan, luggage-forwarding-japan.
