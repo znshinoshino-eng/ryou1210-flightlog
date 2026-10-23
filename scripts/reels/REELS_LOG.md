@@ -10,3 +10,4 @@
 - 2026-10-20 | jr-pass-calculator | Will the JR Pass pay off?
 - 2026-10-21 | esim-wifi-powerbank-guide | eSIM or pocket WiFi?
 - 2026-10-22 | where-to-stay-tokyo-first-trip | Where should you stay?
+- 2026-10-23 | where-to-stay-osaka-first-trip | Where should you stay?
