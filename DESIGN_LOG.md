@@ -24,3 +24,7 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 - The floating "↑ Contents" button now hides at the end of a guide, so it no longer covers the "Keep reading" links or the footer.
 - Desktop: the top photo of each guide is a little shorter (2:1), so the short answer starts sooner.
 - Phones: footer links have finger-sized tap areas.
+
+## 2026-10-24
+- The short answer at the top of each guide now sits in a pale-yellow box, so the key facts (prices, time limits) stand out.
+- Phones: the yellow top sign no longer repeats the four section buttons already in the bar above, so the guides start higher on the first screen.

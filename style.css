@@ -673,3 +673,19 @@ article.post h2, article.post h3, .post-section, .toc { scroll-margin-top: 128px
   footer.site-footer nav { gap: 0 22px; margin-bottom: 12px; }
   footer.site-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
 }
+
+/* ---------- 2026-10-24: short answer stands out, shorter top screen on phones ---------- */
+/* the opening summary of a guide sits in a pale-yellow box, so the key answer is easy to spot */
+article.post > figure.hero-img + p,
+article.post > .readinfo + p {
+  background: #fff8d9;
+  border-left: 5px solid var(--sign);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+}
+/* phones: the yellow top sign drops its four jump buttons (the same links are in the bar right above) */
+@media (max-width: 720px) {
+  .hero-sign .hero-links { display: none; }
+  article.post > figure.hero-img + p,
+  article.post > .readinfo + p { padding: 12px 14px; font-size: 1.06em; }
+}
