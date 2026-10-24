@@ -17,7 +17,7 @@ Hotel topics (owner's priority, Oct 2026): the angle is "which station/area to s
 - [x] Night buses between Tokyo and Osaka/Kyoto: are they worth it? | getting-around | japan -> night-bus-tokyo-osaka-kyoto
 - [x] Kyoto Station guide: bus terminal, JR vs subway vs Kintetsu, lockers | getting-around | kansai -> kyoto-station-guide
 - [x] Taxis in Japan: apps, fares, airport flat fares | getting-around | japan -> taxis-in-japan
-- [ ] Coin lockers and luggage storage at Japanese stations | first-trip | japan
+- [x] Coin lockers and luggage storage at Japanese stations | first-trip | japan -> coin-lockers-luggage-storage-japan
 - [x] Lost something on a train in Japan? What to do | first-trip | japan -> lost-something-on-train-japan
 - [ ] Train delays in Japan: delay certificates, what staff can help with, and refunds | first-trip | japan
 - [ ] Rush hour in Tokyo: times to avoid, women-only cars, etiquette | first-trip | tokyo
