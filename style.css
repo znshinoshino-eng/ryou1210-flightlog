@@ -689,3 +689,12 @@ article.post > .readinfo + p {
   article.post > figure.hero-img + p,
   article.post > .readinfo + p { padding: 12px 14px; font-size: 1.06em; }
 }
+
+/* ---------- 2026-10-25: header fits on phones in every language, keyboard-friendly tables ---------- */
+/* phones: drop the "Articles" link (the logo goes to the same page), so longer menu words
+   such as Spanish "Sobre nosotros" no longer push the language button off the screen */
+@media (max-width: 480px) {
+  nav.site-nav > a:first-child { display: none; }
+}
+/* a wide table that scrolls sideways can be focused with Tab; show where the focus is */
+article.post table:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }

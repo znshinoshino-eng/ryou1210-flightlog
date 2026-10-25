@@ -50,6 +50,16 @@
           areas: { tokyo: "東京", hakone: "箱根與富士山", kansai: "京都與大阪", hokuriku: "金澤與阿爾卑斯", japan: "日本全國" } }
   }[lang];
 
+  // Screen readers: give each menu its own name, so "Guide sections" is not announced twice
+  (function () {
+    var MAIN = { en: "Main menu", fr: "Menu principal", de: "Hauptmenü", es: "Menú principal", th: "เมนูหลัก", zh: "主選單" }[lang];
+    var JUMP = { en: "Jump to a section", fr: "Aller à une section", de: "Zu einem Abschnitt", es: "Ir a una sección", th: "ไปยังหัวข้อ", zh: "跳至分類" }[lang];
+    var main = document.querySelector("nav.site-nav");
+    if (main && !main.hasAttribute("aria-label")) main.setAttribute("aria-label", MAIN);
+    var jump = document.querySelector("nav.hero-links");
+    if (jump) jump.setAttribute("aria-label", JUMP);
+  })();
+
   // Wide tables on phones: say they can be swiped sideways (only while they overflow)
   (function () {
     var SWIPE = { en: "Swipe the table sideways to see all columns", fr: "Faites glisser le tableau pour voir toutes les colonnes", de: "Tabelle seitlich wischen, um alle Spalten zu sehen", es: "Desliza la tabla para ver todas las columnas", th: "ปัดตารางไปด้านข้างเพื่อดูทุกคอลัมน์", zh: "左右滑動表格即可查看所有欄位" }[lang];
@@ -61,11 +71,18 @@
       return h;
     });
     function check() {
-      tables.forEach(function (t, i) { hints[i].hidden = t.scrollWidth <= t.clientWidth + 2; });
+      tables.forEach(function (t, i) {
+        var fits = t.scrollWidth <= t.clientWidth + 2;
+        hints[i].hidden = fits;
+        // a table that scrolls sideways can also be scrolled with the keyboard (Tab to it, then arrow keys)
+        if (t.scrollWidth > t.clientWidth) t.setAttribute("tabindex", "0"); else t.removeAttribute("tabindex");
+      });
     }
     check();
     window.addEventListener("resize", check);
     window.addEventListener("load", check);
+    // fonts can finish loading after "load" and change a table's width; re-check when tables resize
+    if (window.ResizeObserver) { var ro = new ResizeObserver(check); tables.forEach(function (t) { ro.observe(t); }); }
   })();
 
   // Why we link to Klook (shown on pages with Klook links)

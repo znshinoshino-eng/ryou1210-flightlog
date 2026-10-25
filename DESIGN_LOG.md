@@ -28,3 +28,8 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 ## 2026-10-24
 - The short answer at the top of each guide now sits in a pale-yellow box, so the key facts (prices, time limits) stand out.
 - Phones: the yellow top sign no longer repeats the four section buttons already in the bar above, so the guides start higher on the first screen.
+
+## 2026-10-25
+- Phones: Spanish and Thai pages no longer scroll sideways; the language button is fully visible (the "Articles" link hides on small screens — the logo goes to the same page).
+- Wide tables can be scrolled with the keyboard; menus have distinct names for screen readers.
+- From now on the full records are in docs/ai-team/ (research, proposals, QA, monitoring, next actions).
