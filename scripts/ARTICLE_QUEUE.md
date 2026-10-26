@@ -21,7 +21,7 @@ Hotel topics (owner's priority, Oct 2026): the angle is "which station/area to s
 - [x] Lost something on a train in Japan? What to do | first-trip | japan -> lost-something-on-train-japan
 - [x] Train delays in Japan: delay certificates, what staff can help with, and refunds | first-trip | japan -> train-delays-japan-refunds
 - [x] Rush hour in Tokyo: times to avoid, women-only cars, etiquette | first-trip | tokyo -> tokyo-rush-hour-guide
-- [ ] Haneda Airport terminals 1, 2 and 3: which one you need and moving between them | getting-around | tokyo
+- [x] Haneda Airport terminals 1, 2 and 3: which one you need and moving between them | getting-around | tokyo -> haneda-terminals-1-2-3-guide
 - [x] Arriving late at Narita or Haneda: last trains, buses and taxis | getting-around | tokyo -> arriving-late-narita-haneda
 - [ ] Nikko day trip from Tokyo: trains, passes and what to see | sightseeing | tokyo
 - [x] Kamakura and Enoshima day trip from Tokyo (Enoden, Hakone Kamakura Pass) | sightseeing | tokyo -> kamakura-enoshima-day-trip
