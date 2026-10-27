@@ -14,3 +14,4 @@
 - 2026-10-24 | where-to-stay-kyoto-first-trip | Where should you stay?
 - 2026-10-25 | coin-lockers-luggage-storage-japan | Where to leave your bag?
 - 2026-10-26 | train-delays-japan-refunds | Train late? Money back?
+- 2026-10-27 | tokyo-rush-hour-guide | Riding at rush hour?
