@@ -16,7 +16,7 @@ Keep the same file names (slugs stay English).
 2. `<html lang="fr">` / `"de"` / `"es"`.
 3. Translate: `<title>` (keep " - Flightlog Japan" at the end), meta description (max ~155 chars), h1/h2, body text, table cells, image `alt`, figcaption words ("Photo" stays fine; "on Unsplash" → "sur Unsplash" / "auf Unsplash" / "en Unsplash"), the `.meta` line, the `.cat` label, excerpts on index cards.
 4. Category labels: Access & Transit → fr "Accès et transports", de "Anreise & Verkehr", es "Acceso y transporte".
-5. Affiliate links: keep every `href` to affiliate.klook.com exactly as is, keep `rel="sponsored noopener" target="_blank"`. Translate "(affiliate link)" → fr "(lien affilié)", de "(Affiliate-Link)", es "(enlace de afiliado)".
+5. Affiliate links: keep every `href` to affiliate.klook.com exactly as is, keep `rel="sponsored noopener" target="_blank"`. Do not add affiliate links that the English page does not have (max 2 per page). Translate "(affiliate link)" → fr "(lien affilié)", de "(Affiliate-Link)", es "(enlace de afiliado)".
 6. Paths (the files sit one or two levels deeper than the English ones):
    - In `<lang>/index.html`: stylesheet `../style.css`, script `../site.js`, brand + "Articles" nav → `index.html`, "About" nav → `../about.html`, footer Privacy → `../privacy.html`, About → `../about.html`, cards → `articles/<slug>.html`.
    - In `<lang>/articles/*.html`: stylesheet `../../style.css`, script `../../site.js`, brand + nav "Articles" + back link → `../index.html`, About → `../../about.html`, Privacy → `../../privacy.html`.
