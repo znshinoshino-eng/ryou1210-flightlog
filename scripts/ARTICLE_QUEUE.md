@@ -23,7 +23,7 @@ Hotel topics (owner's priority, Oct 2026): the angle is "which station/area to s
 - [x] Rush hour in Tokyo: times to avoid, women-only cars, etiquette | first-trip | tokyo -> tokyo-rush-hour-guide
 - [x] Haneda Airport terminals 1, 2 and 3: which one you need and moving between them | getting-around | tokyo -> haneda-terminals-1-2-3-guide
 - [x] Arriving late at Narita or Haneda: last trains, buses and taxis | getting-around | tokyo -> arriving-late-narita-haneda
-- [ ] Nikko day trip from Tokyo: trains, passes and what to see | sightseeing | tokyo
+- [x] Nikko day trip from Tokyo: trains, passes and what to see | sightseeing | tokyo -> nikko-day-trip-from-tokyo
 - [x] Kamakura and Enoshima day trip from Tokyo (Enoden, Hakone Kamakura Pass) | sightseeing | tokyo -> kamakura-enoshima-day-trip
 - [x] Nara day trip from Kyoto or Osaka: which train and what to see | sightseeing | kansai -> nara-day-trip-from-kyoto-osaka
 - [ ] Traveling Japan with kids: child fares, strollers on trains, family seats | first-trip | japan
