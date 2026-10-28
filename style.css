@@ -698,3 +698,13 @@ article.post > .readinfo + p {
 }
 /* a wide table that scrolls sideways can be focused with Tab; show where the focus is */
 article.post table:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+
+/* ---------- 2026-10-28: guides start sooner on the desktop top page, easier "Why Klook" tap ---------- */
+/* desktop: the top-page photo is a little shorter (3:1 instead of 5:2), so the first guide section starts higher */
+@media (min-width: 721px) {
+  .hero-pic img { aspect-ratio: 3 / 1; }
+}
+/* the "Why we link to Klook" toggle gets a finger-sized tap area (was about 23px tall) */
+.why-klook { padding-top: 0; }
+.why-klook summary { padding: 11px 0; }
+.why-klook summary:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }

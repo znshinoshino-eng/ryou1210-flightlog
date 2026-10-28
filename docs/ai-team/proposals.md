@@ -12,3 +12,11 @@ axe: scrollable-region-focusable on 33 pages; landmark-unique on 71 pages; empty
 | 3 | P2 | two menus share the name "Guide sections"; main menu unnamed | site.js sets translated aria-label on nav.site-nav and nav.hero-links | site.js | axe landmark-unique = 0 | none visible. Revert commit |
 
 On hold: empty-table-header (4 articles) — needs article HTML change, out of scope.
+
+## 2026-10-28
+Baseline QA: 80 pages, 0 errors, axe only empty-table-header ×4 (same as 10-25; no regressions).
+
+| # | Pri | Problem (fact) | Plan | Files | Acceptance | Risk / rollback |
+|---|---|---|---|---|---|---|
+| 1 | P2 | Desktop top page: 400px-tall photo pushes all guides below the first screen (first section h2 at y≈945 @1280×800) | ≥721px: `.hero-pic img` aspect-ratio 3/1 (photo 333px) | style.css | h2 ≥60px higher; filter chips visible on first screen @1280×800; phones unchanged (16:9); caption/plane icon not overlapping; QA 0 errors | photo cropped a little more (object-fit: cover). Revert commit |
+| 2 | P2 | "Why we link to Klook" toggle only 23px tall (66 pages) | summary padding 11px 0 (container padding-top 0) + 3px focus outline like tables | style.css | summary ≥44px; opens by click and Enter; focus ring visible; QA 0 errors | affiliate box ~14px taller. Revert commit |

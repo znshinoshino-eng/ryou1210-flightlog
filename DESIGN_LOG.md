@@ -33,3 +33,7 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 - Phones: Spanish and Thai pages no longer scroll sideways; the language button is fully visible (the "Articles" link hides on small screens — the logo goes to the same page).
 - Wide tables can be scrolled with the keyboard; menus have distinct names for screen readers.
 - From now on the full records are in docs/ai-team/ (research, proposals, QA, monitoring, next actions).
+
+## 2026-10-28
+- Desktop: the top-page photo is a little shorter (3:1), so the guide filters and first section appear sooner.
+- The "Why we link to Klook" toggle has a finger-sized tap area and a clear keyboard focus outline.
