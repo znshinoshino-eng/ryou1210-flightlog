@@ -16,3 +16,4 @@
 - 2026-10-26 | train-delays-japan-refunds | Train late? Money back?
 - 2026-10-27 | tokyo-rush-hour-guide | Riding at rush hour?
 - 2026-10-28 | narita-tokyo-tickets-passes | Which way into Tokyo?
+- 2026-10-29 | traveling-japan-with-kids | Do kids pay on trains?
