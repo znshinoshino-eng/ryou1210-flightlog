@@ -27,6 +27,6 @@ Hotel topics (owner's priority, Oct 2026): the angle is "which station/area to s
 - [x] Kamakura and Enoshima day trip from Tokyo (Enoden, Hakone Kamakura Pass) | sightseeing | tokyo -> kamakura-enoshima-day-trip
 - [x] Nara day trip from Kyoto or Osaka: which train and what to see | sightseeing | kansai -> nara-day-trip-from-kyoto-osaka
 - [x] Traveling Japan with kids: child fares, strollers on trains, family seats | first-trip | japan -> traveling-japan-with-kids
-- [ ] Wheelchair and step-free travel on Japanese trains: how to get assistance | first-trip | japan
+- [x] Wheelchair and step-free travel on Japanese trains: how to get assistance | first-trip | japan -> wheelchair-step-free-trains-japan
 - [ ] Green Cars on Tokyo local JR lines (Tokaido, Yokosuka, etc.): how they work | getting-around | tokyo
 - [ ] Plane spotting at Narita: the best public spots and how to get there | plane-spotting | tokyo
