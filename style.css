@@ -398,6 +398,13 @@ article.post h2 { scroll-margin-top: 80px; }
   margin: 0 0 28px !important;
 }
 
+.sources { margin-top: 40px; padding: 14px 18px; border: 1px solid var(--rule); border-radius: var(--radius); font-size: 15px; }
+.sources h2 { font-size: 20px; margin: 0 0 4px; }
+.sources h2::before { display: none; }
+.sources-note { margin: 0 0 8px; color: var(--muted, #5a5f66); }
+.sources ul { margin: 0; padding-left: 20px; }
+.sources li { margin: 4px 0; overflow-wrap: anywhere; }
+
 .related { margin-top: 48px; padding-top: 8px; border-top: 4px solid var(--sign); }
 .related h2::before { display: none; }
 .related-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }

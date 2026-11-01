@@ -3,8 +3,13 @@ import pathlib, subprocess, datetime
 
 from pages import all_pages, root, url_of
 
+# Commits made by the GitHub Action only refresh shared blocks (related guides, tags,
+# sources list) on every page; they are not content updates, so they don't count as
+# "last updated" (otherwise every page would look freshly updated every day).
+SKIP_BOT = ["--invert-grep", "--grep=^Update sitemap and search tags$"]
+
 def lastmod(path):
-    out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)],
+    out = subprocess.run(["git", "log", "-1", "--format=%cs", *SKIP_BOT, "--", str(path)],
                          cwd=root, capture_output=True, text=True).stdout.strip()
     return out or datetime.date.today().isoformat()
 

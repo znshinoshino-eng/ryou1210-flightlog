@@ -32,8 +32,13 @@ def label(lang, d):
     return f"อัปเดต {d.day} {m} {d.year + 543}"
 
 
+# Commits made by the GitHub Action only refresh shared blocks (related guides, tags,
+# sources list) on every page; they are not content updates, so they don't count as
+# "last updated" (otherwise every page would look freshly updated every day).
+SKIP_BOT = ["--invert-grep", "--grep=^Update sitemap and search tags$"]
+
 def last_changed(path):
-    out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)],
+    out = subprocess.run(["git", "log", "-1", "--format=%cs", *SKIP_BOT, "--", str(path)],
                          cwd=root, capture_output=True, text=True).stdout.strip()
     return datetime.date.fromisoformat(out) if out else datetime.date.today()
 
