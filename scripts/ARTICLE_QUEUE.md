@@ -32,7 +32,7 @@ Hotel topics (owner's priority, Oct 2026): the angle is "which station/area to s
 
 ## Research-driven priorities (team meeting 2026-10-30; data: JTA 2025 survey, JTA visitor-friendliness survey FY2025, DBJ/JTBF 2025)
 Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% → 17.9%, seasons 16.9% → 30.7%; regional nights +15–19% vs cities +5%; 45% of visitors with transport trouble couldn't find routes, 38% couldn't find the platform; English-speaking visitors stay 12–15 nights and buy food, clothes, alcohol and crafts.
-- [ ] Japan's new fees and rules for visitors 2026–27: departure tax, Kyoto lodging tax, JR Pass two prices, tax-free refund, card taps, JESTA status (hub that links to our detailed guides) | first-trip | japan
+- [x] Japan's new fees and rules for visitors 2026–27: departure tax, Kyoto lodging tax, JR Pass two prices, tax-free refund, card taps, JESTA status (hub that links to our detailed guides) | first-trip | japan -> japan-new-fees-rules-visitors-2026
 - [ ] Onsen towns you can reach by train from Tokyo: day trips and one-night stays (Hakone, Atami, Kinugawa, Kusatsu) | sightseeing | tokyo
 - [ ] Finding your platform in a big Japanese station: reading signs, line colors and numbers, and asking for help | getting-around | japan
 - [ ] Taking a Japanese kitchen knife home: packing it on trains, at the airport and with the tax-free check | first-trip | japan
