@@ -20,3 +20,13 @@ QA run by an independent sub-agent (round 1: CONDITIONAL PASS), re-test after fi
 - Klook toggle: 23.25 → 45.25px tall at 390 and 1280; click opens; Tab (12 presses) + Enter opens/closes; 3px blue focus ring seen in screenshot.
 - Round-1 issues (P2): height 43.25px < 44 target; default thin focus ring → both fixed, re-tested.
 Limits: no real devices, no Lighthouse; photos blocked so crop of the real image not seen (object-position 50% 55% kept).
+
+## 2026-11-01 — verdict: PASS (合格)
+QA run by an independent sub-agent (PASS in round 1); screenshots also checked in the main session.
+- qa_check.py, 89 pages × 390/1280: exit 0, 0 errors, 0 warnings, 0 overflow, 0 JS errors, 0 broken links. axe: empty-table-header 5 → 0; no rules left.
+- `node --check site.js`: OK.
+- All 5 corner cells are `TD.corner`; background rgb(27,29,32) = neighbouring header; 1px bottom rule = neighbour; header row height equal to
+  neighbours at 390 and 1280; on phones the corner stays pinned (sticky, left 0) while the welcome-suica tables scroll 112px.
+  Before/after measurements identical apart from tag/class. Screenshots: dark header row, no white gap.
+- Tables without an empty corner (taxis-in-japan, japan-rail-passes-worth-it, others) unchanged.
+Limits: no real devices or screen reader; photos/fonts blocked; no Lighthouse.

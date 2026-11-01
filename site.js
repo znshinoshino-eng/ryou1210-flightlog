@@ -65,6 +65,15 @@
     var SWIPE = { en: "Swipe the table sideways to see all columns", fr: "Faites glisser le tableau pour voir toutes les colonnes", de: "Tabelle seitlich wischen, um alle Spalten zu sehen", es: "Desliza la tabla para ver todas las columnas", th: "ปัดตารางไปด้านข้างเพื่อดูทุกคอลัมน์", zh: "左右滑動表格即可查看所有欄位" }[lang];
     var tables = Array.prototype.slice.call(document.querySelectorAll("article.post table"));
     if (!tables.length) return;
+    // an empty top-left corner cell is not a header: make it a plain cell so screen readers don't announce a blank header
+    tables.forEach(function (t) {
+      var c = t.rows[0] && t.rows[0].cells[0];
+      if (!c || c.tagName !== "TH" || c.textContent.trim() || c.children.length) return;
+      var d = document.createElement("td");
+      for (var a = 0; a < c.attributes.length; a++) d.setAttribute(c.attributes[a].name, c.attributes[a].value);
+      d.classList.add("corner");
+      c.parentNode.replaceChild(d, c);
+    });
     var hints = tables.map(function (t) {
       var h = el("p", { "class": "table-hint", "aria-hidden": "true" }, SWIPE + " →");
       t.parentNode.insertBefore(h, t);

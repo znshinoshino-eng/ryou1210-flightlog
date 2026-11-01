@@ -14,3 +14,10 @@
 - No site.js / HTML change (node --check not needed). `?v=` asset hashes are updated by the sitemap workflow (scripts/asset_versions.py).
 - Commands: qa_check.py before/after; playwright measurements (hero height, first h2 top, summary size); screenshots read.
 - Fix rounds: 1 (QA sub-agent: summary was 43.25px with 10px padding → 11px = 45.25px; added custom focus outline).
+
+## 2026-11-01
+- site.js (wide-table block): before adding swipe hints, an empty `<th>` that is the first cell of a table's first row is replaced
+  by `<td class="corner">` (attributes copied). Affects 5 pages (nara, night-bus, tax-free-refund, welcome-suica en/zh).
+- style.css (appended block "2026-11-01"): `article.post table td.corner { background: var(--sign); border-bottom: 1px solid var(--rule); }`.
+- Commands: `node --check site.js` (OK); qa_check.py before/after; Playwright measurements and screenshots by the QA sub-agent.
+- Fix rounds: 0.

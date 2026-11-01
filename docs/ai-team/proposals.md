@@ -20,3 +20,12 @@ Baseline QA: 80 pages, 0 errors, axe only empty-table-header ×4 (same as 10-25;
 |---|---|---|---|---|---|---|
 | 1 | P2 | Desktop top page: 400px-tall photo pushes all guides below the first screen (first section h2 at y≈945 @1280×800) | ≥721px: `.hero-pic img` aspect-ratio 3/1 (photo 333px) | style.css | h2 ≥60px higher; filter chips visible on first screen @1280×800; phones unchanged (16:9); caption/plane icon not overlapping; QA 0 errors | photo cropped a little more (object-fit: cover). Revert commit |
 | 2 | P2 | "Why we link to Klook" toggle only 23px tall (66 pages) | summary padding 11px 0 (container padding-top 0) + 3px focus outline like tables | style.css | summary ≥44px; opens by click and Enter; focus ring visible; QA 0 errors | affiliate box ~14px taller. Revert commit |
+
+## 2026-11-01
+Baseline QA: 89 pages, 0 errors, 0 overflow; axe empty-table-header ×5 (new article added one; known pattern).
+
+| # | Pri | Problem (fact) | Plan | Files | Acceptance | Risk / rollback |
+|---|---|---|---|---|---|---|
+| 1 | P2 | 5 guides have an empty top-left header cell; axe empty-table-header, and screen readers announce a blank column/row header. Previously parked as "needs article HTML", but the article task keeps adding it | site.js: in article tables, if the first cell of the first row is an empty `<th>`, replace it with `<td class="corner">` (attributes kept). style.css: `td.corner` keeps the dark header background and bottom rule | site.js, style.css | axe empty-table-header 5 → 0; QA 0 errors; corner cell looks the same as before at 390/1280 (dark, border); sticky first column on phones still works | without JS the old markup stays (harmless). Revert commit |
+
+Only one change this run: no other fact-based problem found.

@@ -26,3 +26,14 @@ No Lighthouse/real-device run this time.
   targets (or enough spacing); padding/min-height on the target is the usual fix. The W3C Understanding page for 2.5.8 could not
   be fetched this run (permission prompt timed out) — summary came from the technique page via a summarising fetch tool.
 **Limits**: the 23px toggle likely already passes 2.5.8 through its spacing exception; the fix is for comfort on phones (~44px), not a compliance failure.
+
+## 2026-11-01
+**Looked at (own site, local headless Chromium, photos blocked)**
+- Top page, tax-free-refund-japan-airport (new 10-31) and welcome-suica-guide at 390×844 and 1280×800. No new layout problem seen:
+  header fits, short-answer box and filters as before.
+- QA baseline: 89 pages (+9 since 10-28), 0 errors. axe empty-table-header went 4 → 5 pages: the new tax-free guide also has an
+  empty top-left `<th>` (same pattern as nara, night-bus, welcome-suica en/zh). All 5 are the first cell of the first row.
+- W3C WAI tables tutorial, "Tables with two headers" (https://www.w3.org/WAI/tutorials/tables/two-headers/), checked 2026-11-01
+  via a summarising fetch tool: its example marks the empty corner cell as `<td></td>`, not `<th>`.
+**Applicable idea** → turn an empty corner `<th>` into `<td>` with site.js (no article HTML change), keep the dark look with CSS.
+**Limits**: fetch tool summary only; no screen-reader test on a real device.

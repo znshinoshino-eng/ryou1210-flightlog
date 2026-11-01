@@ -708,3 +708,6 @@ article.post table:focus-visible { outline: 3px solid var(--link); outline-offse
 .why-klook { padding-top: 0; }
 .why-klook summary { padding: 11px 0; }
 .why-klook summary:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+
+/* ---------- 2026-11-01: empty table corner cell (made a plain cell by site.js) keeps the dark header look ---------- */
+article.post table td.corner { background: var(--sign); border-bottom: 1px solid var(--rule); }

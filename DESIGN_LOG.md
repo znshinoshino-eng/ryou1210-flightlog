@@ -37,3 +37,6 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 ## 2026-10-28
 - Desktop: the top-page photo is a little shorter (3:1), so the guide filters and first section appear sooner.
 - The "Why we link to Klook" toggle has a finger-sized tap area and a clear keyboard focus outline.
+
+## 2026-11-01
+- Comparison tables with an empty top-left cell no longer have a blank "header" read out by screen readers (looks the same as before).
