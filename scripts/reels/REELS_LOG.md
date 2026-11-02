@@ -19,3 +19,4 @@
 - 2026-10-29 | traveling-japan-with-kids | Do kids pay on trains?
 - 2026-10-30 | wheelchair-step-free-trains-japan | Wheelchair in Japan? Do this first | -
 - 2026-11-01 | tax-free-refund-japan-airport | Tax-free in Japan just changed | -
+- 2026-11-02 | japan-new-fees-rules-visitors-2026 | 4 Japan travel updates for 2026 | -
