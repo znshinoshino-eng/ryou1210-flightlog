@@ -34,7 +34,7 @@ Hotel topics (owner's priority, Oct 2026): the angle is "which station/area to s
 Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% → 17.9%, seasons 16.9% → 30.7%; regional nights +15–19% vs cities +5%; 45% of visitors with transport trouble couldn't find routes, 38% couldn't find the platform; English-speaking visitors stay 12–15 nights and buy food, clothes, alcohol and crafts.
 - [x] Japan's new fees and rules for visitors 2026–27: departure tax, Kyoto lodging tax, JR Pass two prices, tax-free refund, card taps, JESTA status (hub that links to our detailed guides) | first-trip | japan -> japan-new-fees-rules-visitors-2026
 - [x] Onsen towns you can reach by train from Tokyo: day trips and one-night stays (Hakone, Atami, Kinugawa, Kusatsu) | sightseeing | tokyo -> onsen-towns-by-train-from-tokyo
-- [ ] Finding your platform in a big Japanese station: reading signs, line colors and numbers, and asking for help | getting-around | japan
+- [x] Finding your platform in a big Japanese station: reading signs, line colors and numbers, and asking for help | getting-around | japan -> finding-your-platform-japan-stations
 - [ ] Taking a Japanese kitchen knife home: packing it on trains, at the airport and with the tax-free check | first-trip | japan
 - [ ] Snow and ski day trips by shinkansen from Tokyo (Echigo-Yuzawa, GALA Yuzawa): tickets, skis on trains, timing | sightseeing | tokyo
 - [ ] Narita or Haneda? Which Tokyo airport to fly into, judged by trains, time and fares | getting-around | tokyo
