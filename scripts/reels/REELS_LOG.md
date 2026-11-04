@@ -21,3 +21,4 @@
 - 2026-11-01 | tax-free-refund-japan-airport | Tax-free in Japan just changed | -
 - 2026-11-02 | japan-new-fees-rules-visitors-2026 | 4 Japan travel updates for 2026 | -
 - 2026-11-03 | kansai-airport-to-osaka-kyoto | Landing at KIX? Pick by hotel | -
+- 2026-11-04 | kyoto-osaka-getting-around | Kyoto's bus day pass is gone | -
