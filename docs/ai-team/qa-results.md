@@ -30,3 +30,16 @@ QA run by an independent sub-agent (PASS in round 1); screenshots also checked i
   Before/after measurements identical apart from tag/class. Screenshots: dark header row, no white gap.
 - Tables without an empty corner (taxis-in-japan, japan-rail-passes-worth-it, others) unchanged.
 Limits: no real devices or screen reader; photos/fonts blocked; no Lighthouse.
+
+## 2026-11-04 — verdict: PASS (合格)
+QA run by an independent sub-agent (PASS, one P2 note), fix and re-test in the main session.
+- qa_check.py, 96 pages × 390/1280: exit 0, 0 errors, 0 warnings, 0 overflow, 0 JS errors, 0 broken links, axe 0 rules (before and after; re-run after the fix too).
+- `node --check site.js`: OK.
+- Skip link (10 pages incl. en/fr/de/es/th/zh index, article, about, contact, privacy × 390/1280): exactly one skip link and one `#main` per page;
+  hidden above the viewport before any key press (bottom −41/−43px); header box, main top, page width/height identical to HEAD;
+  first Tab shows it fully at (8,8), ~157×49px (widest de 208px), yellow/dark text; Enter → focus on MAIN (no outline), next Tab lands inside main
+  (breadcrumb / "All" filter / back link), never in the header. From mid-page the jump ends with main just below the sticky header.
+  Contents box, swipe hints and "Keep reading" still present; no JS page errors.
+- Only page without `<main>`: google verification stub (script not loaded there; code returns early anyway).
+- Round-1 issue (P2): 3px focus ring was `--sign` (near-black) → invisible on the dark header → now white; screenshot re-checked.
+Limits: no real devices, no screen reader, photos/fonts blocked; no Lighthouse.

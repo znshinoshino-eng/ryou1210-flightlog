@@ -21,3 +21,11 @@
 - style.css (appended block "2026-11-01"): `article.post table td.corner { background: var(--sign); border-bottom: 1px solid var(--rule); }`.
 - Commands: `node --check site.js` (OK); qa_check.py before/after; Playwright measurements and screenshots by the QA sub-agent.
 - Fix rounds: 0.
+
+## 2026-11-04
+- site.js (after the menu-name block): skip-link block — translated text (en/fr/de/es/th/zh), `main.id="main"` and `tabindex="-1"` if missing,
+  `<a class="skip-link" href="#main">` inserted first in `<body>`; returns early when there is no `<main>` or a skip link already exists.
+- style.css (appended block "2026-11-04"): `.skip-link` fixed top-left, `transform: translateY(-200%)` until `:focus`; yellow box, dark bold text,
+  white 3px focus ring; `main[tabindex="-1"]:focus { outline: none }`; `main#main { scroll-margin-top: 128px }`.
+- Commands: `node --check site.js` (OK); qa_check.py before/after; Playwright Tab/Enter test on 5 pages × 2 widths; screenshots read.
+- Fix rounds: 1 (QA P2: the focus ring was near-black and invisible on the dark header → changed to white; re-tested).

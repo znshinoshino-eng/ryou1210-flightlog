@@ -718,3 +718,14 @@ article.post table:focus-visible { outline: 3px solid var(--link); outline-offse
 
 /* ---------- 2026-11-01: empty table corner cell (made a plain cell by site.js) keeps the dark header look ---------- */
 article.post table td.corner { background: var(--sign); border-bottom: 1px solid var(--rule); }
+
+/* ---------- 2026-11-04: "Skip to content" link for keyboard users (added by site.js) ---------- */
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 100;
+  padding: 10px 16px; background: var(--yellow); color: var(--sign);
+  font-weight: 700; text-decoration: none; border-radius: 4px;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; outline: 3px solid #fff; outline-offset: 2px; }
+main[tabindex="-1"]:focus { outline: none; }
+main#main { scroll-margin-top: 128px; }

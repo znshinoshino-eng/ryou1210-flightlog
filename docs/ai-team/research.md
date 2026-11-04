@@ -37,3 +37,18 @@ No Lighthouse/real-device run this time.
   via a summarising fetch tool: its example marks the empty corner cell as `<td></td>`, not `<th>`.
 **Applicable idea** → turn an empty corner `<th>` into `<td>` with site.js (no article HTML change), keep the dark look with CSS.
 **Limits**: fetch tool summary only; no screen-reader test on a real device.
+
+## 2026-11-04
+**Looked at (own site, local headless Chromium, photos blocked)**
+- Top page, finding-your-platform-japan-stations (new 11-03) and onsen-towns-by-train-from-tokyo at 390×844 and 1280×800.
+  No layout problem: header fits, short-answer box, contents, tables with swipe hint, "Keep reading", footer as before.
+- QA baseline: 96 pages (+7 since 11-01), 0 errors, 0 axe rules.
+- Wide-table sweep at 390px: 25 tables on 24 guides show the swipe hint; all really overflow (most 468 vs 356px).
+  contactless-credit-card-trains (366/356) and hiroshima-miyajima (368/356) overflow only 10–12px — hint is correct but borderline (not acted on).
+- Keyboard: no "skip to content" link on any page. Keyboard users press Tab 7–8 times (EN, logo + menu + 4 section links)
+  before reaching anything inside `<main>` on every page (4–5 times on translated pages). Every page has exactly one `<main class="wrap">`.
+- W3C technique G1 (skip link, WCAG 2.4.1 Bypass Blocks; https://www.w3.org/WAI/WCAG22/Techniques/general/G1): fetch was not
+  approved in time (unattended run), so not re-read this run. The site already passes 2.4.1 through the `<main>` landmark; a visible-on-focus
+  skip link is the common extra for sighted keyboard users (from general knowledge, not a fetched source).
+**Applicable idea** → add a skip link with site.js (no HTML change to 96 pages).
+**Limits**: no external source fetched this run; no real devices or screen reader.

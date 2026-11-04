@@ -29,3 +29,12 @@ Baseline QA: 89 pages, 0 errors, 0 overflow; axe empty-table-header ×5 (new art
 | 1 | P2 | 5 guides have an empty top-left header cell; axe empty-table-header, and screen readers announce a blank column/row header. Previously parked as "needs article HTML", but the article task keeps adding it | site.js: in article tables, if the first cell of the first row is an empty `<th>`, replace it with `<td class="corner">` (attributes kept). style.css: `td.corner` keeps the dark header background and bottom rule | site.js, style.css | axe empty-table-header 5 → 0; QA 0 errors; corner cell looks the same as before at 390/1280 (dark, border); sticky first column on phones still works | without JS the old markup stays (harmless). Revert commit |
 
 Only one change this run: no other fact-based problem found.
+
+## 2026-11-04
+Baseline QA: 96 pages, 0 errors, 0 overflow, 0 axe rules (no regressions).
+
+| # | Pri | Problem (fact) | Plan | Files | Acceptance | Risk / rollback |
+|---|---|---|---|---|---|---|
+| 1 | P2 | No way to skip the header: 7–8 Tab presses on EN pages (4–5 translated) before reaching the guide, on every page | site.js inserts a translated "Skip to content" link as the first element of `<body>`, gives `<main>` id="main" + tabindex="-1"; style.css hides it off-screen until focused (yellow box, top-left) | site.js, style.css | first Tab shows the link; Enter → focus in main, next Tab inside main; nothing visible for mouse users; header layout unchanged; QA 0 errors, axe 0 | none for mouse users; without JS nothing changes. Revert commit |
+
+Only one change this run: no other fact-based problem found (tables/swipe hints all correct).

@@ -60,6 +60,17 @@
     if (jump) jump.setAttribute("aria-label", JUMP);
   })();
 
+  // Keyboard users: a "Skip to content" link (first Tab stop, shown only when focused) jumps past the two menus
+  (function () {
+    var SKIP = { en: "Skip to content", fr: "Aller au contenu", de: "Zum Inhalt springen", es: "Saltar al contenido", th: "ข้ามไปยังเนื้อหา", zh: "跳至主要內容" }[lang];
+    var main = document.querySelector("main");
+    if (!main || document.querySelector("a.skip-link")) return;
+    if (!main.id) main.id = "main";
+    if (!main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
+    var a = el("a", { "class": "skip-link", href: "#" + main.id }, SKIP);
+    document.body.insertBefore(a, document.body.firstChild);
+  })();
+
   // Wide tables on phones: say they can be swiped sideways (only while they overflow)
   (function () {
     var SWIPE = { en: "Swipe the table sideways to see all columns", fr: "Faites glisser le tableau pour voir toutes les colonnes", de: "Tabelle seitlich wischen, um alle Spalten zu sehen", es: "Desliza la tabla para ver todas las columnas", th: "ปัดตารางไปด้านข้างเพื่อดูทุกคอลัมน์", zh: "左右滑動表格即可查看所有欄位" }[lang];

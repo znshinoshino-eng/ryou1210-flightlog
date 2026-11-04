@@ -40,3 +40,6 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 
 ## 2026-11-01
 - Comparison tables with an empty top-left cell no longer have a blank "header" read out by screen readers (looks the same as before).
+
+## 2026-11-04
+- Keyboard users get a "Skip to content" link (first Tab press, in each language) that jumps past the menus straight to the guide; invisible for mouse and touch users.
