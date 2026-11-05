@@ -35,7 +35,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] Japan's new fees and rules for visitors 2026â€“27: departure tax, Kyoto lodging tax, JR Pass two prices, tax-free refund, card taps, JESTA status (hub that links to our detailed guides) | first-trip | japan -> japan-new-fees-rules-visitors-2026
 - [x] Onsen towns you can reach by train from Tokyo: day trips and one-night stays (Hakone, Atami, Kinugawa, Kusatsu) | sightseeing | tokyo -> onsen-towns-by-train-from-tokyo
 - [x] Finding your platform in a big Japanese station: reading signs, line colors and numbers, and asking for help | getting-around | japan -> finding-your-platform-japan-stations
-- [ ] Taking a Japanese kitchen knife home: packing it on trains, at the airport and with the tax-free check | first-trip | japan
+- [x] Taking a Japanese kitchen knife home: packing it on trains, at the airport and with the tax-free check | first-trip | japan -> japanese-kitchen-knife-take-home
 - [ ] Snow and ski day trips by shinkansen from Tokyo (Echigo-Yuzawa, GALA Yuzawa): tickets, skis on trains, timing | sightseeing | tokyo
 - [ ] Narita or Haneda? Which Tokyo airport to fly into, judged by trains, time and fares | getting-around | tokyo
 - [ ] Local buses in Japan: how to pay, get on and get off (IC cards, numbered tickets, fare displays) | getting-around | japan
