@@ -23,3 +23,4 @@
 - 2026-11-03 | kansai-airport-to-osaka-kyoto | Landing at KIX? Pick by hotel | -
 - 2026-11-04 | kyoto-osaka-getting-around | Kyoto's bus day pass is gone | -
 - 2026-11-05 | private-car-transfer-chauffeur-tokyo | When a private car beats the train | -
+- 2026-11-06 | japanese-kitchen-knife-take-home | Bought a knife in Japan? Do this | -
