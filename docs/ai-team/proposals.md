@@ -38,3 +38,12 @@ Baseline QA: 96 pages, 0 errors, 0 overflow, 0 axe rules (no regressions).
 | 1 | P2 | No way to skip the header: 7–8 Tab presses on EN pages (4–5 translated) before reaching the guide, on every page | site.js inserts a translated "Skip to content" link as the first element of `<body>`, gives `<main>` id="main" + tabindex="-1"; style.css hides it off-screen until focused (yellow box, top-left) | site.js, style.css | first Tab shows the link; Enter → focus in main, next Tab inside main; nothing visible for mouse users; header layout unchanged; QA 0 errors, axe 0 | none for mouse users; without JS nothing changes. Revert commit |
 
 Only one change this run: no other fact-based problem found (tables/swipe hints all correct).
+
+## 2026-11-08
+Baseline QA: 97 pages, 0 errors, 0 overflow, 0 axe rules (no regressions).
+
+| # | Pri | Problem (fact) | Plan | Files | Acceptance | Risk / rollback |
+|---|---|---|---|---|---|---|
+| 1 | P2 | 6 three-column tables overflow by 1–12px at 390px (4 show "Swipe" hint for a few px; right edge cut); at 360px all 59 three-column tables overflow | ≤720px: cells of tables with exactly 3 columns get min-width 96px (2-col and 4+-col tables untouched) | style.css | 390px: 0 three-column tables overflow, hints hidden; 4+/2-col tables and 1280px identical; text not clipped; QA 0 errors, axe 0 | narrower columns → some tables a little taller (≈20–100px). Revert commit |
+
+Only one change this run. Sources-box link text parked (needs scripts/ change, owner's call).

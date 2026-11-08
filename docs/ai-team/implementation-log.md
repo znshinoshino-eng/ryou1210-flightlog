@@ -29,3 +29,9 @@
   white 3px focus ring; `main[tabindex="-1"]:focus { outline: none }`; `main#main { scroll-margin-top: 128px }`.
 - Commands: `node --check site.js` (OK); qa_check.py before/after; Playwright Tab/Enter test on 5 pages × 2 widths; screenshots read.
 - Fix rounds: 1 (QA P2: the focus ring was near-black and invisible on the dark header → changed to white; re-tested).
+
+## 2026-11-08
+- style.css (appended block "2026-11-08"): `@media (max-width:720px)` — `article.post table:has(tr > :nth-child(3)):not(:has(tr > :nth-child(4)))` th/td `min-width: 96px`.
+  No site.js / HTML change (node --check not needed).
+- Commands: qa_check.py before/after; Playwright measurement of all 3-column tables at 360/390 with the CSS injected (before committing); screenshots read.
+- Fix rounds: 0.

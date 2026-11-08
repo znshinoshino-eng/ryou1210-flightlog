@@ -729,3 +729,9 @@ article.post table td.corner { background: var(--sign); border-bottom: 1px solid
 .skip-link:focus { transform: none; outline: 3px solid #fff; outline-offset: 2px; }
 main[tabindex="-1"]:focus { outline: none; }
 main#main { scroll-margin-top: 128px; }
+
+/* ---------- 2026-11-08: three-column tables fit a phone screen (no sideways swipe needed) ---------- */
+@media (max-width: 720px) {
+  article.post table:has(tr > :nth-child(3)):not(:has(tr > :nth-child(4))) th,
+  article.post table:has(tr > :nth-child(3)):not(:has(tr > :nth-child(4))) td { min-width: 96px; }
+}

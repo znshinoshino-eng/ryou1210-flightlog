@@ -43,3 +43,6 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 
 ## 2026-11-04
 - Keyboard users get a "Skip to content" link (first Tab press, in each language) that jumps past the menus straight to the guide; invisible for mouse and touch users.
+
+## 2026-11-08
+- Phones: three-column tables (e.g. airport knife rules, hotel areas) now fit the screen, so there is no swipe needed and no cut-off right edge.

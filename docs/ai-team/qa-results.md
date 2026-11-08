@@ -43,3 +43,14 @@ QA run by an independent sub-agent (PASS, one P2 note), fix and re-test in the m
 - Only page without `<main>`: google verification stub (script not loaded there; code returns early anyway).
 - Round-1 issue (P2): 3px focus ring was `--sign` (near-black) → invisible on the dark header → now white; screenshot re-checked.
 Limits: no real devices, no screen reader, photos/fonts blocked; no Lighthouse.
+
+## 2026-11-08 — verdict: PASS (合格)
+QA run by an independent sub-agent (PASS in round 1, three P2 notes); screenshot also checked in the main session.
+- qa_check.py, 97 pages × 390/1280: exit 0, 0 errors, 0 warnings, 0 overflow, 0 JS errors, 0 broken links, axe 0 rules (same as before).
+- Baseline copy (HEAD style.css) vs change, 140 tables on 85 pages at 360/390/1280: 390px — the 6 overflowing 3-column tables now fit
+  (e.g. knife 361→356, hiroshima 368→356), hints hidden, tabindex removed; 360px — 3-column overflow 59 → 3 (contactless 12px with hint;
+  kyoto-station, zh/shinjuku 1px). All 40 tables with 4+ columns, 41 with ≤2 columns and all tables at 1280px: identical size.
+- Screenshots (knife @390, where-to-stay-kyoto @390, zh/shinjuku @390, kyoto-station @360): nothing clipped, wraps at spaces/hyphens, dark header row and borders correct.
+- P2 notes (not blocking): (a) at 360px a 1px overflow gets tabindex but no hint (site.js uses 0px vs 2px tolerance; existed before);
+  (b) contactless table still 12px too wide at 360px (hint shown); (c) pre-existing page-level overflow at 360px on zh ic-cards (24px), zh welcome-suica (20px), 3 es pages (1px) — QA only checks 390px.
+Limits: no real devices, photos/fonts blocked; no Lighthouse.
