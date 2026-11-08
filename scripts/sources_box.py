@@ -14,7 +14,7 @@ from pages import all_pages, root, lang_of
 
 START, END = "<!-- sources-box:start -->", "<!-- sources-box:end -->"
 MAX_ORGS = 8
-PER_ORG = 4
+PER_ORG = 5
 SKIP_HOSTS = ("unsplash.com", "klook.com", "google.com", "apps.apple.com", "play.google.com")
 
 HEADING = {"en": "Sources", "fr": "Sources", "de": "Quellen", "es": "Fuentes",
@@ -44,24 +44,64 @@ NAMES = {
     "tokyo-monorail.co.jp": "Tokyo Monorail", "osakametro.co.jp": "Osaka Metro", "usj.co.jp": "Universal Studios Japan",
     "jreast-shinkansen-reservation.eastjr.co.jp": "JR East (eki-net)", "eki-net.com": "JR East (eki-net)",
     "kyotobus.jp": "Kyoto Bus", "hakonenavi.jp": "Odakyu Hakone", "odakyu.jp": "Odakyu",
+    "keishicho.metro.tokyo.lg.jp": "Tokyo Metropolitan Police Department", "pref.kagoshima.jp": "Kagoshima Prefecture",
+    "post.japanpost.jp": "Japan Post", "tsa.gov": "TSA (United States)", "gov.uk": "UK government",
+    "keio.co.jp": "Keio", "tokyu.co.jp": "Tokyu", "hankyu.co.jp": "Hankyu", "keisei.co.jp": "Keisei Electric Railway",
+    "keihan.co.jp": "Keihan", "jr-odekake.net": "JR West", "jrbuskanto.co.jp": "JR Bus Kanto",
+    "nishinihonjrbus.co.jp": "West JR Bus", "gotokyo.org": "GO TOKYO (Tokyo official travel guide)",
+    "narashikanko.or.jp": "Nara City Tourism Association", "enoden.co.jp": "Enoden (Enoshima Electric Railway)",
 }
 
 
 def org_of(url):
     host = (urlparse(url).hostname or "").lower()
     bare = host[4:] if host.startswith("www.") else host
-    return NAMES.get(host) or NAMES.get(bare) or bare
+    if host in NAMES:
+        return NAMES[host]
+    # a sub-site (faq.westjr.co.jp, subway.osakametro.co.jp) belongs to the same operator as its parent domain
+    parts = bare.split(".")
+    for i in range(len(parts) - 1):
+        name = NAMES.get(".".join(parts[i:]))
+        if name:
+            return name
+    return bare
 
 
-def page_label(url):
-    """Short, readable name for one page: the last part of its address."""
+GENERIC = {"en": "page", "fr": "page", "de": "Seite", "es": "página", "th": "หน้าเว็บ", "zh": "網頁"}
+
+
+def page_key(url):
+    """The last part of a page's address, used to list the same page in two languages only once."""
     path = urlparse(url).path.rstrip("/")
     last = path.rsplit("/", 1)[-1] if path else ""
-    last = re.sub(r"\.(html?|php|aspx?)$", "", last)
+    last = re.sub(r"\.(html?|php|aspx?|pdf)$", "", last, flags=re.I)
     last = re.sub(r"[-_]+", " ", last).strip()
     if not last or last.lower() == "index":
         last = (urlparse(url).hostname or "").removeprefix("www.")
-    return last[:40] + ("…" if len(last) > 40 else "")
+    return last
+
+
+def readable(words):
+    """True when an address part reads like words ("check in"), not a code ("page01 000001 00027", "20")."""
+    letters = sum(c.isalpha() for c in words)
+    digits = sum(c.isdigit() for c in words)
+    return letters >= 3 and letters > digits
+
+
+def page_labels(lang, links):
+    """Link text for each page: its readable name, or "page 1", "page 2" for code-like addresses; PDFs say so."""
+    generic = [u for u in links if not readable(page_key(u))]
+    out = []
+    for u in links:
+        key = page_key(u)
+        if readable(key):
+            text = key[:40] + ("…" if len(key) > 40 else "")
+        else:
+            text = GENERIC[lang] + (f" {generic.index(u) + 1}" if len(generic) > 1 else "")
+        if urlparse(u).path.lower().endswith(".pdf"):
+            text += " (PDF)"
+        out.append(text)
+    return out
 
 
 def urls_from(comment):
@@ -83,12 +123,13 @@ def build(lang, urls):
     for url in urls:
         links = groups.setdefault(org_of(url), [])
         # Same page in two languages (…/en/x.html and …/x.html) is listed once.
-        if all(page_label(u) != page_label(url) for u in links):
+        if all(page_key(u) != page_key(url) for u in links):
             links.append(url)
     items = []
     for org, links in list(groups.items())[:MAX_ORGS]:
-        parts = [f'<a href="{html.escape(u, quote=True)}" target="_blank" rel="noopener">{html.escape(page_label(u))}</a>'
-                 for u in links[:PER_ORG]]
+        shown = links[:PER_ORG]
+        parts = [f'<a href="{html.escape(u, quote=True)}" target="_blank" rel="noopener">{html.escape(t)}</a>'
+                 for u, t in zip(shown, page_labels(lang, shown))]
         items.append(f"      <li><strong>{html.escape(org)}</strong>: " + " · ".join(parts) + "</li>")
     return (f"{START}\n  <section class=\"sources\" aria-labelledby=\"sources-h\">\n"
             f"    <h2 id=\"sources-h\">{HEADING[lang]}</h2>\n"

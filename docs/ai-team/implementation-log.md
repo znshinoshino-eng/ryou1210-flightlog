@@ -35,3 +35,11 @@
   No site.js / HTML change (node --check not needed).
 - Commands: qa_check.py before/after; Playwright measurement of all 3-column tables at 360/390 with the CSS injected (before committing); screenshots read.
 - Fix rounds: 0.
+
+## 2026-11-08 (2) — owner asked "直して" (fix the Sources link text); scripts/ change approved by the owner for this task
+- scripts/sources_box.py: link text is the page's readable name only when the address reads like words; code-like addresses
+  ("20", "001291790.pdf", "page01_000001_00027") now show "page 1", "page 2" … (translated: Seite, página, หน้าเว็บ, 網頁); PDFs get "(PDF)".
+  Sub-sites are grouped under their operator (faq.westjr.co.jp → JR West); 15 more operator names (police, Japan Post, Keio, Tokyu …).
+  PER_ORG 4 → 5 so grouping never drops a link (net: no link removed, ~20 official links from the existing comments now shown).
+- Regenerated: 57 article pages (only lines inside the sources box changed; checked with git diff). Re-run is idempotent (0 pages updated).
+- QA: qa_check.py 99 pages × 390/1280: exit 0, 0 errors, axe 0 rules; sources box screenshot at 390 read.
