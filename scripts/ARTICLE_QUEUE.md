@@ -36,7 +36,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] Onsen towns you can reach by train from Tokyo: day trips and one-night stays (Hakone, Atami, Kinugawa, Kusatsu) | sightseeing | tokyo -> onsen-towns-by-train-from-tokyo
 - [x] Finding your platform in a big Japanese station: reading signs, line colors and numbers, and asking for help | getting-around | japan -> finding-your-platform-japan-stations
 - [x] Taking a Japanese kitchen knife home: packing it on trains, at the airport and with the tax-free check | first-trip | japan -> japanese-kitchen-knife-take-home
-- [ ] Snow and ski day trips by shinkansen from Tokyo (Echigo-Yuzawa, GALA Yuzawa): tickets, skis on trains, timing | sightseeing | tokyo
+- [x] Snow and ski day trips by shinkansen from Tokyo (Echigo-Yuzawa, GALA Yuzawa): tickets, skis on trains, timing | sightseeing | tokyo -> ski-day-trip-gala-yuzawa-shinkansen
 - [ ] Narita or Haneda? Which Tokyo airport to fly into, judged by trains, time and fares | getting-around | tokyo
 - [ ] Local buses in Japan: how to pay, get on and get off (IC cards, numbered tickets, fare displays) | getting-around | japan
 - [ ] Historic towns you can reach by JR: Kanazawa, Takayama, Kurashiki and Kawagoe | sightseeing | japan
