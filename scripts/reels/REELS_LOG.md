@@ -26,3 +26,4 @@
 - 2026-11-06 | japanese-kitchen-knife-take-home | Bought a knife in Japan? Do this | -
 - 2026-11-08 | tokyo-train-network-jr-metro-toei | Tokyo's trains aren't ONE system | -
 - 2026-11-09 | tokyo-station-guide | Don't miss this at Tokyo Station | -
+- 2026-11-10 | shinjuku-station-guide | 4 things I wish I knew about Shinjuku | -
