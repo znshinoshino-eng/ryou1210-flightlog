@@ -735,3 +735,12 @@ main#main { scroll-margin-top: 128px; }
   article.post table:has(tr > :nth-child(3)):not(:has(tr > :nth-child(4))) th,
   article.post table:has(tr > :nth-child(3)):not(:has(tr > :nth-child(4))) td { min-width: 96px; }
 }
+
+/* ---------- 2026-11-11: no sideways page scroll on small phones (360px) ---------- */
+@media (max-width: 380px) {
+  /* a long run with no break point (e.g. Chinese "¥1,000、¥2,000、…") may wrap instead of widening the page;
+     break-word only acts when a word would overflow; table cells keep their normal wrapping */
+  article.post p, article.post li { overflow-wrap: break-word; }
+  /* Spanish "Sobre nosotros" + language button were 1px too wide next to the logo */
+  header.site-header .wrap { gap: 8px; }
+}

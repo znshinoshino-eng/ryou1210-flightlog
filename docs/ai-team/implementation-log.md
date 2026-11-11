@@ -43,3 +43,12 @@
   PER_ORG 4 → 5 so grouping never drops a link (net: no link removed, ~20 official links from the existing comments now shown).
 - Regenerated: 57 article pages (only lines inside the sources box changed; checked with git diff). Re-run is idempotent (0 pages updated).
 - QA: qa_check.py 99 pages × 390/1280: exit 0, 0 errors, axe 0 rules; sources box screenshot at 390 read.
+
+## 2026-11-11
+- style.css (appended block "2026-11-11"): `@media (max-width:380px)` — `article.post p, article.post li { overflow-wrap: break-word }`;
+  `header.site-header .wrap { gap: 8px }`. No site.js / HTML change (node --check not needed).
+- docs/ai-team/tools/qa_check.py: also loads every page at 360px (overflow + JS errors; no axe/screenshots there); overflow threshold `sw > width`.
+- Commands: qa_check.py before/after; Playwright sweep of 103 pages at 360 (6 → 0 overflowing); before/after size comparison of every
+  table, article p/li and header at 360/390/1280 (only the 2 zh pages change, at 360 only); screenshots read.
+- Fix rounds: 1 (QA round 1: first version applied break-word to all of article.post at every width → changed wrapping at 390 and a
+  table cell; narrowed to p/li at ≤380px).

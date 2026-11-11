@@ -47,3 +47,6 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 ## 2026-11-08
 - Phones: three-column tables (e.g. airport knife rules, hotel areas) now fit the screen, so there is no swipe needed and no cut-off right edge.
 - Sources lists: links read "page 1", "page 2 (PDF)" instead of address codes like "001291790.pdf", and show the organisation's name (e.g. Tokyo Metropolitan Police Department).
+
+## 2026-11-11
+- Small phones (360px wide): no page scrolls sideways any more (two Chinese Suica guides with a long price list, and the Spanish header that was 1px too wide).

@@ -47,3 +47,13 @@ Baseline QA: 97 pages, 0 errors, 0 overflow, 0 axe rules (no regressions).
 | 1 | P2 | 6 three-column tables overflow by 1–12px at 390px (4 show "Swipe" hint for a few px; right edge cut); at 360px all 59 three-column tables overflow | ≤720px: cells of tables with exactly 3 columns get min-width 96px (2-col and 4+-col tables untouched) | style.css | 390px: 0 three-column tables overflow, hints hidden; 4+/2-col tables and 1280px identical; text not clipped; QA 0 errors, axe 0 | narrower columns → some tables a little taller (≈20–100px). Revert commit |
 
 Only one change this run. Sources-box link text parked (needs scripts/ change, owner's call).
+
+## 2026-11-11
+Baseline QA: 103 pages, 0 errors, 0 overflow at 390/1280, 0 axe rules (no regressions).
+
+| # | Pri | Problem (fact) | Plan | Files | Acceptance | Risk / rollback |
+|---|---|---|---|---|---|---|
+| 1 | P2 | At 360px (small Android) 6 pages scroll sideways: 2 zh guides (+24/+20px, unbreakable yen list), 4 es pages (+1px, header) | ≤380px only: `overflow-wrap: break-word` on article p/li; header gap 12→8px | style.css | 360px: 0 pages overflow; 390/1280: no element size change; tables unchanged; header on one row; QA 0 errors, axe 0 | one price may split across lines at 360px on the 2 zh pages (better than sideways scroll). Revert commit |
+| 2 | P2 | qa_check.py only tested 390/1280, so 360px overflow went unnoticed | add 360px (overflow + JS errors only); overflow threshold `> width` (was `> width+1`, missed the 1px es case) | docs/ai-team/tools/qa_check.py | old CSS → 6 pages flagged at 360; new → 0 | longer run (~+1.5 min). Revert commit |
+
+Parked: site.js tabindex/hint tolerance alignment (a 2px tolerance for tabindex could trigger axe scrollable-region-focusable on 1–2px overflow; no user-visible gain shown).

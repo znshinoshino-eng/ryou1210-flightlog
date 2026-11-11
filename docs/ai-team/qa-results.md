@@ -54,3 +54,15 @@ QA run by an independent sub-agent (PASS in round 1, three P2 notes); screenshot
 - P2 notes (not blocking): (a) at 360px a 1px overflow gets tabindex but no hint (site.js uses 0px vs 2px tolerance; existed before);
   (b) contactless table still 12px too wide at 360px (hint shown); (c) pre-existing page-level overflow at 360px on zh ic-cards (24px), zh welcome-suica (20px), 3 es pages (1px) — QA only checks 390px.
 Limits: no real devices, photos/fonts blocked; no Lighthouse.
+
+## 2026-11-11 — verdict: PASS (合格) after 1 fix round
+QA round 1 by an independent sub-agent: CONDITIONAL PASS with 3 P2 notes, all handled in the main session:
+- P2-1 first version (`article.post { overflow-wrap: break-word }` at all widths) also changed wrapping at 390 (2 zh paragraphs, and a comma
+  alone on a line in the narita-or-haneda table cell "Hamamatsucho, Tokyo Monorail"). Fix: only p/li, only ≤380px. Re-test: element sizes of
+  all tables, article p/li and header identical to HEAD at 390 and 1280 on 103 pages; at 360 only the 2 zh pages change.
+- P2-2 the new 360 check used `> width+1` and would miss the 1px es header case. Fix: `> width`.
+- P2-3 `__pycache__` created by py_compile — deleted, not committed.
+Round 2 (main session): qa_check.py 103 pages × 360/390/1280: exit 0, 0 errors, 0 warnings, axe 0 rules. 360px sweep: 6 → 0 pages overflow.
+Screenshots read: zh/welcome-suica @360 (wraps, nothing clipped; "¥5 / ,000" splits across a line — accepted trade-off), es header @360
+(logo, "Sobre nosotros", ES on one row). Sub-agent keyboard check es @360: Tab reaches ES menu, Enter opens/closes it.
+Limits: no real devices, photos/fonts blocked; no Lighthouse.

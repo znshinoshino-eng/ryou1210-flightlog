@@ -1,7 +1,7 @@
 """Flightlog Japan QA check (used by the AI team's QA step).
 
 Serves the repo locally, opens every page at phone (390px) and desktop (1280px)
-width in headless Chromium, and reports:
+width in headless Chromium (plus 360px small phones for overflow and JS errors), and reports:
   - horizontal overflow (page wider than the screen)
   - JavaScript errors (uncaught errors and console.error)
   - broken internal links (href to a local file that does not exist)
@@ -55,7 +55,7 @@ def main():
     files = pages(a.pages)
     with sync_playwright() as p:
         b = p.chromium.launch()
-        for width in (390, 1280):
+        for width in (360, 390, 1280):  # 360 = small Android: overflow + JS errors only
             ctx = b.new_context(viewport={"width": width, "height": 900})
             ctx.route("**/*", lambda r: r.continue_() if r.request.url.startswith(base) else r.abort())
             page = ctx.new_page()
@@ -67,7 +67,7 @@ def main():
                 page.goto(base + f, wait_until="load")
                 page.wait_for_timeout(300)
                 sw = page.evaluate("document.documentElement.scrollWidth")
-                if sw > width + 1:
+                if sw > width:
                     problems.append(("error", f, width, f"horizontal overflow: page is {sw}px wide"))
                 for e in errs:
                     problems.append(("error", f, width, "JS error: " + e[:200]))
@@ -84,19 +84,19 @@ def main():
                     noalt = page.evaluate("[...document.querySelectorAll('img:not([alt])')].length")
                     if noalt:
                         problems.append(("warn", f, width, f"{noalt} image(s) without alt"))
-                if axe_src:
+                if axe_src and width != 360:
                     page.add_script_tag(content=axe_src)
                     res = page.evaluate("axe.run(document,{resultTypes:['violations']}).then(r=>r.violations.map(v=>[v.id,v.impact,v.nodes[0].target.join(' ')+' '+v.nodes[0].html.slice(0,80)]))")
                     for vid, impact, sample in res:
                         key = (vid, impact)
                         axe_counts.setdefault(key, set()).add(f"{f} @{width}: {sample}")
-                if a.shots and f in ("index.html", files[min(5, len(files) - 1)]):
+                if a.shots and width != 360 and f in ("index.html", files[min(5, len(files) - 1)]):
                     os.makedirs(a.shots, exist_ok=True)
                     page.screenshot(path=os.path.join(a.shots, f.replace("/", "_") + f"-{width}.png"), full_page=True)
             ctx.close()
         b.close()
 
-    print(f"Checked {len(files)} pages at 390px and 1280px.")
+    print(f"Checked {len(files)} pages at 360px (overflow/JS only), 390px and 1280px.")
     for lvl, f, w, msg in problems:
         print(f"[{lvl}] {f} @{w}: {msg}")
     if axe_src:
