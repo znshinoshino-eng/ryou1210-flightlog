@@ -77,3 +77,9 @@ Wrap each in <p class="deal" data-expires="YYYY-MM-DD"> … </p> (site.js hides 
 - BUSLAUNCH10 — Japan bus tickets 10% off, max US$15 off per transaction, up to 5 uses per user, residents of US, CA, GB, AU, NZ and listed European/Middle-East countries only. Ends 31 Oct 2026. (No Klook bus product link registered yet.)
 - JPATT10 — Taiwan residents only: Japan theme parks 15% off, max NT$450, once per member. Ends 31 Oct 2026. zh pages only.
 - TKDL1010 — Taiwan residents only: Tokyo Disney tickets 10% off, max NT$400, once per member. Ends 31 Oct 2026. zh pages only.
+
+## Added 12 November 2026 (generated with the Klook link tool, website "Flightlog Japan")
+- [BUS] Kyoto City Subway and Bus 1 Day Ticket — 4.5 (146 reviews), 20K+ booked on Klook, from US$3.85 at the time of writing. Used on: local-buses-in-japan.
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1561910&amp;k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F118071-kyoto-city-subway-and-bus-ticket%2F
+- [BUS] Tokyo BRT One-Day Pass — no rating or review count shown on Klook, US$3.75 (adult) / US$1.89 (child) at the time of writing. Registered but not yet used in an article (no rating data; add only if it genuinely fits).
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1561914&amp;k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F196761-tokyo-brt-one-day-pass%2F
