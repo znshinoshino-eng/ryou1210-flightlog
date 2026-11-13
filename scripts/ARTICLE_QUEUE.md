@@ -51,3 +51,16 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 
 - [ ] Green Cars on Tokyo local JR lines (Tokaido, Yokosuka, etc.): how they work | getting-around | tokyo
 - [ ] Plane spotting at Narita: the best public spots and how to get there | plane-spotting | tokyo
+
+- [ ] Regional JR passes vs the nationwide Japan Rail Pass: which pass fits a Kansai, Hokuriku, Tohoku or Kyushu route | getting-around | japan
+- [ ] How to buy shinkansen tickets before you arrive: SmartEX, e-tickets and station machines compared | getting-around | japan
+- [ ] Big suitcase on the shinkansen: the 160 cm rule, oversized-baggage seats, and when forwarding the bag is easier | getting-around | japan
+- [ ] Kansai passes compared: Osaka Amazing Pass vs Kansai Thru Pass vs pay as you go, for Osaka, Kyoto and Nara days | getting-around | kansai
+- [ ] Hakone Freepass vs Fuji-Hakone Pass: which pass pays off for a Hakone loop or a combined Fuji and Hakone trip | getting-around | tokyo
+- [ ] Tokyo Disney Resort by train: Maihama Station, the Disney Resort Line, and routes from Tokyo, Narita and Haneda | sightseeing | tokyo
+- [ ] Shirakawa-go by bus from Takayama and Kanazawa: booking the highway bus, day-trip timing and winter notes | sightseeing | japan
+- [ ] Kyushu by rail from a Fukuoka base: Yufuin no Mori, Yufuin and Beppu by limited express | sightseeing | japan
+- [ ] Sendai and Matsushima from Tokyo: a Tohoku shinkansen day trip or one-night stay | sightseeing | japan
+- [ ] Walking the Nakasendo from Magome to Tsumago: trains in and out, the connecting bus and sending luggage ahead | sightseeing | japan
+- [ ] Where to stay in Sapporo: Sapporo Station vs Odori vs Susukino, judged by trains, New Chitose access and the Snow Festival | first-trip | japan
+- [ ] Arriving in Japan, step by step: immigration, customs and Visit Japan Web at Narita, Haneda and Kansai | first-trip | japan
