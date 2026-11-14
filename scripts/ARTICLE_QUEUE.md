@@ -40,7 +40,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] Narita or Haneda? Which Tokyo airport to fly into, judged by trains, time and fares | getting-around | tokyo -> narita-or-haneda-which-airport
 - [x] Local buses in Japan: how to pay, get on and get off (IC cards, numbered tickets, fare displays) | getting-around | japan -> local-buses-in-japan
 - [x] Historic towns you can reach by JR: Kanazawa, Takayama, Kurashiki and Kawagoe | sightseeing | japan -> historic-towns-by-jr-kanazawa-takayama-kurashiki-kawagoe
-- [ ] Onsen towns by train from Osaka and Kyoto: Arima, Kinosaki, Shirahama | sightseeing | kansai
+- [x] Onsen towns by train from Osaka and Kyoto: Arima, Kinosaki, Shirahama | sightseeing | kansai -> onsen-towns-by-train-osaka-kyoto
 - [ ] Driving in Japan as a visitor: which International Driving Permits are valid, and when a train is easier | getting-around | japan
 - [ ] Year-end and New Year 2026â€“27 on Japan's trains: peak days, seat reservations, Nozomi rules (trains only, no "what's open"; skip and keep this line if JR's year-end notices aren't published yet) | getting-around | japan
 - [ ] Hokkaido in winter by rail: New Chitose to Sapporo, limited expresses, Sapporo Snow Festival access | sightseeing | japan

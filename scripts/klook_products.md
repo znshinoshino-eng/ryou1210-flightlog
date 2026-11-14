@@ -83,3 +83,7 @@ Wrap each in <p class="deal" data-expires="YYYY-MM-DD"> … </p> (site.js hides 
   href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1561910&amp;k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F118071-kyoto-city-subway-and-bus-ticket%2F
 - [BUS] Tokyo BRT One-Day Pass — no rating or review count shown on Klook, US$3.75 (adult) / US$1.89 (child) at the time of writing. Registered but not yet used in an article (no rating data; add only if it genuinely fits).
   href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1561914&amp;k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F196761-tokyo-brt-one-day-pass%2F
+
+## Added 14 November 2026 (generated with the Klook link tool, website "Flightlog Japan")
+- [KANSAI] JR West Kansai Wide Area Pass (5-day pass) — 4.8 (10.8K reviews), 300K+ booked on Klook, from US$75.09 at the time of writing. Used on: onsen-towns-by-train-osaka-kyoto.
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1566722&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F3277-5-day-kansai-wide-area-jr-pass%2F
