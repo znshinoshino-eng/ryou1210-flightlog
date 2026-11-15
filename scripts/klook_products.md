@@ -73,10 +73,15 @@ Prices are Klook's displayed 'from' prices in USD at the time of writing; say 'a
 
 ## Promo codes (from the Klook affiliate "Promo Codes" page). Use ONLY before the end date.
 Wrap each in <p class="deal" data-expires="YYYY-MM-DD"> … </p> (site.js hides it after that date, Japan time) and state the conditions exactly as below.
-- JPTST5AU — Tokyo Subway Ticket 5% off. Min spend US$5, max US$2 off, once per user, limited number, not for residents of Japan. Ends 31 Oct 2026. Used on: haneda-tokyo-tickets-passes, tokyo-train-network-jr-metro-toei, where-to-stay-tokyo-first-trip.
-- BUSLAUNCH10 — Japan bus tickets 10% off, max US$15 off per transaction, up to 5 uses per user, residents of US, CA, GB, AU, NZ and listed European/Middle-East countries only. Ends 31 Oct 2026. (No Klook bus product link registered yet.)
-- JPATT10 — Taiwan residents only: Japan theme parks 15% off, max NT$450, once per member. Ends 31 Oct 2026. zh pages only.
-- TKDL1010 — Taiwan residents only: Tokyo Disney tickets 10% off, max NT$400, once per member. Ends 31 Oct 2026. zh pages only.
+- JPTST5AU — EXPIRED 31 Oct 2026. Tokyo Subway Ticket 5% off. Min spend US$5, max US$2 off, once per user, limited number, not for residents of Japan. Used on: haneda-tokyo-tickets-passes, tokyo-train-network-jr-metro-toei, where-to-stay-tokyo-first-trip.
+- BUSLAUNCH10 — Japan bus tickets 10% off, max US$15 off per transaction, up to 5 uses per user, residents of US, CA, GB, AU, AT, NZ, EG, AE, SA, IL, QA, DE, FR, ES, PT, IT, CZ, CH, FI, IS, IE, NO, SE, LU, DK, EE, GR, HU, LT, NL, PL, RO, RS, UA only. Ends 30 Nov 2026 (extended from 31 Oct 2026; verified in the affiliate dashboard 2026-11-15). (No Klook bus product link registered yet.)
+- BUSLAUNCH5 — Japan bus tickets 5% off, max US$7 off per transaction, up to 5 uses per user, residents of JP, KR, TW, CN, HK, SG, PH, MY, TH, VN, ID, IN only. Ends 30 Nov 2026. Verified in the affiliate dashboard 2026-11-15. (No Klook bus product link registered yet.)
+- JRWDELIVERY — ¥6,000 off Shinkansen Same-day Luggage Delivery (JR West) only. Once per user, limited number, first come first served. No specific residency restriction shown. Ends 31 Dec 2026. Verified in the affiliate dashboard 2026-11-15. Fits the queued topic "Big suitcase on the shinkansen".
+- OAP5OFFYEAREND — Osaka Amazing Pass 5% off, max US$3 off. Residents of Korea (KR) excluded. Limited number, first come first served. Ends 31 Dec 2026. Verified in the affiliate dashboard 2026-11-15. Fits the queued topic "Kansai passes compared".
+- YEARENDJPATT5 — 5% off selected Japan attractions, max US$3 off per transaction, once per user, limited number, first come first served. Eligible activities (13): Huis Ten Bosch (Enjoy! and regular tickets), Enoshima Aquarium, Kyoto Aquarium, UZUMASA KYOTO VILLAGE, Sumida Aquarium, HARUKAS 300 Observatory, LEGOLAND Japan, Sanrio Puroland, teamLab Borderless, teamLab Planets TOKYO, SHIBUYA SKY, Harry Potter Studio Tour Tokyo. No specific residency restriction shown. Ends 31 Dec 2026. Verified in the affiliate dashboard 2026-11-15.
+- JPATT10 — EXPIRED 31 Oct 2026. Taiwan residents only: Japan theme parks 15% off, max NT$450, once per member. zh pages only.
+- TKDL1010 — EXPIRED 31 Oct 2026. Taiwan residents only: Tokyo Disney tickets 10% off, max NT$400, once per member. zh pages only.
+- 5OFFYEAREND — NOT FOUND in the affiliate dashboard (all 216 promo codes checked 2026-11-15). Do not use.
 
 ## Added 12 November 2026 (generated with the Klook link tool, website "Flightlog Japan")
 - [BUS] Kyoto City Subway and Bus 1 Day Ticket — 4.5 (146 reviews), 20K+ booked on Klook, from US$3.85 at the time of writing. Used on: local-buses-in-japan.
