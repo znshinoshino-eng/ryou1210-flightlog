@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เครื่องคำนวณ JR Pass: Japan Rail Pass คุ้มกับทริปของคุณไหม - Flightlog Japan</title>
+<meta name="description" content="ใส่เที่ยวชินคันเซ็นของคุณ แล้วดูในไม่กี่วินาทีว่า JR Pass 7, 14 หรือ 21 วันคุ้มกว่าซื้อตั๋วเดี่ยวหรือไม่ ราคาทางการของ JR เช็กเมื่อตุลาคม 2026">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="stylesheet" href="../../style.css?v=cd524fb2">
+<style>
+  .calc { background: var(--surface); border: 2px solid var(--sign); border-radius: var(--radius); padding: 20px; margin: 8px 0 28px; }
+  .calc .calc-title { font-family: var(--display); font-weight: 700; font-size: 24px; margin: 0 0 4px; }
+  .calc label { display: block; font-family: var(--display); font-weight: 700; font-size: 16px; margin: 14px 0 6px; }
+  .calc select, .calc input[type=number], .calc input[type=text] { font: inherit; font-size: 17px; padding: 9px 10px; border: 2px solid var(--rule); border-radius: var(--radius); background: var(--surface); color: var(--text); width: 100%; box-sizing: border-box; }
+  .calc select:focus, .calc input:focus { outline: 3px solid var(--yellow); outline-offset: 1px; border-color: var(--sign); }
+  .calc .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .calc .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .calc .seg button { font-family: var(--display); font-weight: 700; font-size: 16px; padding: 8px 14px; border-radius: 999px; border: 2px solid var(--sign); background: var(--surface); color: var(--sign); cursor: pointer; }
+  .calc .seg button[aria-pressed="true"] { background: var(--sign); color: var(--yellow); }
+  .calc .add { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; }
+  .calc .btn { font-family: var(--display); font-weight: 700; font-size: 17px; padding: 10px 16px; border-radius: var(--radius); border: 2px solid var(--sign); background: var(--yellow); color: var(--sign); cursor: pointer; white-space: nowrap; }
+  .calc .btn.ghost { background: var(--surface); }
+  .calc ul.legs { list-style: none; padding: 0; margin: 14px 0 0; }
+  .calc ul.legs li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+  .calc ul.legs li span.yen { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .calc ul.legs button { border: 0; background: none; color: var(--link); cursor: pointer; font: inherit; font-size: 15px; padding: 4px; }
+  .calc .empty { color: var(--text-2, #555); font-size: 15px; margin: 12px 0 0; }
+  .verdict { margin-top: 18px; border-radius: var(--radius); padding: 16px 18px; background: var(--paper); border-left: 8px solid var(--rule); }
+  .verdict.yes { border-left-color: #1f8a4c; }
+  .verdict.no { border-left-color: #c0392b; }
+  .verdict.close { border-left-color: var(--yellow); }
+  .verdict .big { font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.2; margin: 0 0 8px; }
+  .verdict table { margin: 10px 0 0; }
+  .verdict td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  @media (max-width: 560px) { .calc { padding: 16px; } .calc .row { grid-template-columns: 1fr; } }
+</style>
+<meta name="google-adsense-account" content="ca-pub-8106228067608731">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8106228067608731" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Flight<span>log</span> Japan</a>
+    <nav class="site-nav">
+      <a href="../index.html">บทความ</a>
+      <a href="../../about.html">เกี่ยวกับเรา</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article class="post">
+  <div class="cat" style="display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px;">การเดินทางและขนส่ง</div>
+  <h1>เครื่องคำนวณ JR Pass: Japan Rail Pass คุ้มกับทริปของคุณไหม</h1>
+  <div class="meta">เครื่องมือฟรี · เขียนโดยคนที่ทำงานในระบบรถไฟญี่ปุ่น · ราคาเช็กเมื่อตุลาคม 2026</div>
+
+  <p><strong>ตอบสั้น ๆ:</strong> ใส่เที่ยวระยะไกลที่คุณวางแผนจะนั่ง เลือกพาส แล้วเครื่องคำนวณจะเทียบราคาพาสกับราคาซื้อตั๋วชินคันเซ็นทีละเที่ยว ทุกราคามาจากหน้าเว็บทางการของ JR เอง</p>
+
+  <section class="calc" aria-labelledby="calc-h">
+    <p class="calc-title" id="calc-h">เครื่องคำนวณ JR Pass</p>
+
+    <label>1. เลือกพาสแบบไหน?</label>
+    <div class="seg" id="days" role="group" aria-label="ระยะเวลาของพาส">
+      <button type="button" data-days="7" aria-pressed="true">7 วัน</button>
+      <button type="button" data-days="14" aria-pressed="false">14 วัน</button>
+      <button type="button" data-days="21" aria-pressed="false">21 วัน</button>
+    </div>
+
+    <label for="where">2. จะซื้อที่ไหน?</label>
+    <select id="where">
+      <option value="online">เว็บไซต์ทางการของ JAPAN RAIL PASS</option>
+      <option value="agency">ตัวแทนท่องเที่ยวในต่างประเทศ (แบบแลกตั๋ว)</option>
+    </select>
+
+    <label for="route">3. เพิ่มเที่ยวชินคันเซ็นของคุณ (เที่ยวเดียวต่อครั้ง)</label>
+    <div class="add">
+      <select id="route"></select>
+      <button type="button" class="btn" id="addRoute">เพิ่ม</button>
+    </div>
+
+    <label for="customName">มีเที่ยว JR อื่นอีกไหม? (ไม่บังคับ)</label>
+    <div class="row">
+      <input type="text" id="customName" placeholder="เช่น Narita Express" maxlength="40">
+      <div class="add">
+        <input type="number" id="customYen" placeholder="ค่าโดยสาร (เยน)" min="0" step="10" inputmode="numeric">
+        <button type="button" class="btn ghost" id="addCustom">เพิ่ม</button>
+      </div>
+    </div>
+
+    <ul class="legs" id="legs" aria-live="polite"></ul>
+    <p class="empty" id="empty">ยังไม่ได้เพิ่มเที่ยวใด ๆ เคล็ดลับ: เพิ่มทีละทิศทาง เช่น โตเกียว → เกียวโต และเกียวโต → โตเกียว</p>
+
+    <div class="verdict" id="verdict" hidden></div>
+  </section>
+
+  <h2>วิธีทำงานของเครื่องคำนวณ</h2>
+  <ul>
+    <li><strong>ราคาพาส</strong> คือราคาผู้ใหญ่ ตู้ธรรมดา จากเว็บไซต์ทางการของ JAPAN RAIL PASS: ¥50,000 (7 วัน), ¥80,000 (14 วัน) และ ¥100,000 (21 วัน) เมื่อซื้อบนเว็บไซต์ทางการ หรือ ¥53,000, ¥84,000 และ ¥105,000 เมื่อซื้อผ่านตัวแทนท่องเที่ยวที่ JR กำหนดในต่างประเทศ JR บอกว่าราคาบนเว็บไซต์ทางการจะคงที่ในระดับเดิม "ในช่วงเวลาจำกัด" ดังนั้นโปรดเช็กราคาปัจจุบันก่อนซื้อ</li>
+    <li><strong>ราคาตั๋วเดี่ยว</strong> คือราคาทางการของ smartEX จาก JR Central สำหรับที่นั่งจอง ตู้ธรรมดา บนขบวน Nozomi (หรือ Mizuho) เที่ยวเดียว ผู้ใหญ่ ช่วงปกติ การซื้อตั๋วใบเดียวกันที่เคาน์เตอร์สถานีจะแพงกว่านิดหน่อย เครื่องคำนวณจึงเอื้อให้ตั๋วเดี่ยวอยู่เล็กน้อย</li>
+    <li><strong>ฤดูกาล:</strong> JR จะบวกหรือลดเล็กน้อยในช่วงพีกและช่วงโลว์ (¥200 ถึง ¥800 ขึ้นอยู่กับเส้นทางและฤดูกาล) แทบไม่เปลี่ยนคำตอบ</li>
+    <li><strong>เด็ก (6–11 ปี):</strong> พาสลดครึ่งราคาพอดี และค่าโดยสารก็ประมาณครึ่งหนึ่งเช่นกัน ผลลัพธ์จึงใกล้เคียงกัน</li>
+    <li><strong>เส้นทางที่ไม่มีในรายการ</strong> (เช่น โตเกียว → คานาซาวะ เซ็นได หรือนากาโน่ บนสาย JR East): หาค่าโดยสารแล้วเพิ่มด้วย "มีเที่ยว JR อื่นอีกไหม?"</li>
+  </ul>
+
+  <h2>ข้อควรระวังหนึ่งข้อ: ขบวน Nozomi</h2>
+  <p>JR Pass ไม่ครอบคลุมขบวนที่เร็วที่สุดอย่าง <strong>Nozomi</strong> และ <strong>Mizuho</strong> โดยตัวมันเอง ผู้ถือพาสมักจะนั่งขบวน Hikari ที่ช้ากว่านิดหน่อย หรือซื้อตั๋ว Nozomi พิเศษสำหรับผู้ถือพาสของ JR Central ณ เวลาที่เขียน ราคาอยู่ที่ ¥4,960 สำหรับโตเกียว – เกียวโตหรือชินโอซาก้า, ¥6,500 สำหรับโตเกียว – ฮิโรชิมะ และ ¥4,960 สำหรับนาโกย่า – ฮิโรชิมะ ถ้าคุณวางแผนจะซื้อ ให้เพิ่มด้วย "มีเที่ยว JR อื่นอีกไหม?"</p>
+
+  <h2>ขั้นตอนต่อไป</h2>
+  <ul>
+    <li><strong>พาสคุ้มกว่า?</strong> ซื้อก่อนบิน แล้วจองที่นั่งฟรี <a href="https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1488956&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F1420-7-day-whole-japan-rail-pass-jr-pass%2F" rel="sponsored noopener" target="_blank">JR Pass บน Klook</a> (ลิงก์พันธมิตร) ราคาที่นั่นอาจต่างจากเว็บไซต์ทางการ โปรดเทียบก่อนซื้อ</li>
+    <li><strong>ตั๋วเดี่ยวคุ้มกว่า?</strong> จองผ่าน smartEX หรือจองเป็นสกุลเงินของคุณเองบน Klook: <a href="https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1490182&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F92753-tokyo-to-kyoto-shinkansen%2F" rel="sponsored noopener" target="_blank">ชินคันเซ็นโตเกียว–เกียวโต</a> (ลิงก์พันธมิตร) <a href="japan-rail-passes-worth-it.html">พาสประจำภูมิภาค</a> ที่ถูกกว่าอาจช่วยประหยัดได้ในพื้นที่ที่คุณใช้เวลาอยู่นานที่สุด</li>
+    <li>เพิ่งเคยนั่งรถไฟหัวกระสุนครั้งแรก? อ่าน<a href="../../articles/shinkansen-how-to-ride.html">วิธีนั่งชินคันเซ็น</a> รวมถึงกฎกระเป๋า 160 ซม.</li>
+  </ul>
+
+  <!-- sources-box:start -->
+  <section class="sources" aria-labelledby="sources-h">
+    <h2 id="sources-h">แหล่งข้อมูล</h2>
+    <p class="sources-note">หน้าเว็บทางการที่เราใช้ตรวจสอบข้อเท็จจริงในคู่มือนี้ ค่าโดยสารและกฎอาจเปลี่ยนแปลงได้ โปรดเช็กก่อนเดินทาง</p>
+    <ul>
+      <li><strong>Japan Rail Pass (official)</strong>: <a href="https://japanrailpass.net/en/purchase/price" target="_blank" rel="noopener">price</a></li>
+      <li><strong>smart EX (JR Central)</strong>: <a href="https://smart-ex.jp/en/product/plan/service/pdf/service_fares_reserved.pdf" target="_blank" rel="noopener">service fares reserved (PDF)</a></li>
+      <li><strong>JR Central</strong>: <a href="https://global.jr-central.co.jp/en/onlinebooking/contents/jrp_nozomi/" target="_blank" rel="noopener">jrp nozomi</a></li>
+    </ul>
+  </section>
+  <!-- sources-box:end -->
+  <!-- related:start -->
+  <section class="related" aria-labelledby="related-h">
+    <h2 id="related-h">อ่านต่อ</h2>
+    <div class="related-list">
+      <a class="related-card" href="narita-tokyo-tickets-passes.html"><img src="https://images.unsplash.com/photo-1725687545641-54799cff0f4e?w=720&amp;h=405&amp;fit=crop&amp;auto=format&amp;q=70" alt="" loading="lazy" width="720" height="405"><span class="rcat">การเดินทางและขนส่ง</span><span class="rtitle">สนามบินนาริตะเข้าโตเกียว: Skyliner, Narita Express หรือรถบัส?</span></a>
+      <a class="related-card" href="haneda-tokyo-tickets-passes.html"><img src="https://images.unsplash.com/photo-1522850403397-b0c8f2f75451?w=720&amp;h=405&amp;fit=crop&amp;auto=format&amp;q=70" alt="" loading="lazy" width="720" height="405"><span class="rcat">การเดินทางและขนส่ง</span><span class="rtitle">สนามบินฮาเนดะเข้าโตเกียว: ควรซื้อตั๋วหรือพาสแบบไหน?</span></a>
+      <a class="related-card" href="japan-rail-passes-worth-it.html"><img src="https://images.unsplash.com/photo-1514337224818-9787cf717f2a?w=720&amp;h=405&amp;fit=crop&amp;auto=format&amp;q=70" alt="" loading="lazy" width="720" height="405"><span class="rcat">การเดินทางและขนส่ง</span><span class="rtitle">พาสรถไฟญี่ปุ่น: ใบไหนคุ้มจริง</span></a>
+    </div>
+  </section>
+  <!-- related:end -->
+  <a class="back-link" href="../index.html">← กลับไปที่บทความ</a>
+<!-- sources: https://japanrailpass.net/en/purchase/price | https://smart-ex.jp/en/product/plan/service/pdf/service_fares_reserved.pdf | https://global.jr-central.co.jp/en/onlinebooking/contents/jrp_nozomi/ -->
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">บทความ</a>
+      <a href="../../about.html">เกี่ยวกับเรา</a>
+      <a href="../../privacy.html">ความเป็นส่วนตัว</a>
+      <a href="../../contact.html">ติดต่อ</a>
+    </nav>
+    <p>&copy; 2026 Flightlog Japan</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Official prices, checked October 2026.
+  // Pass: japanrailpass.net (adult, ordinary car). Fares: JR Central smartEX, Nozomi/Mizuho reserved seat,
+  // adult, one way, regular season (smartEX price list "as of April 1, 2025").
+  var PASS = { online: { 7: 50000, 14: 80000, 21: 100000 }, agency: { 7: 53000, 14: 84000, 21: 105000 } };
+  var ROUTES = [
+    ["Tokyo", "Nagoya", 11100], ["Tokyo", "Kyoto", 13970], ["Tokyo", "Shin-Osaka", 14520],
+    ["Tokyo", "Okayama", 17570], ["Tokyo", "Hiroshima", 19560], ["Tokyo", "Hakata (Fukuoka)", 23610],
+    ["Nagoya", "Kyoto", 5710], ["Nagoya", "Shin-Osaka", 6480], ["Nagoya", "Hiroshima", 14610],
+    ["Nagoya", "Hakata (Fukuoka)", 19110], ["Kyoto", "Hiroshima", 11740], ["Kyoto", "Hakata (Fukuoka)", 16580],
+    ["Shin-Osaka", "Okayama", 6260], ["Shin-Osaka", "Hiroshima", 10750], ["Shin-Osaka", "Hakata (Fukuoka)", 15820],
+    ["Okayama", "Hakata (Fukuoka)", 13170], ["Hiroshima", "Hakata (Fukuoka)", 9430]
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var yen = function (n) { return "¥" + Math.round(n).toLocaleString("en-US"); };
+  var days = 7, legs = [];
+
+  var sel = $("route");
+  ROUTES.forEach(function (r, i) {
+    [[r[0], r[1]], [r[1], r[0]]].forEach(function (p, j) {
+      var o = document.createElement("option");
+      o.value = i + ":" + j;
+      o.textContent = p[0] + " → " + p[1] + "  (" + yen(r[2]) + ")";
+      sel.appendChild(o);
+    });
+  });
+
+  function render() {
+    var ul = $("legs"); ul.innerHTML = "";
+    legs.forEach(function (l, i) {
+      var li = document.createElement("li");
+      var name = document.createElement("span"); name.textContent = l.name;
+      var right = document.createElement("span");
+      var y = document.createElement("span"); y.className = "yen"; y.textContent = yen(l.yen);
+      var rm = document.createElement("button"); rm.type = "button"; rm.textContent = "ลบ";
+      rm.setAttribute("aria-label", "ลบ " + l.name);
+      rm.onclick = function () { legs.splice(i, 1); render(); };
+      right.appendChild(y); right.appendChild(document.createTextNode(" ")); right.appendChild(rm);
+      li.appendChild(name); li.appendChild(right); ul.appendChild(li);
+    });
+    $("empty").hidden = legs.length > 0;
+    var v = $("verdict");
+    if (!legs.length) { v.hidden = true; return; }
+    var total = legs.reduce(function (s, l) { return s + l.yen; }, 0);
+    var pass = PASS[$("where").value][days];
+    var diff = total - pass, cls, msg;
+    if (diff > 2000) { cls = "yes"; msg = "JR Pass " + days + " วันช่วยประหยัดได้ประมาณ " + yen(diff) + "."; }
+    else if (diff >= -2000) { cls = "close"; msg = "พอ ๆ กัน (" + (diff >= 0 ? "พาสถูกกว่า " : "ตั๋วเดี่ยวถูกกว่า ") + yen(Math.abs(diff)) + ")."; }
+    else { cls = "no"; msg = "ตั๋วเดี่ยวถูกกว่าประมาณ " + yen(-diff) + ". ไม่ต้องซื้อ JR Pass"; }
+    v.className = "verdict " + cls;
+    v.innerHTML = "";
+    var p = document.createElement("p"); p.className = "big"; p.textContent = msg; v.appendChild(p);
+    var t = document.createElement("table");
+    [["ตั๋วเดี่ยว (" + legs.length + " เที่ยว)", yen(total)],
+     [days + "-วัน JR Pass (" + ($("where").value === "online" ? "เว็บไซต์ทางการ" : "ตัวแทนท่องเที่ยว") + ")", yen(pass)]].forEach(function (r) {
+      var tr = document.createElement("tr");
+      r.forEach(function (c) { var td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+      t.appendChild(tr);
+    });
+    v.appendChild(t);
+    if (cls !== "yes") {
+      var n = document.createElement("p");
+      n.textContent = "ถ้าอยากให้คุ้ม คุณต้องนั่ง JR เพิ่มอีกประมาณ " + yen(Math.max(0, pass - total)) + " ภายใน " + days + " วัน";
+      v.appendChild(n);
+    }
+    v.hidden = false;
+  }
+
+  $("addRoute").onclick = function () {
+    var k = sel.value.split(":"), r = ROUTES[+k[0]];
+    var a = k[1] === "0" ? r[0] : r[1], b = k[1] === "0" ? r[1] : r[0];
+    legs.push({ name: a + " → " + b, yen: r[2] }); render();
+  };
+  $("addCustom").onclick = function () {
+    var n = Math.round(Number($("customYen").value));
+    if (!n || n < 0) { $("customYen").focus(); return; }
+    legs.push({ name: $("customName").value.trim() || "เที่ยว JR อื่น ๆ", yen: n });
+    $("customName").value = ""; $("customYen").value = ""; render();
+  };
+  Array.prototype.forEach.call(document.querySelectorAll("#days button"), function (b) {
+    b.onclick = function () {
+      days = +b.getAttribute("data-days");
+      Array.prototype.forEach.call(document.querySelectorAll("#days button"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      render();
+    };
+  });
+  $("where").onchange = render;
+  render();
+})();
+</script>
+<script src="../../site.js?v=4850f477" defer></script>
+</body>
+</html>
