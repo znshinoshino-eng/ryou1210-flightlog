@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculateur JR Pass : le Japan Rail Pass vaut-il le coup pour votre voyage ? - Flightlog Japan</title>
+<meta name="description" content="Ajoutez vos trajets en shinkansen et voyez en quelques secondes si un JR Pass de 7, 14 ou 21 jours vaut mieux que des billets à l'unité. Tarifs officiels JR, octobre 2026.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../../favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="stylesheet" href="../../style.css?v=cd524fb2">
+<style>
+  .calc { background: var(--surface); border: 2px solid var(--sign); border-radius: var(--radius); padding: 20px; margin: 8px 0 28px; }
+  .calc .calc-title { font-family: var(--display); font-weight: 700; font-size: 24px; margin: 0 0 4px; }
+  .calc label { display: block; font-family: var(--display); font-weight: 700; font-size: 16px; margin: 14px 0 6px; }
+  .calc select, .calc input[type=number], .calc input[type=text] { font: inherit; font-size: 17px; padding: 9px 10px; border: 2px solid var(--rule); border-radius: var(--radius); background: var(--surface); color: var(--text); width: 100%; box-sizing: border-box; }
+  .calc select:focus, .calc input:focus { outline: 3px solid var(--yellow); outline-offset: 1px; border-color: var(--sign); }
+  .calc .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .calc .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .calc .seg button { font-family: var(--display); font-weight: 700; font-size: 16px; padding: 8px 14px; border-radius: 999px; border: 2px solid var(--sign); background: var(--surface); color: var(--sign); cursor: pointer; }
+  .calc .seg button[aria-pressed="true"] { background: var(--sign); color: var(--yellow); }
+  .calc .add { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; }
+  .calc .btn { font-family: var(--display); font-weight: 700; font-size: 17px; padding: 10px 16px; border-radius: var(--radius); border: 2px solid var(--sign); background: var(--yellow); color: var(--sign); cursor: pointer; white-space: nowrap; }
+  .calc .btn.ghost { background: var(--surface); }
+  .calc ul.legs { list-style: none; padding: 0; margin: 14px 0 0; }
+  .calc ul.legs li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+  .calc ul.legs li span.yen { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .calc ul.legs button { border: 0; background: none; color: var(--link); cursor: pointer; font: inherit; font-size: 15px; padding: 4px; }
+  .calc .empty { color: var(--text-2, #555); font-size: 15px; margin: 12px 0 0; }
+  .verdict { margin-top: 18px; border-radius: var(--radius); padding: 16px 18px; background: var(--paper); border-left: 8px solid var(--rule); }
+  .verdict.yes { border-left-color: #1f8a4c; }
+  .verdict.no { border-left-color: #c0392b; }
+  .verdict.close { border-left-color: var(--yellow); }
+  .verdict .big { font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.2; margin: 0 0 8px; }
+  .verdict table { margin: 10px 0 0; }
+  .verdict td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  @media (max-width: 560px) { .calc { padding: 16px; } .calc .row { grid-template-columns: 1fr; } }
+</style>
+<meta name="google-adsense-account" content="ca-pub-8106228067608731">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8106228067608731" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Flight<span>log</span> Japan</a>
+    <nav class="site-nav">
+      <a href="../index.html">Articles</a>
+      <a href="../../about.html">À propos</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article class="post">
+  <div class="cat" style="display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px;">Accès et transports</div>
+  <h1>Calculateur JR Pass : le Japan Rail Pass vaut-il le coup pour votre voyage ?</h1>
+  <div class="meta">Outil gratuit · Écrit par quelqu'un qui travaille sur le réseau ferroviaire japonais · Tarifs vérifiés en octobre 2026</div>
+
+  <p><strong>En bref :</strong> ajoutez les trajets longue distance que vous prévoyez, choisissez un pass, et le calculateur compare le prix du pass avec l'achat de chaque billet de shinkansen séparément. Tous les prix viennent des pages officielles de JR.</p>
+
+  <section class="calc" aria-labelledby="calc-h">
+    <p class="calc-title" id="calc-h">Calculateur JR Pass</p>
+
+    <label>1. Quel pass ?</label>
+    <div class="seg" id="days" role="group" aria-label="Durée du pass">
+      <button type="button" data-days="7" aria-pressed="true">7 jours</button>
+      <button type="button" data-days="14" aria-pressed="false">14 jours</button>
+      <button type="button" data-days="21" aria-pressed="false">21 jours</button>
+    </div>
+
+    <label for="where">2. Où allez-vous l'acheter ?</label>
+    <select id="where">
+      <option value="online">Site officiel JAPAN RAIL PASS</option>
+      <option value="agency">Une agence de voyages hors du Japon (bon d'échange)</option>
+    </select>
+
+    <label for="route">3. Ajoutez vos trajets en shinkansen (un aller simple chacun)</label>
+    <div class="add">
+      <select id="route"></select>
+      <button type="button" class="btn" id="addRoute">Ajouter</button>
+    </div>
+
+    <label for="customName">Un autre trajet JR ? (facultatif)</label>
+    <div class="row">
+      <input type="text" id="customName" placeholder="p. ex. Narita Express" maxlength="40">
+      <div class="add">
+        <input type="number" id="customYen" placeholder="Tarif en yens" min="0" step="10" inputmode="numeric">
+        <button type="button" class="btn ghost" id="addCustom">Ajouter</button>
+      </div>
+    </div>
+
+    <ul class="legs" id="legs" aria-live="polite"></ul>
+    <p class="empty" id="empty">Aucun trajet ajouté pour l'instant. Astuce : ajoutez chaque sens séparément, par exemple Tokyo → Kyoto puis Kyoto → Tokyo.</p>
+
+    <div class="verdict" id="verdict" hidden></div>
+  </section>
+
+  <h2>Comment fonctionne le calculateur</h2>
+  <ul>
+    <li><strong>Prix des pass</strong> : tarifs adultes en voiture ordinaire du site officiel JAPAN RAIL PASS : ¥50,000 (7 jours), ¥80,000 (14 jours) et ¥100,000 (21 jours) sur le site officiel, ou ¥53,000, ¥84,000 et ¥105,000 via une agence de voyages désignée par JR hors du Japon. JR indique que les tarifs du site officiel restent au niveau actuel « pour une durée limitée » : vérifiez le tarif en vigueur avant d'acheter.</li>
+    <li><strong>Prix des billets à l'unité</strong> : tarifs officiels <strong>smartEX</strong> de JR Central pour une place réservée en voiture ordinaire sur le Nozomi (ou le Mizuho), aller simple, adulte, saison normale. Acheter le même billet au guichet de la gare coûte un peu plus cher : le calculateur est donc légèrement favorable aux billets à l'unité.</li>
+    <li><strong>Saisons :</strong> JR ajoute ou retire un petit montant en haute et basse saison (¥200 à ¥800 selon le trajet et la saison). Cela change rarement le résultat.</li>
+    <li><strong>Enfants (6–11 ans) :</strong> le pass coûte exactement moitié prix, et les tarifs sont aussi à peu près moitié prix : le résultat est donc à peu près le même.</li>
+    <li><strong>Trajets absents de la liste</strong> (par exemple Tokyo → Kanazawa, Sendai ou Nagano avec JR East) : cherchez le tarif et ajoutez-le avec « Un autre trajet JR ».</li>
+  </ul>
+
+  <h2>Un piège : le Nozomi</h2>
+  <p>Le JR Pass ne couvre pas à lui seul les trains les plus rapides, le <strong>Nozomi</strong> et le <strong>Mizuho</strong>. Les détenteurs du pass prennent en général le Hikari, un peu plus lent, ou achètent le billet spécial Nozomi de JR Central pour les détenteurs du pass. Au moment de la rédaction, il coûte ¥4,960 pour Tokyo – Kyoto ou Shin-Osaka, ¥6,500 pour Tokyo – Hiroshima et ¥4,960 pour Nagoya – Hiroshima. Si vous prévoyez de l'acheter, ajoutez-le avec « Un autre trajet JR ».</p>
+
+  <h2>Que faire ensuite</h2>
+  <ul>
+    <li><strong>Le pass est gagnant ?</strong> Achetez-le avant de prendre l'avion, puis réservez vos places gratuitement. <a href="https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1488956&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F1420-7-day-whole-japan-rail-pass-jr-pass%2F" rel="sponsored noopener" target="_blank">JR Pass sur Klook</a> (lien affilié). Les prix peuvent différer de ceux du site officiel : comparez avant d'acheter.</li>
+    <li><strong>Les billets à l'unité sont gagnants ?</strong> Réservez-les sur smartEX, ou dans votre devise sur Klook : <a href="https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1490182&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F92753-tokyo-to-kyoto-shinkansen%2F" rel="sponsored noopener" target="_blank">Shinkansen Tokyo–Kyoto</a> (lien affilié). Un <a href="japan-rail-passes-worth-it.html">pass régional</a> moins cher peut aussi faire économiser là où vous passez le plus de temps.</li>
+    <li>Vous prenez le shinkansen pour la première fois ? Lisez <a href="shinkansen-how-to-ride.html">comment prendre le shinkansen</a>, y compris la règle des bagages de 160 cm.</li>
+  </ul>
+
+  <!-- sources-box:start -->
+  <section class="sources" aria-labelledby="sources-h">
+    <h2 id="sources-h">Sources</h2>
+    <p class="sources-note">Pages officielles utilisées pour vérifier les informations de ce guide. Tarifs et règles peuvent changer : vérifiez-les avant de partir.</p>
+    <ul>
+      <li><strong>Japan Rail Pass (official)</strong>: <a href="https://japanrailpass.net/en/purchase/price" target="_blank" rel="noopener">price</a></li>
+      <li><strong>smart EX (JR Central)</strong>: <a href="https://smart-ex.jp/en/product/plan/service/pdf/service_fares_reserved.pdf" target="_blank" rel="noopener">service fares reserved (PDF)</a></li>
+      <li><strong>JR Central</strong>: <a href="https://global.jr-central.co.jp/en/onlinebooking/contents/jrp_nozomi/" target="_blank" rel="noopener">jrp nozomi</a></li>
+    </ul>
+  </section>
+  <!-- sources-box:end -->
+  <!-- related:start -->
+  <section class="related" aria-labelledby="related-h">
+    <h2 id="related-h">À lire aussi</h2>
+    <div class="related-list">
+      <a class="related-card" href="japan-rail-passes-worth-it.html"><img src="https://images.unsplash.com/photo-1514337224818-9787cf717f2a?w=720&amp;h=405&amp;fit=crop&amp;auto=format&amp;q=70" alt="" loading="lazy" width="720" height="405"><span class="rcat">Accès et transports</span><span class="rtitle">Pass ferroviaires au Japon : lesquels valent vraiment le coup</span></a>
+      <a class="related-card" href="shinkansen-how-to-ride.html"><img src="https://images.unsplash.com/photo-1569731154593-281b98680b6f?w=720&amp;h=405&amp;fit=crop&amp;auto=format&amp;q=70" alt="" loading="lazy" width="720" height="405"><span class="rcat">Accès et transports</span><span class="rtitle">Prendre le shinkansen : billets, sièges et gros bagages</span></a>
+      <a class="related-card" href="narita-tokyo-tickets-passes.html"><img src="https://images.unsplash.com/photo-1725687545641-54799cff0f4e?w=720&amp;h=405&amp;fit=crop&amp;auto=format&amp;q=70" alt="" loading="lazy" width="720" height="405"><span class="rcat">Accès et transports</span><span class="rtitle">De l'aéroport de Narita à Tokyo : Skyliner, Narita Express ou bus ?</span></a>
+    </div>
+  </section>
+  <!-- related:end -->
+  <a class="back-link" href="../index.html">← Retour aux articles</a>
+<!-- sources: https://japanrailpass.net/en/purchase/price | https://smart-ex.jp/en/product/plan/service/pdf/service_fares_reserved.pdf | https://global.jr-central.co.jp/en/onlinebooking/contents/jrp_nozomi/ -->
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Articles</a>
+      <a href="../../about.html">À propos</a>
+      <a href="../../privacy.html">Confidentialité</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+    <p>&copy; 2026 Flightlog Japan</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Prix officiels, vérifiés en octobre 2026.
+  // Pass : japanrailpass.net (adultes, voiture ordinaire). Tarifs : JR Central smartEX, Nozomi/Mizuho place réservée,
+  // adultes, aller simple, saison normale (grille tarifaire smartEX « au 1er avril 2025 »).
+  var PASS = { online: { 7: 50000, 14: 80000, 21: 100000 }, agency: { 7: 53000, 14: 84000, 21: 105000 } };
+  var ROUTES = [
+    ["Tokyo", "Nagoya", 11100], ["Tokyo", "Kyoto", 13970], ["Tokyo", "Shin-Osaka", 14520],
+    ["Tokyo", "Okayama", 17570], ["Tokyo", "Hiroshima", 19560], ["Tokyo", "Hakata (Fukuoka)", 23610],
+    ["Nagoya", "Kyoto", 5710], ["Nagoya", "Shin-Osaka", 6480], ["Nagoya", "Hiroshima", 14610],
+    ["Nagoya", "Hakata (Fukuoka)", 19110], ["Kyoto", "Hiroshima", 11740], ["Kyoto", "Hakata (Fukuoka)", 16580],
+    ["Shin-Osaka", "Okayama", 6260], ["Shin-Osaka", "Hiroshima", 10750], ["Shin-Osaka", "Hakata (Fukuoka)", 15820],
+    ["Okayama", "Hakata (Fukuoka)", 13170], ["Hiroshima", "Hakata (Fukuoka)", 9430]
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var yen = function (n) { return "¥" + Math.round(n).toLocaleString("en-US"); };
+  var days = 7, legs = [];
+
+  var sel = $("route");
+  ROUTES.forEach(function (r, i) {
+    [[r[0], r[1]], [r[1], r[0]]].forEach(function (p, j) {
+      var o = document.createElement("option");
+      o.value = i + ":" + j;
+      o.textContent = p[0] + " → " + p[1] + "  (" + yen(r[2]) + ")";
+      sel.appendChild(o);
+    });
+  });
+
+  function render() {
+    var ul = $("legs"); ul.innerHTML = "";
+    legs.forEach(function (l, i) {
+      var li = document.createElement("li");
+      var name = document.createElement("span"); name.textContent = l.name;
+      var right = document.createElement("span");
+      var y = document.createElement("span"); y.className = "yen"; y.textContent = yen(l.yen);
+      var rm = document.createElement("button"); rm.type = "button"; rm.textContent = "Retirer";
+      rm.setAttribute("aria-label", "Retirer " + l.name);
+      rm.onclick = function () { legs.splice(i, 1); render(); };
+      right.appendChild(y); right.appendChild(document.createTextNode(" ")); right.appendChild(rm);
+      li.appendChild(name); li.appendChild(right); ul.appendChild(li);
+    });
+    $("empty").hidden = legs.length > 0;
+    var v = $("verdict");
+    if (!legs.length) { v.hidden = true; return; }
+    var total = legs.reduce(function (s, l) { return s + l.yen; }, 0);
+    var pass = PASS[$("where").value][days];
+    var diff = total - pass, cls, msg;
+    if (diff > 2000) { cls = "yes"; msg = "Le JR Pass " + days + " jours vous fait économiser environ " + yen(diff) + "."; }
+    else if (diff >= -2000) { cls = "close"; msg = "C'est à peu près égal (" + (diff >= 0 ? "pass moins cher de " : "billets à l'unité moins chers de ") + yen(Math.abs(diff)) + ")."; }
+    else { cls = "no"; msg = "Les billets à l'unité sont moins chers d'environ " + yen(-diff) + ". Ne prenez pas le JR Pass."; }
+    v.className = "verdict " + cls;
+    v.innerHTML = "";
+    var p = document.createElement("p"); p.className = "big"; p.textContent = msg; v.appendChild(p);
+    var t = document.createElement("table");
+    [["Billets à l'unité (" + legs.length + " trajet" + (legs.length > 1 ? "s" : "") + ")", yen(total)],
+     [days + "-jours JR Pass (" + ($("where").value === "online" ? "site officiel" : "agence de voyages") + ")", yen(pass)]].forEach(function (r) {
+      var tr = document.createElement("tr");
+      r.forEach(function (c) { var td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+      t.appendChild(tr);
+    });
+    v.appendChild(t);
+    if (cls !== "yes") {
+      var n = document.createElement("p");
+      n.textContent = "Pour rentabiliser le pass, il vous faudrait environ " + yen(Math.max(0, pass - total)) + " de trajets JR supplémentaires en " + days + " jours.";
+      v.appendChild(n);
+    }
+    v.hidden = false;
+  }
+
+  $("addRoute").onclick = function () {
+    var k = sel.value.split(":"), r = ROUTES[+k[0]];
+    var a = k[1] === "0" ? r[0] : r[1], b = k[1] === "0" ? r[1] : r[0];
+    legs.push({ name: a + " → " + b, yen: r[2] }); render();
+  };
+  $("addCustom").onclick = function () {
+    var n = Math.round(Number($("customYen").value));
+    if (!n || n < 0) { $("customYen").focus(); return; }
+    legs.push({ name: $("customName").value.trim() || "Autre trajet JR", yen: n });
+    $("customName").value = ""; $("customYen").value = ""; render();
+  };
+  Array.prototype.forEach.call(document.querySelectorAll("#days button"), function (b) {
+    b.onclick = function () {
+      days = +b.getAttribute("data-days");
+      Array.prototype.forEach.call(document.querySelectorAll("#days button"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      render();
+    };
+  });
+  $("where").onchange = render;
+  render();
+})();
+</script>
+<script src="../../site.js?v=4850f477" defer></script>
+</body>
+</html>
