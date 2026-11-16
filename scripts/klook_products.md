@@ -92,3 +92,7 @@ Wrap each in <p class="deal" data-expires="YYYY-MM-DD"> … </p> (site.js hides 
 ## Added 14 November 2026 (generated with the Klook link tool, website "Flightlog Japan")
 - [KANSAI] JR West Kansai Wide Area Pass (5-day pass) — 4.8 (10.8K reviews), 300K+ booked on Klook, from US$75.09 at the time of writing. Used on: onsen-towns-by-train-osaka-kyoto.
   href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1566722&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F3277-5-day-kansai-wide-area-jr-pass%2F
+
+## Added 16 November 2026 (generated with the Klook link tool, website "Flightlog Japan")
+- [HOKKAIDO] JR Hokkaido Rail Pass (5 / 7 / 10 days) — 4.9 (5.6K reviews), 200K+ booked on Klook, from US$62.59 at the time of writing (Klook's displayed from-price; official JR Hokkaido prices are ¥22,000 / ¥28,000 / ¥37,000 for 5 / 7 / 10 days bought in advance). Used on: hokkaido-winter-by-rail.
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1571067&amp;k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F3067-jr-hokkaido-rail-pass-jr-pass%2F
