@@ -1,5 +1,6 @@
 """Write sitemap.xml listing every page on the site (run by the GitHub Action)."""
-import pathlib, subprocess, datetime
+import json
+import pathlib, re, subprocess, datetime
 
 from pages import all_pages, root, url_of
 
@@ -8,8 +9,34 @@ from pages import all_pages, root, url_of
 # "last updated" (otherwise every page would look freshly updated every day).
 SKIP_BOT = ["--invert-grep", "--grep=^Update sitemap and search tags$"]
 
+def ldjson_date(path):
+    """dateModified from the article's own structured data, if it has one."""
+    try:
+        s = pathlib.Path(path).read_text(encoding="utf-8")
+    except OSError:
+        return None
+    m = re.search(r'<script type="application/ld\+json">(.*?)</script>', s, re.S)
+    if not m:
+        return None
+    try:
+        data = json.loads(m.group(1))
+    except ValueError:
+        return None
+    dm = data.get("dateModified", "")[:10] if isinstance(data, dict) else ""
+    return dm or None
+
 def lastmod(path):
     out = subprocess.run(["git", "log", "-1", "--format=%cs", *SKIP_BOT, "--", str(path)],
+                         cwd=root, capture_output=True, text=True).stdout.strip()
+    if out:
+        return out
+    # No real content edit in git: trust the article's own structured data,
+    # then the last commit of any kind, so the sitemap never claims a refresh
+    # that didn't happen.
+    dated = ldjson_date(path)
+    if dated:
+        return dated
+    out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)],
                          cwd=root, capture_output=True, text=True).stdout.strip()
     return out or datetime.date.today().isoformat()
 

@@ -4,6 +4,8 @@ Dates come from git history (last commit that touched the article), so they stay
 honest without anyone editing them by hand. Run by the GitHub Action.
 """
 import datetime
+import json
+import pathlib
 import re
 import subprocess
 from pages import root, LANGS
@@ -37,8 +39,39 @@ def label(lang, d):
 # "last updated" (otherwise every page would look freshly updated every day).
 SKIP_BOT = ["--invert-grep", "--grep=^Update sitemap and search tags$"]
 
+
+def ldjson_date(path):
+    """dateModified from the article's own structured data, if it has one."""
+    try:
+        s = pathlib.Path(path).read_text(encoding="utf-8")
+    except OSError:
+        return None
+    m = re.search(r'<script type="application/ld\+json">(.*?)</script>', s, re.S)
+    if not m:
+        return None
+    try:
+        data = json.loads(m.group(1))
+    except ValueError:
+        return None
+    dm = data.get("dateModified", "")[:10] if isinstance(data, dict) else ""
+    try:
+        return datetime.date.fromisoformat(dm) if dm else None
+    except ValueError:
+        return None
+
+
 def last_changed(path):
     out = subprocess.run(["git", "log", "-1", "--format=%cs", *SKIP_BOT, "--", str(path)],
+                         cwd=root, capture_output=True, text=True).stdout.strip()
+    if out:
+        return datetime.date.fromisoformat(out)
+    # No real content edit in git: trust the article's own structured data,
+    # then the last commit of any kind, so the card never claims a refresh
+    # that didn't happen.
+    dated = ldjson_date(path)
+    if dated:
+        return dated
+    out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)],
                          cwd=root, capture_output=True, text=True).stdout.strip()
     return datetime.date.fromisoformat(out) if out else datetime.date.today()
 

@@ -25,6 +25,20 @@ def git_date(path, fmt):
     return out
 
 
+# Commits made by the GitHub Action only refresh shared blocks (related guides, tags,
+# sources list) on every page; they are not content updates. Neither counts when
+# working out when a page was last really changed.
+SKIP_BOT = ["--invert-grep", "--grep=^Update sitemap and search tags$"]
+
+
+def content_date(path):
+    """Last real content change of a page (full ISO timestamp), or None when
+    git knows no such commit."""
+    out = subprocess.run(["git", "log", "-1", "--format=%cI", *SKIP_BOT, "--", str(path)],
+                         cwd=root, capture_output=True, text=True).stdout.strip()
+    return out or None
+
+
 changed = 0
 pages = all_pages()
 LOCALE = {"en": "en_US", "fr": "fr_FR", "de": "de_DE", "es": "es_ES", "th": "th_TH", "zh": "zh_TW"}
@@ -32,9 +46,34 @@ for p in pages:
     if not p.exists():
         continue
     s = p.read_text(encoding="utf-8")
-    if 'rel="canonical"' in s or "</head>" not in s:
-        continue
     rel = p.relative_to(root).as_posix()
+    if "</head>" not in s:
+        continue
+    if 'rel="canonical"' in s:
+        # Already tagged: only keep dateModified honest. It was frozen when the
+        # tags were first added, so a later human edit would leave the card date
+        # (last real change) and the structured data disagreeing.
+        if "articles/" in rel:
+            m = re.search(r'(<script type="application/ld\+json">)(.*?)(</script>)', s, re.S)
+            data = None
+            if m:
+                try:
+                    data = json.loads(m.group(2))
+                except ValueError:
+                    data = None
+            if isinstance(data, dict) and data.get("@type") == "Article":
+                d = content_date(p)
+                if d and (data.get("dateModified") != d or not data.get("datePublished")):
+                    data["dateModified"] = d
+                    if not data.get("datePublished"):
+                        first = git_date(p, "--format=%cI")
+                        if first:
+                            data["datePublished"] = first[-1]
+                    s = (s[:m.start()] + m.group(1) + json.dumps(data, ensure_ascii=False)
+                         + m.group(3) + s[m.end():])
+                    p.write_text(s, encoding="utf-8")
+                    changed += 1
+        continue
     url = url_of(rel)
     lang = lang_of(rel)
     m = re.search(r"<title>(.*?)</title>", s, re.S)

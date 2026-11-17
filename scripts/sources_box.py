@@ -82,10 +82,22 @@ def page_key(url):
 
 
 def readable(words):
-    """True when an address part reads like words ("check in"), not a code ("page01 000001 00027", "20")."""
-    letters = sum(c.isalpha() for c in words)
-    digits = sum(c.isdigit() for c in words)
-    return letters >= 3 and letters > digits
+    """True when an address part reads like words ("check in", "special ticket"),
+    not a code ("howtoride bus 0 0", "rule02", "timetable1out", "spot07").
+    Every part must be plain letters, a 4-digit year, or a domain-like name
+    ("tokyo-haneda.com"); anything with digits mixed in is a code, not words."""
+    tokens = words.split()
+    if not tokens or sum(c.isalpha() for c in words) < 3:
+        return False
+    for t in tokens:
+        if t.isalpha():
+            continue
+        if re.fullmatch(r"(19|20)\d\d", t):
+            continue
+        if re.fullmatch(r"[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+", t) and any(c.isalpha() for c in t):
+            continue
+        return False
+    return True
 
 
 def page_labels(lang, links):
