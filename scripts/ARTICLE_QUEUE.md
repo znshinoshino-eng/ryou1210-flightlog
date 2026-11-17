@@ -42,7 +42,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% �
 - [x] Historic towns you can reach by JR: Kanazawa, Takayama, Kurashiki and Kawagoe | sightseeing | japan -> historic-towns-by-jr-kanazawa-takayama-kurashiki-kawagoe
 - [x] Onsen towns by train from Osaka and Kyoto: Arima, Kinosaki, Shirahama | sightseeing | kansai -> onsen-towns-by-train-osaka-kyoto
 - [x] Driving in Japan as a visitor: which International Driving Permits are valid, and when a train is easier | getting-around | japan -> driving-in-japan-visitor-guide
-- [ ] Year-end and New Year 2026–27 on Japan's trains: peak days, seat reservations, Nozomi rules (trains only, no "what's open"; skip and keep this line if JR's year-end notices aren't published yet) | getting-around | japan
+- [x] Year-end and New Year 2026–27 on Japan's trains: peak days, seat reservations, Nozomi rules (trains only, no "what's open"; skip and keep this line if JR's year-end notices aren't published yet) | getting-around | japan -> year-end-new-year-trains-japan
 - [x] Hokkaido in winter by rail: New Chitose to Sapporo, limited expresses, Sapporo Snow Festival access | sightseeing | japan -> hokkaido-winter-by-rail
 - [ ] Ekiben and station food: what to eat on the shinkansen and where to buy it at big stations | first-trip | japan
 - [ ] Scenic train rides worth the trip (Sagano, Gono Line, Kurobe Gorge, Iiyama Line) | sightseeing | japan
