@@ -44,7 +44,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% �
 - [x] Driving in Japan as a visitor: which International Driving Permits are valid, and when a train is easier | getting-around | japan -> driving-in-japan-visitor-guide
 - [x] Year-end and New Year 2026–27 on Japan's trains: peak days, seat reservations, Nozomi rules (trains only, no "what's open"; skip and keep this line if JR's year-end notices aren't published yet) | getting-around | japan -> year-end-new-year-trains-japan
 - [x] Hokkaido in winter by rail: New Chitose to Sapporo, limited expresses, Sapporo Snow Festival access | sightseeing | japan -> hokkaido-winter-by-rail
-- [ ] Ekiben and station food: what to eat on the shinkansen and where to buy it at big stations | first-trip | japan
+- [x] Ekiben and station food: what to eat on the shinkansen and where to buy it at big stations | first-trip | japan -> ekiben-station-food-japan
 - [ ] Scenic train rides worth the trip (Sagano, Gono Line, Kurobe Gorge, Iiyama Line) | sightseeing | japan
 - [ ] Sake towns by train: Fushimi (Kyoto) and Saijo (Hiroshima) | sightseeing | japan
 - [ ] Cherry blossom 2027: how far ahead to book trains and hotels, using JMA average dates only (no forecasts) — publish Jan 2027 or later; skip and keep this line before then | first-trip | japan
