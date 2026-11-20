@@ -46,7 +46,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] Hokkaido in winter by rail: New Chitose to Sapporo, limited expresses, Sapporo Snow Festival access | sightseeing | japan -> hokkaido-winter-by-rail
 - [x] Ekiben and station food: what to eat on the shinkansen and where to buy it at big stations | first-trip | japan -> ekiben-station-food-japan
 - [x] Scenic train rides worth the trip (Sagano, Gono Line, Kurobe Gorge, Iiyama Line) | sightseeing | japan -> scenic-train-rides-japan
-- [ ] Sake towns by train: Fushimi (Kyoto) and Saijo (Hiroshima) | sightseeing | japan
+- [x] Sake towns by train: Fushimi (Kyoto) and Saijo (Hiroshima) | sightseeing | japan -> sake-towns-by-train-fushimi-saijo
 - [ ] Cherry blossom 2027: how far ahead to book trains and hotels, using JMA average dates only (no forecasts) â€” publish Jan 2027 or later; skip and keep this line before then | first-trip | japan
 
 - [ ] Green Cars on Tokyo local JR lines (Tokaido, Yokosuka, etc.): how they work | getting-around | tokyo
