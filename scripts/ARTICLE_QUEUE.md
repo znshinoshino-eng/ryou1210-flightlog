@@ -49,7 +49,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] Sake towns by train: Fushimi (Kyoto) and Saijo (Hiroshima) | sightseeing | japan -> sake-towns-by-train-fushimi-saijo
 - [ ] Cherry blossom 2027: how far ahead to book trains and hotels, using JMA average dates only (no forecasts) â€” publish Jan 2027 or later; skip and keep this line before then | first-trip | japan
 
-- [ ] Green Cars on Tokyo local JR lines (Tokaido, Yokosuka, etc.): how they work | getting-around | tokyo
+- [x] Green Cars on Tokyo local JR lines (Tokaido, Yokosuka, etc.): how they work | getting-around | tokyo -> green-cars-tokyo-local-jr-lines
 - [ ] Plane spotting at Narita: the best public spots and how to get there | plane-spotting | tokyo
 
 - [ ] Regional JR passes vs the nationwide Japan Rail Pass: which pass fits a Kansai, Hokuriku, Tohoku or Kyushu route | getting-around | japan
