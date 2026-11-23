@@ -53,7 +53,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] Plane spotting at Narita: the best public spots and how to get there | plane-spotting | tokyo -> plane-spotting-narita-airport
 
 - [x] Regional JR passes vs the nationwide Japan Rail Pass: which pass fits a Kansai, Hokuriku, Tohoku or Kyushu route | getting-around | japan -> regional-jr-passes-vs-japan-rail-pass
-- [ ] How to buy shinkansen tickets before you arrive: SmartEX, e-tickets and station machines compared | getting-around | japan
+- [x] How to buy shinkansen tickets before you arrive: SmartEX, e-tickets and station machines compared | getting-around | japan -> how-to-buy-shinkansen-tickets-before-you-arrive
 - [ ] Big suitcase on the shinkansen: the 160 cm rule, oversized-baggage seats, and when forwarding the bag is easier | getting-around | japan
 - [ ] Kansai passes compared: Osaka Amazing Pass vs Kansai Thru Pass vs pay as you go, for Osaka, Kyoto and Nara days | getting-around | kansai
 - [ ] Hakone Freepass vs Fuji-Hakone Pass: which pass pays off for a Hakone loop or a combined Fuji and Hakone trip | getting-around | tokyo
