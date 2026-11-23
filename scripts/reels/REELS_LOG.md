@@ -29,3 +29,4 @@
 - 2026-11-10 | shinjuku-station-guide | 4 things I wish I knew about Shinjuku | -
 - 2026-11-11 | narita-or-haneda-which-airport | Narita or Haneda? Read this first | -
 - 2026-11-22 | ekiben-station-food-japan | Don't board the shinkansen hungry | -
+- 2026-11-23 | how-to-buy-shinkansen-tickets-before-you-arrive | Don't buy shinkansen tickets yet | -
