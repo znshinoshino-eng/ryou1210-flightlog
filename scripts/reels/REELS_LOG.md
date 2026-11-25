@@ -31,3 +31,4 @@
 - 2026-11-22 | ekiben-station-food-japan | Don't board the shinkansen hungry | -
 - 2026-11-23 | how-to-buy-shinkansen-tickets-before-you-arrive | Don't buy shinkansen tickets yet | -
 - 2026-11-24 | big-suitcase-shinkansen-160cm-rule | Is your suitcase over 160 cm? | -
+- 2026-11-25 | hakone-freepass-vs-fuji-hakone-pass | The ¥3,600 Hakone pass mistake | -
