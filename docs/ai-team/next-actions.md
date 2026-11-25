@@ -9,5 +9,7 @@
 4. P2 Desktop top page: the yellow sign's four jump buttons repeat the section bar right above. Consider hiding on desktop only if a measurement shows a clear gain.
 5. P2 Floating "↑ Contents" button sits over the last line of text while scrolling on phones (seen 11-11, narita-or-haneda @390); it moves
    with scroll, so text is readable — check only if a page shows it covering something that never scrolls clear (e.g. footer links).
-6. Done 11-11: no sideways scroll at 360px; qa_check.py tests 360px. Done 11-08: 3-column tables fit. Done 11-04: skip link. Done 11-01: empty table corner cells.
+6. Done 11-25: right-edge fade on tables with hidden columns. Done 11-11: no sideways scroll at 360px; qa_check.py tests 360px. Done 11-08: 3-column tables fit. Done 11-04: skip link. Done 11-01: empty table corner cells.
 7. Note: the full qa_check.py run takes ~5–6 min (103 pages × 3 widths); use a long timeout (≥600 s).
+8. P2 (idea, needs measurement): on phones some 4-column tables hide the "Best for" column; consider whether the hint line could name the
+   hidden column(s). Only if it stays short in all 6 languages.

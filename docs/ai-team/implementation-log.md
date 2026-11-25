@@ -52,3 +52,12 @@
   table, article p/li and header at 360/390/1280 (only the 2 zh pages change, at 360 only); screenshots read.
 - Fix rounds: 1 (QA round 1: first version applied break-word to all of article.post at every width → changed wrapping at 390 and a
   table cell; narrowed to p/li at ≤380px).
+
+## 2026-11-25
+- site.js (wide-table block): new `edge(t)` toggles class `more-right` when `scrollLeft + clientWidth < scrollWidth - 2`; called from
+  `check()` (load/resize/ResizeObserver) and on each table's `scroll` (passive listener).
+- style.css (appended block "2026-11-25"): `article.post table.more-right { mask-image: linear-gradient(to right, #000 calc(100% - 44px), rgba(0,0,0,.12)) }`
+  (+ -webkit- prefix); `:focus-visible` removes the mask so the focus outline stays visible.
+- Commands: `node --check site.js` → ok. Screenshots shinkansen-how-to-ride table @390 at scroll 0 (fade) and scrolled to end (no fade).
+  `?v=` hashes are updated by the sitemap workflow (scripts/asset_versions.py), not by hand.
+- After QA: added `@media print` rule removing the mask (QA P2 note: printed tables could keep the fade). Print-only, no screen change.

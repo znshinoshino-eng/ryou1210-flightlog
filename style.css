@@ -744,3 +744,13 @@ main#main { scroll-margin-top: 128px; }
   /* Spanish "Sobre nosotros" + language button were 1px too wide next to the logo */
   header.site-header .wrap { gap: 8px; }
 }
+
+/* ---------- 2026-11-25: a table with more columns to the right fades out at its right edge ---------- */
+/* (site.js adds .more-right while hidden columns remain; removed once scrolled to the end or when the table fits) */
+article.post table.more-right {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 44px), rgba(0, 0, 0, .12));
+  mask-image: linear-gradient(to right, #000 calc(100% - 44px), rgba(0, 0, 0, .12));
+}
+/* the mask would also hide the keyboard focus outline, so keyboard focus shows the table unfaded */
+article.post table.more-right:focus-visible { -webkit-mask-image: none; mask-image: none; }
+@media print { article.post table.more-right { -webkit-mask-image: none; mask-image: none; } }

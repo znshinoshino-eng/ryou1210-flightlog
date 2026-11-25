@@ -96,8 +96,12 @@
         hints[i].hidden = fits;
         // a table that scrolls sideways can also be scrolled with the keyboard (Tab to it, then arrow keys)
         if (t.scrollWidth > t.clientWidth) t.setAttribute("tabindex", "0"); else t.removeAttribute("tabindex");
+        edge(t);
       });
     }
+    // more columns to the right: fade the right edge (style.css .more-right) until the reader has scrolled to the end
+    function edge(t) { t.classList.toggle("more-right", t.scrollLeft + t.clientWidth < t.scrollWidth - 2); }
+    tables.forEach(function (t) { t.addEventListener("scroll", function () { edge(t); }, { passive: true }); });
     check();
     window.addEventListener("resize", check);
     window.addEventListener("load", check);

@@ -81,3 +81,15 @@ No Lighthouse/real-device run this time.
   On table cells it also moved a comma onto its own line (narita table) → excluded cells. Inserting `<wbr>` in the article text would
   wrap between whole prices but is an article-text change (out of scope).
 **Limits**: no external source fetched this run (findings are measurements of our own pages); no real devices.
+
+## 2026-11-25
+**Looked at (own site, local headless Chromium, photos blocked)**
+- Top page, kansai-passes-compared (new 11-25) and big-suitcase-shinkansen-160cm-rule (new 11-24) at 390×844 and 1280×800.
+  Header, short answer, contents, Klook disclosure, buttons, footer as before; no layout problem.
+- QA baseline: 133 pages (+30 since 11-11, mostly translations), 0 errors, 0 overflow at 360/390/1280, 0 axe rules.
+- Table sweep at 390px: 63 tables with 4–5 columns on 57 pages scroll sideways (e.g. 468px wide in a 356px box; 0 at 1280px).
+  On these the hidden column is cut off exactly at a column border, and the table still shows a closed right border with a rounded
+  corner, so it looks complete. The only cue is the grey "Swipe the table…" line above. The hidden column is often the
+  recommendation itself ("Best for" on kansai-passes-compared and shinkansen-how-to-ride), so a reader can miss the answer.
+- Common pattern for scrollable tables: show that content continues past the edge (fade/shadow at the cut edge) in addition to text.
+**Limits**: no external source fetched this run (finding is a measurement of our own pages); no real devices.

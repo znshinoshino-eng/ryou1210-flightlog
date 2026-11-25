@@ -57,3 +57,12 @@ Baseline QA: 103 pages, 0 errors, 0 overflow at 390/1280, 0 axe rules (no regres
 | 2 | P2 | qa_check.py only tested 390/1280, so 360px overflow went unnoticed | add 360px (overflow + JS errors only); overflow threshold `> width` (was `> width+1`, missed the 1px es case) | docs/ai-team/tools/qa_check.py | old CSS → 6 pages flagged at 360; new → 0 | longer run (~+1.5 min). Revert commit |
 
 Parked: site.js tabindex/hint tolerance alignment (a 2px tolerance for tabindex could trigger axe scrollable-region-focusable on 1–2px overflow; no user-visible gain shown).
+
+## 2026-11-25
+Baseline QA: 133 pages, 0 errors, 0 overflow at 360/390/1280, 0 axe rules (no regressions).
+
+| # | Pri | Problem (fact) | Plan | Files | Acceptance | Risk / rollback |
+|---|---|---|---|---|---|---|
+| 1 | P2 | On phones 63 tables (4–5 columns, 57 pages) are cut exactly at a column border and look complete; the hidden column is often "Best for" (the recommendation) | site.js adds class `more-right` while columns remain to the right (updated on scroll/resize); style.css fades the right 44px with a mask (to 12% opacity). Keyboard focus shows the table unfaded (mask would hide the focus outline) | site.js, style.css | fade shows only on tables that scroll and disappears at the end of the scroll; no change on tables that fit / at 1280px; focus outline visible; QA 0 errors, axe 0 | last ~44px of the visible column is faded until the reader swipes (content still reachable). Without JS nothing changes. Revert commit |
+
+Only one change this run. Parked items unchanged (see next-actions.md).

@@ -66,3 +66,13 @@ Round 2 (main session): qa_check.py 103 pages × 360/390/1280: exit 0, 0 errors,
 Screenshots read: zh/welcome-suica @360 (wraps, nothing clipped; "¥5 / ,000" splits across a line — accepted trade-off), es header @360
 (logo, "Sobre nosotros", ES on one row). Sub-agent keyboard check es @360: Tab reaches ES menu, Enter opens/closes it.
 Limits: no real devices, photos/fonts blocked; no Lighthouse.
+
+## 2026-11-25 — verdict: PASS (合格), 0 fix rounds
+QA by an independent sub-agent (Agent tool):
+- qa_check.py 133 pages × 360/390/1280: exit 0, 0 errors, 0 warnings, 0 overflow, 0 JS errors, 0 broken links, axe 0 rules (same as baseline). `node --check site.js` ok.
+- Playwright, 124 article pages / 191 tables: 390px — 63 scrolling tables, all get `more-right` at scroll 0, lose it at the end, regain it at 0
+  (0 mismatches); tables that fit: no class, no mask. 1280px: 0 tables with the class.
+- Screenshots read: kansai-passes-compared table @390 (right edge fades, "Best for" hidden) / scrolled to end (no fade, crisp);
+  keyboard focus (Tab ×14) → mask none, 3px outline on all sides; where-to-stay-kyoto 3-column table: no fade.
+- P2 notes: (a) pre-existing tabindex 0px vs hint 2px tolerance (already in next-actions); (b) no print rule → added `@media print` mask none (print only).
+Limits: no real devices, photos/fonts blocked; no Lighthouse.
