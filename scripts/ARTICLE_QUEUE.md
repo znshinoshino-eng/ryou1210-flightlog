@@ -56,7 +56,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] How to buy shinkansen tickets before you arrive: SmartEX, e-tickets and station machines compared | getting-around | japan -> how-to-buy-shinkansen-tickets-before-you-arrive
 - [x] Big suitcase on the shinkansen: the 160 cm rule, oversized-baggage seats, and when forwarding the bag is easier | getting-around | japan -> big-suitcase-shinkansen-160cm-rule
 - [x] Kansai passes compared: Osaka Amazing Pass vs Kansai Thru Pass vs pay as you go, for Osaka, Kyoto and Nara days | getting-around | kansai -> kansai-passes-compared
-- [ ] Hakone Freepass vs Fuji-Hakone Pass: which pass pays off for a Hakone loop or a combined Fuji and Hakone trip | getting-around | tokyo
+- [x] Hakone Freepass vs Fuji-Hakone Pass: which pass pays off for a Hakone loop or a combined Fuji and Hakone trip | getting-around | tokyo -> hakone-freepass-vs-fuji-hakone-pass
 - [ ] Tokyo Disney Resort by train: Maihama Station, the Disney Resort Line, and routes from Tokyo, Narita and Haneda | sightseeing | tokyo
 - [ ] Shirakawa-go by bus from Takayama and Kanazawa: booking the highway bus, day-trip timing and winter notes | sightseeing | japan
 - [ ] Kyushu by rail from a Fukuoka base: Yufuin no Mori, Yufuin and Beppu by limited express | sightseeing | japan
