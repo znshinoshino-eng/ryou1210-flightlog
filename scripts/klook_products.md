@@ -100,3 +100,7 @@ Wrap each in <p class="deal" data-expires="YYYY-MM-DD"> … </p> (site.js hides 
 ## Added 25 November 2026 (generated with the Klook link tool, website "Flightlog Japan")
 - [LUGGAGE] Same-Day Luggage Delivery Service | Osaka/Kyoto <-> Hiroshima/Hakata (JR West "Same-day Delivery WEST", provided by JR West Marnix Co., Ltd.) — 4.7 (19 reviews), 200+ booked on Klook, from US$31.42 at the time of writing. Pairs with promo code JRWDELIVERY (¥6,000 off this service, ends 31 Dec 2026 — see Promo codes above). Used on: big-suitcase-shinkansen-160cm-rule.
   href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1592387&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F219194-same-day-delivery-west%2F
+
+## Added 26 November 2026 (generated with the Klook link tool, website "Flightlog Japan")
+- [TOKYO] Tokyo Disney Resort - Tokyo Disneyland & Tokyo DisneySea Park Tickets (1-Day Passport) — 4.8 (100.8K reviews), 6M+ booked on Klook, from US$58.80 at the time of writing. Used on: tokyo-disney-resort-by-train.
+  href: https://affiliate.klook.com/redirect?aid=138322&amp;aff_adid=1595480&amp;k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F695-tokyo-disney-resort-1-day-pass-tokyo%2F
