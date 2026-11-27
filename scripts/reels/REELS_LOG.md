@@ -33,3 +33,4 @@
 - 2026-11-24 | big-suitcase-shinkansen-160cm-rule | Is your suitcase over 160 cm? | -
 - 2026-11-25 | hakone-freepass-vs-fuji-hakone-pass | The ¥3,600 Hakone pass mistake | -
 - 2026-11-26 | kansai-passes-compared | The Kansai Thru Pass is gone | -
+- 2026-11-27 | regional-jr-passes-vs-japan-rail-pass | Don't buy the JR Pass yet | -
