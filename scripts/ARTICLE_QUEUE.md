@@ -59,7 +59,7 @@ Why: onsen is the biggest "want next time" gap (27% did / 51% want), ski 2.9% â†
 - [x] Hakone Freepass vs Fuji-Hakone Pass: which pass pays off for a Hakone loop or a combined Fuji and Hakone trip | getting-around | tokyo -> hakone-freepass-vs-fuji-hakone-pass
 - [x] Tokyo Disney Resort by train: Maihama Station, the Disney Resort Line, and routes from Tokyo, Narita and Haneda | sightseeing | tokyo -> tokyo-disney-resort-by-train
 - [x] Shirakawa-go by bus from Takayama and Kanazawa: booking the highway bus, day-trip timing and winter notes | sightseeing | japan -> shirakawa-go-bus-takayama-kanazawa
-- [ ] Kyushu by rail from a Fukuoka base: Yufuin no Mori, Yufuin and Beppu by limited express | sightseeing | japan
+- [x] Kyushu by rail from a Fukuoka base: Yufuin no Mori, Yufuin and Beppu by limited express | sightseeing | japan -> kyushu-by-rail-fukuoka-yufuin-beppu
 - [ ] Sendai and Matsushima from Tokyo: a Tohoku shinkansen day trip or one-night stay | sightseeing | japan
 - [ ] Walking the Nakasendo from Magome to Tsumago: trains in and out, the connecting bus and sending luggage ahead | sightseeing | japan
 - [ ] Where to stay in Sapporo: Sapporo Station vs Odori vs Susukino, judged by trains, New Chitose access and the Snow Festival | first-trip | japan
