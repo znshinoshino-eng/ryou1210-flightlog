@@ -754,3 +754,14 @@ article.post table.more-right {
 /* the mask would also hide the keyboard focus outline, so keyboard focus shows the table unfaded */
 article.post table.more-right:focus-visible { -webkit-mask-image: none; mask-image: none; }
 @media print { article.post table.more-right { -webkit-mask-image: none; mask-image: none; } }
+
+/* ---------- 2026-11-28: no sideways page scroll at 320px (WCAG reflow width; 400% zoom on a 1280px screen) ---------- */
+@media (max-width: 380px) {
+  /* a very long word in a heading (e.g. "Shijo/Kawaramachi") may wrap instead of widening the page */
+  article.post h1, article.post h2, article.post h3 { overflow-wrap: break-word; }
+}
+@media (max-width: 359px) {
+  /* Spanish "Sobre nosotros" (357px wide header) may wrap onto two lines, so the language button stays on the screen */
+  /* (keep-all: Chinese 關於我們 stays whole; only links directly in the menu, not the language list) */
+  nav.site-nav > a { white-space: normal; word-break: keep-all; text-align: center; }
+}

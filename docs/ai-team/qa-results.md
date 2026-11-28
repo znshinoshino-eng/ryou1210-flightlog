@@ -76,3 +76,18 @@ QA by an independent sub-agent (Agent tool):
   keyboard focus (Tab ×14) → mask none, 3px outline on all sides; where-to-stay-kyoto 3-column table: no fade.
 - P2 notes: (a) pre-existing tabindex 0px vs hint 2px tolerance (already in next-actions); (b) no print rule → added `@media print` mask none (print only).
 Limits: no real devices, photos/fonts blocked; no Lighthouse.
+
+## 2026-11-28 — QA by independent sub-agent (Agent tool), 2 rounds
+| Check | Result |
+|---|---|
+| qa_check.py (now 320/360/390/1280), 140 pages | exit 0, 0 errors, axe 0 rules (same as baseline) |
+| 360/390/481/381/720/1280 before vs after, all pages (header, h1–h3, nav links, lang button, body height, lang-menu style) | 840 comparisons, 0 differences |
+| 320/340/350/359 overflow, all pages | 25 page×width cases before → 0 |
+| One-line header links height | 37.5px unchanged everywhere; only wrapped links grow (header 62→67px: es <360, de/fr/th at 320) |
+| Language menu at 320 (es) | fully on screen (160–310px), Enter opens, Tab moves in, focus outline visible, alignment unchanged |
+| Screenshots 320 (es, zh, th, fr, de, en, Kyoto guide) read | readable, no overlap |
+
+Round 1 problems (P2, fixed): zh "關於我 / 們" mid-word break (repro zh/index @320); lang-menu links centred (es @320, open ES); one-line link
+height 38→30px (line-height 1.15). Cause: too-broad selector and line-height. Re-test round 2: all fixed.
+Remaining (P2, out of scope): where-to-stay-kyoto h1 wraps "Shijo/Kawaramac / hi" at 320 — needs `<wbr>` after "/" in article HTML (owner).
+**Verdict: 合格 (pass).**

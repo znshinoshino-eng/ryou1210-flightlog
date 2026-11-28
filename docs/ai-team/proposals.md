@@ -66,3 +66,11 @@ Baseline QA: 133 pages, 0 errors, 0 overflow at 360/390/1280, 0 axe rules (no re
 | 1 | P2 | On phones 63 tables (4–5 columns, 57 pages) are cut exactly at a column border and look complete; the hidden column is often "Best for" (the recommendation) | site.js adds class `more-right` while columns remain to the right (updated on scroll/resize); style.css fades the right 44px with a mask (to 12% opacity). Keyboard focus shows the table unfaded (mask would hide the focus outline) | site.js, style.css | fade shows only on tables that scroll and disappears at the end of the scroll; no change on tables that fit / at 1280px; focus outline visible; QA 0 errors, axe 0 | last ~44px of the visible column is faded until the reader swipes (content still reachable). Without JS nothing changes. Revert commit |
 
 Only one change this run. Parked items unchanged (see next-actions.md).
+
+## 2026-11-28
+Baseline QA: 140 pages, 0 errors, 0 overflow at 360/390/1280, 0 axe rules (no regressions).
+
+| # | Pri | Problem (fact) | Plan | Files | Acceptance | Risk / rollback |
+|---|---|---|---|---|---|---|
+| 1 | P2 | At 320px (WCAG reflow width / 400% zoom) 9 of 140 pages scroll sideways: 8 Spanish pages push the ES language button 37px off-screen (also at 341–359px); 1 EN h1 has a 6px-too-long word | style.css: ≤359px header links may wrap (`white-space: normal; word-break: keep-all`, child selector so the language list is untouched); ≤380px `overflow-wrap: break-word` on article h1–h3 | style.css | 320/340/350/359: 0 pages overflow; 360/390/720/1280: 0 measured differences; one-line links keep their height; QA 0 errors, axe 0 | es header 62→67px at <360 (two-line link); Kyoto h1 breaks mid-word at 320 (better than sideways scroll). Revert commit |
+| 2 | P2 | qa_check.py never tested 320px, so this went unnoticed | add 320px (overflow + JS errors only) | docs/ai-team/tools/qa_check.py | old CSS → flagged; new → 0 | run ~1.5 min longer. Revert commit |

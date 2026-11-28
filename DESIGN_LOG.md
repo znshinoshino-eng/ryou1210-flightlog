@@ -53,3 +53,6 @@ Small, safe design improvements to Flightlog Japan (style.css / site.js / shared
 
 ## 2026-11-25
 - Phones: tables with more columns than fit the screen now fade out at the right edge, so it is clear there is more to swipe to (e.g. the "Best for" column).
+
+## 2026-11-28
+- Very narrow screens (320px, or a desktop zoomed to 400%): no page scrolls sideways any more. The Spanish "Sobre nosotros" menu link wraps onto two lines so the language button stays visible, and very long words in headings wrap.

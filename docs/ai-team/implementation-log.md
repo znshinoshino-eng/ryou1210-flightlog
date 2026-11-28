@@ -61,3 +61,12 @@
 - Commands: `node --check site.js` → ok. Screenshots shinkansen-how-to-ride table @390 at scroll 0 (fade) and scrolled to end (no fade).
   `?v=` hashes are updated by the sitemap workflow (scripts/asset_versions.py), not by hand.
 - After QA: added `@media print` rule removing the mask (QA P2 note: printed tables could keep the fade). Print-only, no screen change.
+
+## 2026-11-28
+- style.css (appended block "2026-11-28"): `@media (max-width:380px) { article.post h1,h2,h3 { overflow-wrap: break-word } }`;
+  `@media (max-width:359px) { nav.site-nav > a { white-space: normal; word-break: keep-all; text-align: center } }`. No site.js / HTML change.
+- docs/ai-team/tools/qa_check.py: widths (320, 360, 390, 1280); 320 = overflow + JS errors only (no axe/screenshots).
+- Commands: Playwright 320px sweep of 140 pages with CSS injected (9 → 0 overflowing; only those 9 pages changed size); qa_check.py (sub-agent).
+- Fix rounds: 1. QA round 1 (first version ≤340px, `nav.site-nav a`, line-height 1.15) found: zh 關於我們 broke mid-word; rule also centred
+  the language-menu links; one-line links lost height (38→30px). I also measured es still overflowing at 341–359px.
+  → child selector, keep-all, no line-height, breakpoint 359px. Round 2 passed.

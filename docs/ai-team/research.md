@@ -93,3 +93,15 @@ No Lighthouse/real-device run this time.
   recommendation itself ("Best for" on kansai-passes-compared and shinkansen-how-to-ride), so a reader can miss the answer.
 - Common pattern for scrollable tables: show that content continues past the edge (fade/shadow at the cut edge) in addition to text.
 **Limits**: no external source fetched this run (finding is a measurement of our own pages); no real devices.
+
+## 2026-11-28
+**Looked at (own site, local headless Chromium, photos blocked)**
+- Top page, shirakawa-go-bus-takayama-kanazawa and tokyo-disney-resort-by-train (both new since 11-25) at 390×844 and 1280×800.
+  Header, short answer, tables (4-column table shows hint + right-edge fade as designed), sources, Keep reading, footer: no layout problem.
+- axe with WCAG 2.2 AA + best-practice tags (wider than the default run) on 5 pages: 0 violations.
+- New angle: WCAG 2.1 SC 1.4.10 Reflow uses 320 CSS px (= 1280px screen at 400% zoom); we only tested 360+. Sweep of 140 pages at 320px:
+  9 pages scroll sideways. 8 Spanish pages (es/index + 7 es guides): logo + "Sobre nosotros" + ES button = 357px, so the language button
+  is 37px off-screen (also true at 341–359px). articles/where-to-stay-kyoto-first-trip: h1 word "Shijo/Kawaramachi" 6px too wide.
+- Noted (article content, out of scope): tokyo-disney-resort-by-train has category tag "Sightseeing" but the meta line says "Transit guide".
+**Source**: WCAG 2.1 Understanding 1.4.10 Reflow (w3.org/WAI/WCAG21/Understanding/reflow), known criterion, not re-fetched this run (checked 2026-11-28 from prior knowledge).
+**Limits**: no real devices; headless Chromium fonts differ from Google Fonts (blocked), so widths can differ by a few px on real phones.

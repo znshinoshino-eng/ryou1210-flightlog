@@ -9,7 +9,12 @@
 4. P2 Desktop top page: the yellow sign's four jump buttons repeat the section bar right above. Consider hiding on desktop only if a measurement shows a clear gain.
 5. P2 Floating "↑ Contents" button sits over the last line of text while scrolling on phones (seen 11-11, narita-or-haneda @390); it moves
    with scroll, so text is readable — check only if a page shows it covering something that never scrolls clear (e.g. footer links).
-6. Done 11-25: right-edge fade on tables with hidden columns. Done 11-11: no sideways scroll at 360px; qa_check.py tests 360px. Done 11-08: 3-column tables fit. Done 11-04: skip link. Done 11-01: empty table corner cells.
+6. Done 11-28: no sideways scroll at 320px (es header, long h1 word); qa_check.py tests 320px. Done 11-25: right-edge fade on tables with hidden columns. Done 11-11: no sideways scroll at 360px; qa_check.py tests 360px. Done 11-08: 3-column tables fit. Done 11-04: skip link. Done 11-01: empty table corner cells.
 7. Note: the full qa_check.py run takes ~5–6 min (103 pages × 3 widths); use a long timeout (≥600 s).
 8. P2 (idea, needs measurement): on phones some 4-column tables hide the "Best for" column; consider whether the hint line could name the
    hidden column(s). Only if it stays short in all 6 languages.
+9. P2 (owner's call, article text): where-to-stay-kyoto-first-trip h1 breaks "Shijo/Kawaramac / hi" at ≤~330px; a `<wbr>` after "/" would
+   break as "Shijo/ / Kawaramachi". Also tokyo-disney-resort-by-train: tag "Sightseeing" vs meta line "Transit guide" (pick one).
+10. P2 (optional): wrapped header link uses body line-height 1.7 (header 62→67px at <360 on es). A line-height only for wrapped links
+   would need JS or a per-language rule; not worth it unless it looks wrong on a real phone.
+11. Note: qa_check.py now takes ~7–8 min (140 pages × 4 widths); use timeout 600 s or run in the background.
