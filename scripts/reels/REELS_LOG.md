@@ -34,3 +34,4 @@
 - 2026-11-25 | hakone-freepass-vs-fuji-hakone-pass | The ¥3,600 Hakone pass mistake | -
 - 2026-11-26 | kansai-passes-compared | The Kansai Thru Pass is gone | -
 - 2026-11-27 | regional-jr-passes-vs-japan-rail-pass | Don't buy the JR Pass yet | -
+- 2026-11-28 | green-cars-tokyo-local-jr-lines | The GREEN car tourists walk past | -
